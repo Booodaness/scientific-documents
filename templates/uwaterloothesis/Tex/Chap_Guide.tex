@@ -1,0 +1,206 @@
+\chapter{A Brief Guide}
+\label{chap:guide}
+
+\section{What is \LaTeX{}}
+
+\LaTeX{} (pronounced "Lah-tech" or "Lay-tech") is a macro package created by Leslie Lamport based on \TeX{}. As a document preparation system for high-quality typesetting in almost any forms of publishing, \LaTeX{} is not the name of a particular editing program, but refers to the encoding or tagging conventions that are used in \LaTeX{} documents \citep{website:wikipedia,website:latex}. The best resource to learn \LaTeX{} is "\LaTeX{} Wikibook", which is available online.
+
+\section{Why use \LaTeX?}
+
+There are a lot of good reasons why you need to use \LaTeX{}, the most significant one is the following:
+\begin{itemize}
+    \item Allows you to clearly separate the content from the format of your document.
+    \item Let you concentrate on your ideas, not visual appearance.
+\end{itemize}
+
+You can concentrate purely on the structure and contents of your document, not superficial layout issues. You don't need to manually adjust fonts, text sizes, line heights, or text flow for readability, as \LaTeX{} takes care of them automatically. \citep{website:wikibook}
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.6\textwidth]{compare}
+    \caption{Comparison between Microsoft Word and \LaTeX{} [From Google Images]}
+    \label{fig:compare}
+\end{figure}
+
+\section{How to use?}
+
+\subsection{Installation}
+LaTeX is based on open-source code, so it is available on most computing platforms as free software. If encounter some compiling problems after installation, please Google it. For example, MikTeX may complain about "mathtools.sty", a solution given on "StackExchange" is "The problem is that the package manager has somehow "desynchronized" (even though it's a fresh install). To fix it, run Miktex Package Manager as administrator---"Package Manager (Admin)". Go to Repository--Synchronize. When that completes, your TexWorks should automatically find the needed style files again."
+\begin{itemize}
+    \item Linux: TeXLive distribution. 
+    \item MacOS: Mactex or TeXLive.
+    \item Windows: MikTeX or TeXLive. 
+\end{itemize}
+
+Note: to use \LaTeX{}, you need a text editor for writing and editing ".tex" files. To open the ".tex" files in this template, you need a text editor which supports "UTF-8" encoding. Free options for different platforms are the following:
+\begin{itemize}
+    \item Linux: vim. 
+    \item MacOS: TeXShop, Macvim.
+    \item Windows: Texmaker, Gvim, Notepad++. 
+\end{itemize}
+
+\subsection{Include math}
+\LaTeX{} realization of Equation~\ref{eq:appedns} is something like this:
+\begin{equation} \label{eq:appedns}
+    \begin{cases}
+        \frac{\partial \rho}{\partial t} + \nabla\cdot(\rho\Vector{V}) = 0\\
+        \frac{\partial (\rho\Vector{V})}{\partial t} + \nabla\cdot(\rho\Vector{V}\Vector{V}) = \nabla\cdot\Tensor{\sigma}\\
+        \frac{\partial (\rho E)}{\partial t} + \nabla\cdot(\rho E\Vector{V}) = \nabla\cdot(k\nabla T) + \nabla\cdot(\Tensor{\sigma}\cdot\Vector{V})
+    \end{cases}
+\end{equation}
+\begin{equation}
+    \frac{\partial }{\partial t}\int\limits_{\Omega} u \, \mathrm{d}\Omega + \int\limits_{S} \unitVector{n}\cdot(u\Vector{V}) \, \mathrm{d}S = \dot{\phi}
+\end{equation}
+\[
+    \begin{split}
+        \mathcal{L} \{f\}(s) &= \int _{0^{-}}^{\infty} f(t) e^{-st} \, \mathrm{d}t, \ 
+        \mathscr{L} \{f\}(s) = \int _{0^{-}}^{\infty} f(t) e^{-st} \, \mathrm{d}t\\
+        \mathcal{F} {\bigl (} f(x+x_{0}) {\bigr )} &= \mathcal{F} {\bigl (} f(x) {\bigr )} e^{2\pi i\xi x_{0}}, \ 
+        \mathscr{F} {\bigl (} f(x+x_{0}) {\bigr )} = \mathscr{F} {\bigl (} f(x) {\bigr )} e^{2\pi i\xi x_{0}}
+    \end{split}
+\]
+
+mathtext: $A,F,L,2,3,5,\sigma$, mathnormal: $A,F,L,2,3,5,\sigma$, mathrm: $\mathrm{A,F,L,2,3,5,\sigma}$.
+
+mathbf: $\mathbf{A,F,L,2,3,5,\sigma}$, mathit: $\mathit{A,F,L,2,3,5,\sigma}$, mathsf: $\mathsf{A,F,L,2,3,5,\sigma}$.
+
+mathtt: $\mathtt{A,F,L,2,3,5,\sigma}$, mathfrak: $\mathfrak{A,F,L,2,3,5,\sigma}$, mathbb: $\mathbb{A,F,L,2,3,5,\sigma}$.
+
+mathcal: $\mathcal{A,F,L,2,3,5,\sigma}$, mathscr: $\mathscr{A,F,L,2,3,5,\sigma}$, boldsymbol: $\boldsymbol{A,F,L,2,3,5,\sigma}$.
+
+vector: $\Vector{\sigma, T, a, F, n}$, unitvector: $\unitVector{\sigma, T, a, F, n}$
+
+matrix: $\Matrix{\sigma, T, a, F, n}$, unitmatrix: $\unitMatrix{\sigma, T, a, F, n}$
+
+tensor: $\Tensor{\sigma, T, a, F, n}$, unittensor: $\unitTensor{\sigma, T, a, F, n}$ 
+
+\subsection{Include Graphics}
+Note: inluding figures may seem to be scary by looking at the codes. However, the fact is that you only need to modify the names in each part, the rest are simply copy and paste. These codes are all available in the file "Useful Commands.txt".
+
+Figure~\ref{fig:oas} is an example for including a single figure.
+\begin{center}
+    \small
+    \begin{verbatim}
+        \begin{figure}[!htbp]
+            \centering
+            \includegraphics[width=0.45\textwidth]{oaspl_a}
+            \caption{An Example for including a single figure}
+            \label{fig:oas}
+        \end{figure}
+    \end{verbatim}
+\end{center}
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.45\textwidth]{oaspl_a}
+    \caption{An Example for including a single graph}
+    \label{fig:oas}
+\end{figure}
+
+Figure~\ref{fig:oaspl} is an example for including multiple figuress. 
+\begin{center}
+    \small
+    \begin{verbatim}
+        \begin{figure}[!htbp]
+            \centering
+            \begin{subfigure}[b]{0.45\textwidth}
+                \includegraphics[width=\textwidth]{oaspl_a}
+                \caption{}
+                \label{fig:oaspl_a}
+            \end{subfigure}%
+            ~% add a small space
+            \begin{subfigure}[b]{0.45\textwidth}
+                \includegraphics[width=\textwidth]{oaspl_b}
+                \caption{}
+                \label{fig:oaspl_b}
+            \end{subfigure}%
+            \\% change line
+            \begin{subfigure}[b]{0.45\textwidth}
+                \includegraphics[width=\textwidth]{oaspl_c}
+                \caption{}
+                \label{fig:oaspl_c}
+            \end{subfigure}%
+            ~% add a small space
+            \begin{subfigure}[b]{0.45\textwidth}
+                \includegraphics[width=\textwidth]{oaspl_d}
+                \caption{}
+                \label{fig:oaspl_d}
+            \end{subfigure}%
+            \caption{An Example for including multiple figures}
+            \label{fig:oaspl}
+        \end{figure}
+    \end{verbatim}
+\end{center}
+\begin{figure}[!htbp]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{oaspl_a}
+        \caption{}
+        \label{fig:oaspl_a}
+    \end{subfigure}%
+    ~% add a small space
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{oaspl_b}
+        \caption{}
+        \label{fig:oaspl_b}
+    \end{subfigure}%
+    \\% change line
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{oaspl_c}
+        \caption{}
+        \label{fig:oaspl_c}
+    \end{subfigure}%
+    ~% add a small space
+    \begin{subfigure}[b]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{oaspl_d}
+        \caption{}
+        \label{fig:oaspl_d}
+    \end{subfigure}%
+    \caption{An Example for including multiple figures}
+    \label{fig:oaspl}
+\end{figure}
+
+\subsection{Include a citation}
+Suppose you are going to cite an article named "Document Preparation System", the procedures are:
+\begin{itemize}
+    \item Use Google Scholar search "Document Preparation System".
+    \item Open "Cite" and choose "Import to Bibtex" under the target item.
+    \item Copy the citation information of this article into the file "Myrefs.bib"
+    \item Research dominant: cite this article by \verb+\citep{lamport1986document}+ like here \citep{lamport1986document}
+    \item Citation dominant: cite this article by \verb+\citet{lamport1986document}+ like here \citet{lamport1986document}
+    \item References list is generated automatically.
+\end{itemize}
+
+\subsection{Generate nomenclature}
+In this template, a simple command for adding nomenclatures is provided. Therefore, packages for automatical nomenclature generation are not included. From my point of view, there is no need to use those packages and make things complicated. However, if you insist, there are a lot of available packages for creating nomenclatures. Recommended options are (Please Google the one you want to know):
+\begin{itemize}
+    \item listofsymbols
+    \item nomencl
+\end{itemize}
+
+\section{File Tree of Current Template}
+\begin{itemize}
+    \item Thesis.tex: main tex file, which acts like the main function in C++.
+    \item Style: Store template configuration files, which act like subfunctions.
+    \item Tmp: Store files generated by compilation.
+    \item Biblio: Store information of references.
+    \item Img: Store images.
+    \item Tex: Store files for your content, this is the working directory.
+        \begin{itemize}
+            \item Frontpages: content of front pages, like authorship, abstract, etc.
+            \item Prematter: content of nomenclature, etc.
+            \item Main$\_$Content: index for chapters you want to include into your current content.
+            \item Chap$\_$***: your content for each chapters.
+            \item Appendix: appendix.
+            \item Useful Commands: collection of useful commands.
+        \end{itemize}
+\end{itemize}
+
+Note: this template can be easily adapted to other writing purposes such as articles. What you need to do is to change and adjust a few items in the "Thesis.tex" file, which would be very easy after you are a little familiar with using \LaTeX{}. Like :
+
+Change \verb+\documentclass{uwaterloothesis}+ to \verb+\documentclass{article}+
+
+\section{Feedback and Problems}
+Please feel free to send me emails for any related problems:
+\begin{center}
+huangrui.mo@uwaterloo.ca
+\end{center}
