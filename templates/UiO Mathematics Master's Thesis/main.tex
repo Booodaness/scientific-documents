@@ -1,0 +1,62 @@
+% Documentation for front page:
+% https://github.com/martinhelso/masterfrontpage
+
+\documentclass[a4paper, oneside, openany, british]{memoir}
+% Add [final] to remove marginal notes
+
+\usepackage{style}           % Custom style
+\usepackage{masterfrontpage} % Front page
+\usepackage{kantlipsum}      % Dummy text
+
+\title{Title}
+\subtitle{Optional Subtitle}
+\author{Author}
+
+\includeonly
+{
+    sections/abstract,
+    sections/acknowledgements,
+    sections/introduction,
+    sections/chapter2,
+    sections/chapter3,
+    sections/chapter4,
+    sections/appendixA,
+    sections/appendixB,
+}
+
+\begin{document}
+
+    \frontmatter        % Folios in Roman numerals, unnumbered chapters.
+
+    \masterfrontpage
+
+    \include{sections/abstract}
+    \include{sections/acknowledgements}
+
+    \microtypesetup{protrusion = false}
+    \tableofcontents    % Or \tableofcontents*
+    \listoffigures      % Or \listoffigures*
+    \listoftables       % Or \listoftables*
+    \microtypesetup{protrusion = true}
+
+    \mainmatter         % Folios in Arabic numerals, numbered chapters.
+
+    \include{sections/introduction}
+
+    \part{The First Part}
+
+    \include{sections/chapter2}
+    \include{sections/chapter3}
+    \include{sections/chapter4}
+
+    \appendix           % "Chapter" is renamed "Appendix"
+    \appendixpage       % Similar to \part*{Appendices}, but appears in TOC.
+
+    \include{sections/appendixA}
+    \include{sections/appendixB}
+
+    \backmatter         % Folios in Arabic numerals, unnumbered chapters.
+
+    \printbibliography
+
+\end{document}
