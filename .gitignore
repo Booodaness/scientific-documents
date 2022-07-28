@@ -5,5 +5,5 @@
 *.out
 *.synctex.gz
 *.toc
-/Private
+/private
 .vscode
