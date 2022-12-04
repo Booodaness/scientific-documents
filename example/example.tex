@@ -58,7 +58,7 @@ Suppose there is a system $\mathcal{S}$ which updates discretely with time. Let 
 
 We can imagine that as time passes, $n$ increments in `jumps', as $n, n+1, n+2 \dots$. In accordance, $\sigma \left( n \right)$ updates as $\sigma \left( n \right), \sigma \left( n+1 \right), \sigma \left( n+2 \right), \dots$.
 
-The coordinates of $\mathcal{S}$ at any instant $n$ are $\left( n, \sigma \left( n \right) \right)$. Let the set that $n$ belongs to be called its \emph{time domain}, $T \subseteq \mathbb{Z}$. Also, let $\sigma : T \mapsto \mathbb{R}$. Then, every coordinate $\left( n, \sigma \left( n \right) \right)$ belongs to $\Sigma = T \times \mathbb{R}$, called the \emph{state space} of $\mathcal{S}$.
+The coordinates of $\mathcal{S}$ at any instant $n$ are $\left( n, \sigma \left( n \right) \right)$. Let the set that $n$ belongs to be called its \emph{time domain}, $T \subseteq \mathbb{Z}$. Also, let $\sigma : T \rightarrow \mathbb{R}$. Then, every coordinate $\left( n, \sigma \left( n \right) \right)$ belongs to $\Sigma = T \times \mathbb{R}$, called the \emph{state space} of $\mathcal{S}$.
 
 The set of all possible coordinates of $\mathcal{S}$ (at different instants) in its state space $\Sigma$ is called its \emph{trajectory}, or \emph{history}. In set theoretic notation, the trajectory of $\mathcal{S}$ is $\left\{ \left( n, \sigma \left( n \right) \right) \vert n \in T \right\}$.
 
@@ -117,7 +117,7 @@ $\dots, \left( n, \sigma \left( n \right) \right), \left( n+1, \sigma \left( n+1
 
 Firstly, let us call the coordinates at a given instant the \emph{node} at that instant, $\pmb{q} \left( n \right) = \left( n, \sigma \left( n \right) \right), \pmb{q} \left( n \right) \in \Sigma$.
 
-In the evolution of $\mathcal{S}$, every node has a unique node immediately after it. To make this idea concrete, we define a function $E : \Sigma \mapsto \Sigma$,
+In the evolution of $\mathcal{S}$, every node has a unique node immediately after it. To make this idea concrete, we define a function $E : \Sigma \rightarrow \Sigma$,
 
 $E = \left\{ \pmb{q} \left( n \right), \pmb{q} \left( n+1 \right) \vert n \in T \right\}$
 
@@ -176,6 +176,6 @@ The set of all nodes may be written as $V = \left\{ \pmb{q} \left( n \right) \ve
 
 $$G = \left( V, E \right)$$
 
-Notice that $V \subseteq \Sigma$. Therefore, $E : \Sigma \mapsto \Sigma \implies E : V \mapsto V$. This means that a graph is simply a set of vertices equipped with a function on itself. However, in common terminology, there is a condition for such a structure to be a graph: it cannot contain any ordered pairs of some vertex and itself. I.e., no arrow in a graph points from one vertex to itself.
+Notice that $V \subseteq \Sigma$. Therefore, $E : \Sigma \rightarrow \Sigma \implies E : V \rightarrow V$. This means that a graph is simply a set of vertices equipped with a function on itself. However, in common terminology, there is a condition for such a structure to be a graph: it cannot contain any ordered pairs of some vertex and itself. I.e., no arrow in a graph points from one vertex to itself.
 
 \end{document}
