@@ -1,0 +1,150 @@
+\documentclass{beamer}
+
+\usepackage{mathtools}
+\usepackage{multirow}
+\usepackage{tikz, pgfplots}
+\pgfplotsset{compat=1.18}
+
+\title{Applying the Klein-Gordon Theory to Gravitation}
+
+\subtitle{Modelling Newtonian gravitation as a classical scalar field theory obeying Klein-Gordon structure}
+
+\author{Siddhartha Bhattacharjee}
+
+\institute
+{
+1B Mathematical Physics \\
+University of Waterloo
+}
+
+\date{SASMS, Feb 10, 2023}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}
+\begin{center}
+\huge \textcolor{blue}{Towards Classical Field Theory}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{The Inverse Square Law}
+
+\begin{itemize}
+\item Gravitational force:
+\end{itemize}
+
+$$F_m = - G \frac{M m}{r^2}$$
+
+\begin{itemize}
+\item Electrostatic force:
+\end{itemize}
+
+$$F_e = \frac{1}{4 \pi \epsilon_0} \frac{Q_e q_e}{r^2}$$
+
+\begin{itemize}
+\item Magnetic force:
+\end{itemize}
+
+$$F_b = \frac{\mu_0}{4 \pi} \frac{Q_b q_b}{r^2}$$
+\end{frame}
+
+\begin{frame}
+\frametitle{Formal Analogies Between the Gravitational and Electrostatic Forces}
+
+\begin{center}
+\begin{tabular}{ |c|c|c|c| } 
+\hline
+& Gravitation & Static electricity \\
+\hline
+Newton's second law & $a^i = \underset{- \vec{\nabla} V}{\underbrace{- \partial^i V}}$ & $E^i = \underset{- \vec{\nabla} \phi}{\underbrace{- \partial^i \phi}}$ \\
+\hline
+Gauss' law & $\underset{\vec{\nabla} \cdot \vec{a}}{\underbrace{\sum \limits_{i=1}^3 \nabla_i a^i}} = - 4 \pi G \rho_m$ & $\underset{\vec{\nabla} \cdot \vec{a}}{\underbrace{\sum \limits_{i=1}^3 \nabla_i E^i}} = \frac{1}{\epsilon_0} \rho_e$ \\
+\hline
+Poisson's equation & $\underset{\nabla^2 V}{\underbrace{\sum \limits_{i=1}^3 \nabla_i \partial^i V}} = 4 \pi G \rho_m$ & $\underset{\nabla^2 \phi}{\underbrace{\sum \limits_{i=1}^3 \nabla_i \partial^i \phi}} = - \frac{1}{\epsilon_0} \rho_e$ \\  
+\hline
+\end{tabular}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{Lagrangian Mechanics}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.75]
+\begin{axis}[
+    axis lines = left,
+    xlabel = $t$,
+    ylabel = $Q \left( t \right)$,
+    xtick = \empty,
+    ytick = \empty,
+    xmin=0, xmax=3,
+    ymin=0, ymax=3,
+]
+
+\draw[thick, blue] (0.75, 0.75) .. controls (2, 1.25) .. (2, 2);
+\addlegendimage{thick, color=blue};
+\addlegendentry{$q \left( t \right)$};
+
+\draw[thick, red] (0.75, 0.75) .. controls (1, 1.5) .. (2, 2);
+\addlegendimage{thick, color=red};
+\addlegendentry{$Q \left( t \right)$};
+
+\draw[->, color=brown] (1.5, 1.5) to (1.5, 1.7);
+\draw[->, color=brown] (1.5, 1.3) to (1.5, 1.1);
+\node[] at (1.5, 1.4) {$\textcolor{brown}{\delta q \left( t \right)}$};
+
+\draw[dashed] (0.75, 0.75) -- (0.75, 0);
+\draw[dashed] (0.75, 0.75) -- (0, 0.75);
+\draw[dashed] (2, 2) -- (2, 0);
+\draw[dashed] (2, 2) -- (0, 2);
+\node[] at (0.85, 0.15) {$t_1$};
+\node[] at (2.1, 0.15) {$t_2$};
+\node[] at (0.25, 0.9) {$Q \left( t_1 \right)$};
+\node[] at (0.25, 2.15) {$Q \left( t_2 \right)$};
+
+\filldraw (0.75, 0.75) circle (2 pt);
+\filldraw (2, 2) circle (2 pt);
+\filldraw (0.75, 0) circle (2 pt);
+\filldraw (0, 0.75) circle (2 pt);
+\filldraw (2, 0) circle (2 pt);
+\filldraw (0, 2) circle (2 pt);
+
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\begin{itemize}
+\item Nature 'selects' the unique on-shell trajectory $q \left( t \right)$ given the boundary conditions $\left( t_1, Q \left( t_1 \right) \right)$ and $\left( t_2, Q \left( t_2 \right) \right)$ for a system.
+\end{itemize}
+
+$$\underset{\textcolor{red}{Off-shell}}{\underbrace{\textcolor{red}{Q \left( t \right)}}} = \underset{\textcolor{blue}{On-shell}}{\underbrace{\textcolor{blue}{q \left( t \right)}}} + \underset{\textcolor{brown}{Variation}}{\underbrace{\textcolor{brown}{\delta q \left( t \right)}}}$$
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item Each trajectory $\textcolor{red}{Q \left( t \right)}$ between the endpoints is associated with a corresponding number called the action.
+\end{itemize}
+
+$$S \left[ \textcolor{red}{Q \left( t \right)} \right] \left( t_1, t_2 \right) = \int_{t_1}^{t_2} dt \: L \left( \textcolor{red}{Q \left( t \right)}, \textcolor{red}{\dot{Q} \left( t \right)}, t \right)$$
+
+\begin{flushright}
+The integrand $L \left( \textcolor{red}{Q \left( t \right)}, \textcolor{red}{\dot{Q} \left( t \right)}, t \right)$ is known as the Lagrangian of the system being modelled and encodes the dynamics of the system.
+\end{flushright}
+
+\begin{itemize}
+\item In general, the action $S$ maps $\textcolor{red}{Q \left( t \right)}$ to a real number determined by the above integral. Therefore, it is a functional, i.e. a higher-order function which takes in infinite values of the form $\left\{ \left( t, \textcolor{red}{Q \left( t \right)} \right) : t \in \mathbb{R} \right\}$ and spits out a real.
+\end{itemize}
+
+$$
+S : \begin{cases} \mathbb{R}^\mathbb{R} & \to \mathbb{R} \\ \textcolor{red}{Q \left( t \right)} & \mapsto \displaystyle{\int}_{t_1}^{t_2} dt \: L \left( \textcolor{red}{Q \left( t \right)}, \textcolor{red}{\dot{Q} \left( t \right)}, t \right) \end{cases}
+$$
+\end{frame}
+
+\begin{frame}
+\frametitle{Principle of Stationary Action}
+\end{frame}
+
+\end{document}
