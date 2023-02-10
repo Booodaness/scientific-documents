@@ -26,6 +26,13 @@ University of Waterloo
 \frame{\titlepage}
 
 \begin{frame}
+\frametitle{Table of Contents}
+\tableofcontents
+\end{frame}
+
+\section{Towards Classical Field Theory}
+
+\begin{frame}
 \begin{center}
 \huge \textcolor{blue!50!gray}{Towards Classical Field Theory}
 \end{center}
@@ -53,6 +60,8 @@ $$F_e = \frac{1}{4 \pi \epsilon_0} \frac{Q_e q_e}{r^2}$$
 $$F_b = \frac{\mu_0}{4 \pi} \frac{Q_b q_b}{r^2}$$
 \end{frame}
 
+\subsection{Formal Analogies Between the Gravitational and Electrostatic Forces}
+
 \begin{frame}
 \frametitle{Formal Analogies Between the Gravitational and Electrostatic Forces}
 
@@ -70,6 +79,8 @@ Poisson's equation & $\underset{\nabla^2 V}{\underbrace{\sum \limits_{i=1}^3 \na
 \end{tabular}
 \end{center}
 \end{frame}
+
+\subsection{Classical Mechanics}
 
 \begin{frame}
 \frametitle{Lagrangian Mechanics}
@@ -94,8 +105,8 @@ Poisson's equation & $\underset{\nabla^2 V}{\underbrace{\sum \limits_{i=1}^3 \na
 \addlegendimage{thick, color=red};
 \addlegendentry{$Q \left( t \right)$};
 
-\draw[->, color=cyan] (1.5, 1.5) to (1.5, 1.7);
-\draw[->, color=cyan] (1.5, 1.3) to (1.5, 1.1);
+\draw[->] (1.5, 1.5) to (1.5, 1.7);
+\draw[->] (1.5, 1.3) to (1.5, 1.1);
 \node[] at (1.5, 1.4) {$\textcolor{cyan}{\delta} \textcolor{blue}{q} \left( t \right)$};
 
 \draw[dashed] (0.75, 0.75) -- (0.75, 0);
@@ -131,15 +142,11 @@ Poisson's equation & $\underset{\nabla^2 V}{\underbrace{\sum \limits_{i=1}^3 \na
 \begin{frame}
 \begin{itemize}
 \item Each trajectory $\textcolor{red}{Q \left( t \right)}$ between the endpoints is associated with a corresponding number called the action.
-\end{itemize}
 
 $$\boxed{S \left[ \textcolor{red}{Q \left( t \right)} \right] \left( t_1, t_2 \right) = \int_{t_1}^{t_2} dt \: L \left( \textcolor{red}{Q \left( t \right)}, \textcolor{red}{\dot{Q} \left( t \right)}, t \right)}$$
 
-\begin{flushright}
 The integrand $L \left( \textcolor{red}{Q \left( t \right)}, \textcolor{red}{\dot{Q} \left( t \right)}, t \right)$ is known as the Lagrangian of the system being modelled and encodes the dynamics of the system.
-\end{flushright}
 
-\begin{itemize}
 \item In general, the action $S$ maps $\textcolor{red}{Q \left( t \right)}$ to a real number determined by the above integral. Therefore, it is a functional, i.e. a higher-order function which takes in infinite values of the form $\left\{ \left( t, \textcolor{red}{Q \left( t \right)} \right) : t \in \mathbb{R} \right\}$ and spits out a real.
 \end{itemize}
 
@@ -171,19 +178,19 @@ For very small $\delta q \left( t \right)$ i.e.,
 \begin{frame}
 \frametitle{Euler-Lagrange Equation}
 
-\begin{lemma}[Fundamental lemma of the calculus of variations]
+\begin{lemma}[Fundamental lemma of calculus of variations]
 The former is possible if and only if the latter is,
 
-\begin{align}
+\begin{align*}
 \forall \: \textcolor{cyan}{\delta} \textcolor{blue}{q} : \int_{t_1}^{t_2} dt \: \textcolor{cyan}{\delta} \textcolor{blue}{q} \: f \left( \textcolor{blue}{q}, \textcolor{blue}{\dot{q}}, t \right) & = 0 \\
-\Longleftrightarrow \forall \: \textcolor{blue}{q}, \textcolor{blue}{\dot{q}}, t : f \left( \textcolor{blue}{q}, \textcolor{blue}{\dot{q}}, t \right) & = 0
-\end{align}
+\Longleftrightarrow \forall \: t \in \left( t_1, t_2 \right) : f \left( \textcolor{blue}{q}, \textcolor{blue}{\dot{q}}, t \right) & = 0
+\end{align*}
 \end{lemma}
 
 \begin{theorem}
 An on-shell $\textcolor{blue}{q \left( t \right)}$ obeying the principle of stationary action for a given $L \left( \textcolor{blue}{q}, \textcolor{blue}{\dot{q}}, t \right)$ must also obey the Euler-Lagrange equation of motion:
 
-$$\boxed{\underset{\text{Generalized force}}{\underbrace{\frac{\partial L}{\partial \textcolor{blue}{q}}}} = \underset{\text{Generalized momentum}}{\frac{d}{dt} \underbrace{\frac{\partial L}{\partial \textcolor{blue}{\dot{q}}}}} = \frac{d \textcolor{blue}{p}}{dt}}$$
+$$\boxed{\underset{\text{Generalized force}}{\underbrace{\frac{\partial L}{\partial \textcolor{blue}{q}}}} = \underset{\text{Conjugate momentum}}{\frac{d}{dt} \underbrace{\frac{\partial L}{\partial \textcolor{blue}{\dot{q}}}}} = \frac{d \textcolor{blue}{p}}{dt}}$$
 \end{theorem}
 \end{frame}
 
@@ -216,20 +223,17 @@ $$\boxed{\underset{\text{Generalized force}}{\underbrace{\frac{\partial L}{\part
 \end{frame}
 
 \begin{frame}
-\frametitle{Noether's theorem}
+\frametitle{Noether's Theorem}
 
 \begin{theorem}[Noether's first theorem]
-If the action $S \left[ q \left( t \right) \right]$ remains invariant under perturbations of the following form,
+If the action $S \left[ \textcolor{blue}{q \left( t \right)} \right]$ remains invariant under perturbations of the following form,
 
-\begin{align*}
-t & \to t + \delta t \\
-q & \to q + \delta q \left( t \right)
-\end{align*}
+$$\textcolor{blue}{q} \to \textcolor{blue}{q} + \textcolor{cyan}{\delta} \textcolor{blue}{q}$$
 
 then the following quantity is conserved,
 
 \begin{align*}
-j & = \left( p \dot{q} - L \right) \delta t - p \: \delta q \\
+j & = \textcolor{blue}{p} \: \textcolor{cyan}{\delta} \textcolor{blue}{q} \\
 \frac{dj}{dt} & = 0
 \end{align*}
 \end{theorem}
@@ -238,11 +242,180 @@ j & = \left( p \dot{q} - L \right) \delta t - p \: \delta q \\
 \begin{frame}
 \begin{block}{Proof.}
 \begin{align*}
-\delta L & = \frac{\partial L}{\partial q} \delta q + \frac{\partial L}{\partial \dot{q}} \delta \dot{q} + \frac{\partial L}{\partial t} \delta t \\
-& = \dot{p} \delta q + p \delta \dot{q} + \frac{\partial L}{\partial t} \delta t \\
-& = \frac{d}{dt} \left( p \delta q \right) + \frac{\partial L}{\partial t} \delta t
+\textcolor{cyan}{\delta} L & = \frac{\partial L}{\partial \textcolor{blue}{q}} \textcolor{cyan}{\delta} \textcolor{blue}{q} + \frac{\partial L}{\partial \textcolor{blue}{\dot{q}}} \textcolor{cyan}{\delta} \textcolor{blue}{\dot{q}} \\
+& = \dot{p} \textcolor{cyan}{\delta} \textcolor{blue}{q} + p \textcolor{cyan}{\delta} \textcolor{blue}{\dot{q}} & \left[ \text{Euler-Lagrange equation} \right] \\
+& = \frac{d}{dt} \left( p \textcolor{cyan}{\delta} \textcolor{blue}{q} \right) \\
+\text{But} \: \textcolor{cyan}{\delta} L & = 0 \\
+\implies \frac{d}{dt} \left( p \textcolor{cyan}{\delta} \textcolor{blue}{q} \right) & = 0 & \square
 \end{align*}
 \end{block}
+
+\begin{example}
+If $S \left[ \textcolor{blue}{q \left( t \right)} \right]$ is symmetric (i.e. conserved) under a small time-independent translation $\textcolor{blue}{q} \to \textcolor{blue}{q} + \textcolor{cyan}{\epsilon}$, we obtain the invariant $j = \textcolor{blue}{p} \textcolor{cyan}{\epsilon}$. Since $\frac{dj}{dt} = 0, \frac{d \textcolor{cyan}{\epsilon}}{dt} = 0$, we get $\frac{d \textcolor{blue}{p}}{dt} = 0$.
+\end{example}
+\end{frame}
+
+\begin{frame}
+\frametitle{Classical Mechanics}
+
+\begin{itemize}
+\item The Lagrangian for classical mechanics is of the form,
+\end{itemize}
+
+\begin{align*}
+L \left( q, \dot{q}, t \right) & = T \left( \dot{q} \right) - V \left( q \right) \\
+& = \frac{1}{2} m \mathit{g} \dot{q}^2 - V \left( q \right) \\
+& = \frac{1}{2} mv^2 - V \left( q \right)
+\end{align*}
+
+\begin{itemize}
+\item The equation of motion obtained by applying the Euler-Lagrange equation to the above Lagrangian is,
+
+$$\frac{d}{dt} \left( m v \right) + \frac{\partial V}{\partial q} = 0$$
+
+This is Newton's second law. If the entire system concerned is symmetric under small translations on $q$, we have $\frac{\partial V}{\partial q} = 0$ implying $\frac{d}{dt} \left( m v \right) = 0$. This is Newton's third law.
+\end{itemize}
+\end{frame}
+
+\subsection{Classical Field Theory}
+
+\begin{frame}
+\frametitle{Classical Field Theory}
+
+\begin{itemize}
+\item A classical field is a tensor field on spacetime (which is a pseudo-Riemannian manifold obeying dynamical field equations such as the Einstein field equations).
+
+Therefore, a classical field is some rank $\left( p, q \right)$ tensor $\phi^{\mu_1 \dots \mu_p}_{\phantom{\mu_1 \dots \mu_p} \nu_1 \dots \nu_q} \left( x^\alpha \right)$ at each point $x^\alpha$ in space and time with $\alpha \in \left( 0, 1, 2, 3 \right)$.
+
+\item A classical field obeys the following principles:
+
+\begin{enumerate}
+\item Principle of stationary action
+
+\item Local Lorentz invariance
+
+\item Locality
+
+\item Gauge invariance
+\end{enumerate}
+
+\item The simplest classical field theory is that of rank $\left( 0, 0 \right)$ tensor fields i.e. scalar fields $\phi \left( x^\alpha \right)$, in a flat spacetime $\mathcal{M}$. We will study such fields in the following slides.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Principle of Stationary Action for Classical Fields}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.65]
+\begin{axis}[
+xlabel = $x$,
+ylabel = $y$,
+zlabel = $\phi$,
+xtick = \empty,
+ytick = \empty,
+ztick = \empty,
+3d box = complete*,
+]
+ 
+\addplot3[
+mesh,
+samples=50,
+domain=-8:8,
+]
+{sin(deg(sqrt(x^2+y^2)))/sqrt(x^2+y^2)};
+\addlegendentry{$\phi \left( ct, x^i \right)$} 
+
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\begin{itemize}
+\item To construct the action for a particle, we integrated its Lagrangian between endpoints in time. A field such as $\phi \left( x^\alpha \right)$, however, lives in space and time. Therefore, its action is a \emph{volume} integral of a Lagrangian \emph{density} $\mathcal{L}$, in a 4-dimensional region of spacetime $\Omega \subset \mathcal{M}$,
+
+$$\boxed{S \left[ \phi \left( x^\alpha \right) \right] = \int_\Omega d^4 x \: \mathcal{L} \left( \phi \left( x^\alpha \right), \partial_\mu \phi \left( x^\alpha \right), x^\nu \right)}$$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item The Lagrangian density is so-called as it looks like a Lagrangian (integrable over some time interval $\Omega^{\left( 1 \right)}$) when integrated over a region of space $\Omega^{\left( 3 \right)}$:
+
+\begin{align*}
+L \left( \phi \left( x^\alpha \right), \partial_\mu \phi \left( x^\alpha \right), x^\nu \right) & = \int_{\Omega^{\left( 3 \right)}} d^3 x \: \mathcal{L} \left( \phi \left( x^\alpha \right), \partial_\mu \phi \left( x^\alpha \right), x^\nu \right) \\
+S \left[ \phi \left( x^\alpha \right) \right] & = \int_\Omega d^4 x \: \mathcal{L} \left( \phi \left( x^\alpha \right), \partial_\mu \phi \left( x^\alpha \right), x^\nu \right) \\
+& = \int_{\Omega^{\left( 1 \right)}} c dt \: L \left( \phi \left( x^\alpha \right), \partial_\mu \phi \left( x^\alpha \right), x^\nu \right)
+\end{align*}
+
+\item The principle of stationary action for fields states that for small variations $\delta \phi$ of a field $\phi$ in its on-shell configuration, the action remains stationary,
+
+$$\boxed{\delta S = 0}$$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Euler-Lagrange Equation for Classical Fields}
+
+\begin{lemma}[Fundamental lemma of multivariable calculus of variations]
+
+\begin{align*}
+\forall \: \delta \phi : \int_{\Omega} d^4 x \delta \phi \: f \left( \phi, \partial_\mu \phi, x^\nu \right) & = 0 \\
+\Longleftrightarrow \forall \: x^\alpha \in \Omega \backslash \partial \Omega : f \left( \phi, \partial_\mu \phi, x^\nu \right) & = 0
+\end{align*}
+\end{lemma}
+
+\begin{block}{Einstein summation convention}
+
+Dummy indices, i.e. pairs of upper and lower tensor indices, are implicitly summed over.
+\end{block}
+
+\begin{example}
+$$A_\mu B^\mu = \sum_{\mu=0}^3 A_\mu B^\mu$$
+\end{example}
+\end{frame}
+
+\begin{frame}
+\begin{Theorem}
+A field $\phi$ obeys the principle of stationary action if and only if it also satisfies,
+
+$$\boxed{\frac{\partial \mathcal{L}}{\partial \phi} = \underset{\text{Conjugate momentum tensor}}{\nabla_\mu \underbrace{\frac{\partial \mathcal{L}}{\partial \left( \partial_\mu \phi \right)}}} = \nabla_\mu \pi^\mu}$$
+\end{Theorem}
+
+\begin{block}{Proof.}
+\begin{align*}
+\delta S & = 0 & \left[ \text{Principle of stationary action} \right] \\
+\delta \int_\Omega d^4 x \: \mathcal{L} & = 0 \\
+\int_\Omega d^4 x \: \delta \mathcal{L} & = 0 & \left[ \text{Additivity of variations} \right]
+\end{align*}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{align*}
+\int_\Omega d^4 x \left[ \delta \phi \frac{\partial \mathcal{L}}{\partial \phi} + \delta \left( \partial_\mu \phi \right) \underset{\pi^\mu}{\underbrace{\frac{\partial \mathcal{L}}{\partial \left( \partial_\mu \phi \right)}}} + \cancel{\delta x^\mu} \partial_\mu \mathcal{L} \right] & = 0 \\
+\left[ \text{Multivariable chain rule for variations} \right] \\
+\int_\Omega d^4 x \left[ \delta \phi \frac{\partial \mathcal{L}}{\partial \phi} + \left( \partial_\mu \delta \phi \right) \pi^\mu \right] & = 0 \\
+\left[ \text{Commutativity of variations and covariant derivatives} \right] \\
+\int_\Omega d^4 x \: \delta \phi \frac{\partial \mathcal{L}}{\partial \phi} + \pi^\mu \underset{\text{Constant surface term}}{\underbrace{\int_\Omega d^4 x \: \partial_\mu \delta \phi}} - \int_\Omega d^4 x \left[ \int d^4 x \: \partial_\mu \delta \phi \right] \nabla_\mu \pi^\mu & = 0 \\
+\left[ \text{Volume integration by parts} \right] \\
+\end{align*}
+\end{frame}
+
+\begin{frame}
+Using Stokes' theorem, the constant surface term can be set to $0$. We then find,
+
+\begin{align*}
+\int_\Omega d^4 x \: \delta \phi \frac{\partial \mathcal{L}}{\partial \phi} - \int_\Omega d^4 x \: \delta \phi \: \nabla_\mu \pi^\mu & = 0 \\
+\int_\Omega d^4 x \: \delta \phi \left( \frac{\partial \mathcal{L}}{\partial \phi} - \nabla_\mu \pi^\mu \right) & = 0 \\
+\frac{\partial \mathcal{L}}{\partial \phi} - \nabla_\mu \pi^\mu & = 0 \\
+\Longleftrightarrow \frac{\partial \mathcal{L}}{\partial \phi} - \nabla_\mu \frac{\partial \mathcal{L}}{\partial \left( \partial_\mu \phi \right)} & = 0 & \square \\
+\left[ \text{Fundamental lemma of multivariable calculus of variations} \right]
+\end{align*}
+\end{frame}
+
+\begin{frame}
+\frametitle{Noether's Theorem for Classical Fields}
+
 \end{frame}
 
 \end{document}
