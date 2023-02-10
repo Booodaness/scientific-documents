@@ -2,6 +2,7 @@
 
 \usepackage{amsmath}
 \usepackage{cancel}
+\usepackage{hyperref}
 \usepackage{mathtools}
 \usepackage{multirow}
 \usepackage{tikz, pgfplots}
@@ -131,12 +132,12 @@ Poisson's equation & $\underset{\nabla^2 V}{\underbrace{\sum \limits_{i=1}^3 \na
 
 \begin{itemize}
 \item Nature 'selects' the unique on-shell trajectory $\textcolor{blue}{q \left( t \right)}$ given the boundary conditions $\left( t_1, \textcolor{red}{Q \left( t_1 \right)} \right)$ and $\left( t_2, \textcolor{red}{Q \left( t_2 \right)} \right)$ for a system.
-\end{itemize}
 
 \begin{align*}
 \underset{\text{Off-shell}}{\underbrace{\textcolor{red}{Q \left( t \right)}}} & = \underset{\text{On-shell}}{\underbrace{\textcolor{blue}{q \left( t \right)}}} + \underset{\text{Variation}}{\underbrace{\textcolor{cyan}{\delta} \textcolor{blue}{q} \left( t \right)}} \\
 \textcolor{cyan}{\delta} \textcolor{blue}{q \left( t_1 \right)} & = \textcolor{cyan}{\delta} \textcolor{blue}{q \left( t_2 \right)} = 0
 \end{align*}
+\end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -161,7 +162,7 @@ $$
 \begin{block}{Lagrange's principle of stationary action}
 Suppose we vary $\textcolor{blue}{q \left( t \right)}$ about its on-shell evolution as, $\textcolor{blue}{q \left( t \right)} \to \textcolor{blue}{q \left( t \right)} + \textcolor{cyan}{\delta} \textcolor{blue}{q} \left( t \right)$. Then, the variation in the action satisfies,
 
-$$\textcolor{cyan}{\delta} S \in \mathcal{O} \left( \textcolor{cyan}{\delta} \textcolor{blue}{q}^2  \right)$$
+$$\textcolor{cyan}{\delta} S = \mathcal{O} \left( \textcolor{cyan}{\delta} \textcolor{blue}{q}^2  \right)$$
 \end{block}
 
 \begin{corollary}[First-order approximation]
@@ -169,8 +170,7 @@ For very small $\delta q \left( t \right)$ i.e.,
 
 \begin{align*}
 \forall \: \textcolor{cyan}{\delta} \textcolor{blue}{q} \left( t \right) & = \lim_{\textcolor{cyan}{\epsilon} \to 0} \textcolor{cyan}{\epsilon} \eta \left( t \right) : \eta \left( t_1 \right) = \eta \left( t_2 \right) = 0 : \\
-\textcolor{cyan}{\delta} S & \in \mathcal{O} \left( \textcolor{cyan}{\epsilon^2} \eta \left( t \right) \right) = \left\{ 0 \right\} \\
-& \implies \boxed{\textcolor{cyan}{\delta} S = 0}
+\textcolor{cyan}{\delta} S & = \mathcal{O} \left( \textcolor{cyan}{\epsilon^2} \eta \left( t \right) \right) = 0
 \end{align*}
 \end{corollary}
 \end{frame}
@@ -260,7 +260,6 @@ If $S \left[ \textcolor{blue}{q \left( t \right)} \right]$ is symmetric (i.e. co
 
 \begin{itemize}
 \item The Lagrangian for classical mechanics is of the form,
-\end{itemize}
 
 \begin{align*}
 L \left( q, \dot{q}, t \right) & = T \left( \dot{q} \right) - V \left( q \right) \\
@@ -268,7 +267,6 @@ L \left( q, \dot{q}, t \right) & = T \left( \dot{q} \right) - V \left( q \right)
 & = \frac{1}{2} mv^2 - V \left( q \right)
 \end{align*}
 
-\begin{itemize}
 \item The equation of motion obtained by applying the Euler-Lagrange equation to the above Lagrangian is,
 
 $$\frac{d}{dt} \left( m v \right) + \frac{\partial V}{\partial q} = 0$$
@@ -570,6 +568,225 @@ $$\boxed{\nabla_\mu \partial^\mu \phi + m^2 \phi = 0}$$
 
 \item This is analogous to Hooke's law for harmonic oscillators, with mass assuming the role of the 'spring constant'. That's no coincidence -- solutions to the above equation \emph{are} systems of infinite harmonic oscillators at each point in spacetime!
 \end{itemize}
+\end{frame}
+
+\subsection{Gauge Invariance}
+\begin{frame}
+\frametitle{Gauge Invariance}
+
+\begin{itemize}
+\item Classical fields admit the structure of gauge invariance -- wherein different definitions of the field represent the same physical situation. This happens when the field can encode more information than the physical system being represented.
+\end{itemize}
+
+\begin{example}
+In electromagnetism, it is possible to add an arbitrary 4-gradient $\partial^\mu s$ to the electromagnetic 4-potential field $A^\mu$, but get the same electromagnetic tensor, which encodes the physics,
+
+\begin{align*}
+A^\mu & \to A^\mu + \partial^\mu s & \left[ \text{Gauge transformation} \right] \\
+F^{\mu \nu} & = \partial^\mu A^\nu - \partial^\nu A^\mu \\
+\therefore F^{\mu \nu} & \to \partial^\mu \left( A^\nu + \partial^\nu s \right) - \partial^\nu \left( A^\mu + \partial^\mu s \right) \\
+& = \partial^\mu A^\nu + \cancel{\partial^\mu \partial^\nu s} - \partial^\nu A^\mu - \cancel{\partial^\nu \partial^\mu s} \\
+& = F^{\mu \nu}
+\end{align*}
+\end{example}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item In general, we want physics to remain the same under a gauge transformation $\phi \to \widetilde{\phi}$ where this transformation belongs to the symmetry group of the gauge theory in question.
+
+This makes us expect that the Euler-Lagrange equation should stay the same under such a transformation -- except it does not! 
+
+This is fixed by allowing gauge structure and modifying the Euler-Lagrange equation by replacing usual covariant derivatives with gauge covariant derivatives (= covariant derivatives + gauge connection term),
+
+\begin{align*}
+\partial_\mu \phi & \to D_\mu \phi = \underset{\text{Gauge connection coefficient}}{\partial_\mu \phi - \phi \underbrace{\frac{\partial \phi}{\partial \widetilde{\phi}} \partial_\mu \frac{\partial \widetilde{\phi}}{\phi}}} \\
+\pi^\mu & \to \widetilde{\pi}^\mu = \underset{\text{Inverse gauge Jacobian}}{\underbrace{\frac{\partial \phi}{\partial \widetilde{\phi}}} \pi^\mu}
+\end{align*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item Furthermore, if we have multiple similar scalar fields, they start behaving like abstract indexed quantities i.e. abstract tensors.
+
+Since by definition the theory of a real-valued classical field is equivalent to the theory of a single-index classical field theory, we can, for instance, make the correspondances,
+
+\begin{align*}
+\phi^{2n} & \leftrightarrow \left( \phi_a \phi^a \right)^n \\
+\phi^{2n+1} & \leftrightarrow \left( \phi_a \phi^a \right)^n \phi_b
+\end{align*}
+
+\item In the theory of indexed classical fields, the potential must act on a gauge scalar, and the simplest gauge scalar which only depends on the indexed fields $\phi_a$ is $\phi_a \phi^a$. Thus,
+
+$$V = V \left( \phi_a \phi^a \right)$$
+
+In the real-valued classical field theory, this corresponds to asserting,
+
+$$V = V \left( \phi^2 \right)$$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item Therefore, in a series expansion of the potential, odd powers vanish,
+
+$$V \left( \phi^2 \right) = \underset{\text{Coupling constants}}{\sum_{n=1}^\infty \frac{1}{n!} \underbrace{g_n} \phi^{2n}}$$
+
+\item Since we know that in Klein-Gordon theory, $V \left( \phi \right) = \frac{1}{2} m^2 \phi^2 + \mathcal{O} \left( \phi^3 \right)$, in the above, we set $g_1 = \frac{1}{2} m^2 \phi^2$ and write the potential as,
+
+$$V \left( \phi \right) = \frac{1}{2} m^2 \phi^2 + \sum_{n=2}^\infty \frac{g_n}{n!} \phi^{2n}$$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item Thus, the full Klein-Gordon Lagrangian resembles
+
+$$\boxed{\mathcal{L} = \frac{1}{2} \partial_\mu \phi \partial^\mu \phi - \frac{1}{2} m^2 \phi^2 + \sum_{n=2}^\infty \frac{g_n}{n!} \phi^{2n}}$$
+
+\item From the above, the full Klein-Gordon equation resembles,
+
+$$\boxed{\nabla_\mu \partial^\mu \phi + m^2 \phi - 2 \sum_{n=1}^\infty \frac{g_{n+1}}{n!} \phi^{2n+1} = 0}$$
+
+This completes our Klein-Gordon analysis.
+\end{itemize}
+\end{frame}
+
+\section{Newtonian Gravitation}
+
+\begin{frame}
+\begin{center}
+\Huge \textcolor{blue!50!gray}{Newtonian Gravitation}
+\end{center}
+\end{frame}
+
+\subsection{As a Classical Field Theory}
+
+\begin{frame}
+\frametitle{As a Classical Field Theory}
+
+\begin{itemize}
+\item Newtonian gravitation has two aspects:
+\begin{enumerate}
+\item How matter, encoded in the mass density field $\rho$, affects the gravitational potential field $\phi$.
+
+\item How the gravitational potential field $\phi$ causes matter to move and hence change the matter density field $\rho$.
+\end{enumerate}
+
+Field theory concerns itself with the latter aspect.
+
+\item Unfortunately, Newtonian gravitation is not a classical field theory, as it does not obey local Lorentz invariance and locality. Fixing this requires Einstein's general theory of relativity, where the gravitational field is not a separate tensor field living in spacetime but the metric tensor itself, capturing the geometry of spacetime.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item Fortunately, Newtonian gravitation is \emph{almost} a classical field theory, as it still obeys the principle of stationary action, global Galilean invariance and gauge invariance.
+
+\item The gauge structure of the gravitational potential field $\phi$ is affine, i.e. $\phi \to \phi + s$ where $s$ is a constant, does not change physics, encoded in the gravitational field $g^i = - \partial^i \phi$.
+
+\item As we shall see, the gravitational potential field $\phi$ obeys the principle of stationary action, as its equation of motion, Poisson's equation, can be written as an Euler-Lagrange equation. In fact, it is an example of the Klein-Gordon equation in $D=3$ dimensions!
+\end{itemize}
+\end{frame}
+
+\subsection{Non-relativistic Klein-Gordon Theory in $D=3$}
+
+\begin{frame}
+\frametitle{Non-relativistic Klein-Gordon Theory in $D=3$}
+
+\begin{itemize}
+\item The Klein-Gordon theory not only applies in $D=4$ dimensions with special/general relativity, but also $D=3$ dimensions with Galilean relativity! 
+
+This is because the way classical fields are constructed in $D=3$ is analogous to that in $D=4$, except we replace local Lorentz invariance + locality with global Galilean invariance. Furthermore, we replace the Minkowski metric for $D=1+3$ spacetime with the Euclidean metric for $D=3$ space.
+
+\item Except the above, much of the mathematical machinery for fields remains the same in the non-relativistic $D=3$ case, for example -- tensor fields, principle of stationary action, Euler-Lagrange equation, Noether's theorem, energy-momentum tensor and its conservation, etc. 
+\end{itemize}
+\end{frame}
+
+\subsection{Constructing the Lagrangian}
+
+\begin{frame}
+\frametitle{Constructing the Lagrangian}
+
+\begin{itemize}
+\item Recall Poisson's equation for the gravitational potential field $\phi$,
+
+$$\nabla_i \partial^i \phi + 4 \pi G \rho = 0$$
+
+In comparison, here's the Klein-Gordon equation in a potential:
+
+$$\nabla_i \partial^i \phi + \frac{\partial V}{\partial \phi} = 0$$
+
+\item Clearly, Poisson's equation can be written as a Klein-Gordon equation by setting $\displaystyle{\frac{\partial V}{\partial \phi} = 4 \pi G \rho}$. The simplest solution for such a $V \left( \phi \right)$ is,
+
+$$V \left( \phi \right) = 4 \pi G \rho \phi$$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+Thus, the Lagrangian for Newtonian gravitation is,
+
+$$\boxed{\mathcal{L} = \frac{1}{2} \partial_i \phi \partial^i \phi - 4 \pi G \rho \phi}$$
+\begin{itemize}
+\item A gauge structure inherent to any classical field theory is linearity. I.e., linear transformations of the Lagrangian $\mathcal{L} \to \alpha \mathcal{L} + \beta$ ($\alpha, \beta$ are constants) do not change the corresponding Euler-Lagrange equation.
+
+\item By dividing the obtained Lagrangian by $4 \pi G$, we get an equally valid Lagrangian, which is more commonly used in the physics and mathematics literature,
+
+$$\boxed{\mathcal{L} = \underset{\vec{\nabla} \phi \cdot \vec{\nabla} \phi}{\frac{1}{8 \pi G} \underbrace{\partial_i \phi \partial^i \phi}} - \rho \phi}$$
+\end{itemize}
+\end{frame}
+
+\subsection{Mass Density Field as a Classical Field}
+
+\begin{frame}
+\frametitle{Mass Density Field as a Classical Field}
+
+\begin{itemize}
+\item Notice that if we vary the Lagrangian we constructed with respect to the mass density field, we get the [nonsensical] equation:
+
+$$\phi = 0$$
+
+\item Classical field theory deals with this problem by adding a new term $\mathcal{L}_\mathcal{M}$ to the Lagrangian, representing the unspecified theory of matter.
+
+$$\boxed{\mathcal{L} = \frac{1}{8 \pi G} \partial_i \phi \partial^i \phi - \rho \phi + \mathcal{L}_\mathcal{M}}$$
+
+Additionally, we want $\displaystyle{\frac{\delta \mathcal{L}_\mathcal{M}}{\delta \phi} = \rho}$. Such a matter field Lagrangian would respect both Newtonian gravitation and the matter field theory.
+\end{itemize}
+\end{frame}
+
+\section{References}
+
+\begin{frame}
+\frametitle{References}
+
+\begin{enumerate}
+\item \textbf{Classical Mechanics:The Theoretical Minimum} by Leonard Susskind
+
+\item \textbf{From Special Relativity to Feynman Diagrams} by Riccardo D'Auria, Mario Trigiante
+
+\item \textbf{The Lagrangian of Newtonian gravity} (\href{https://www.vttoth.com/CMS/physics-notes/269-the-lagrangian-of-newtonian-gravity}{\textcolor{blue}{https://www.vttoth.com/CMS/physics-notes/269-the-lagrangian-of-newtonian-gravity}}) by Viktor T. Toth
+\end{enumerate}
+\end{frame}
+
+\section{Final Notes}
+
+\begin{frame}
+\frametitle{Final Notes}
+
+\begin{itemize}
+\item Big thank you to Pure Math Club for hosting this exciting event and to everyone attending this talk!
+
+\item More on this presentation can be found on my blog in the classical field theory section (\href{https://booodaness.github.io/tempus-spatium/categories/classical-field-theory/}{\textcolor{blue}{https://booodaness.github.io/tempus-spatium/categories/classical-field-theory/}}).
+
+\item Feel free to contact me on Discord at Booodaness\#1464 if you have any questions!
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{center}
+\Huge \textcolor{blue!50!gray}{THANK YOU}
+\end{center}
 \end{frame}
 
 \end{document}
