@@ -34,7 +34,7 @@ University of Waterloo
 
 \begin{frame}
 \begin{center}
-\huge \textcolor{blue!50!gray}{Towards Classical Field Theory}
+\Huge \textcolor{blue!50!gray}{Towards Classical Field Theory}
 \end{center}
 \end{frame}
 
@@ -416,6 +416,160 @@ Using Stokes' theorem, the constant surface term can be set to $0$. We then find
 \begin{frame}
 \frametitle{Noether's Theorem for Classical Fields}
 
+\begin{theorem}[Field-theoretic Noether's theorem]
+
+If under a small perturbation $x^\alpha \to x^\alpha + \delta x^\alpha$, the action of a field $\phi$ remains invariant, then the following quantity is conserved i.e. has a vanishing divergence,
+
+\begin{align*}
+j^\mu & = \pi^\mu \delta \phi - \mathcal{L} \delta x^\mu \\
+\nabla_\mu j^\mu & = 0
+\end{align*}
+\end{theorem}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Proof.}
+\begin{align*}
+\delta \mathcal{L} & = \frac{\partial \mathcal{L}}{\partial \phi} \delta \phi + \frac{\partial \mathcal{L}}{\partial \left( \partial_\mu \phi \right)} \delta \left( \partial_\mu \phi \right) \\
+& = \left( \nabla_\mu \pi^\mu \right) \delta \phi + \pi^\mu \partial_\mu \delta \phi & \left[ \text{E-L equation} \right] \\
+& = \nabla_\mu \left( \pi^\mu \delta \phi \right) \\
+\therefore \left( \nabla_\mu \mathcal{L} \right) \delta x^\mu & = \nabla_\mu \left( \pi^\mu \delta \phi \right) \\
+\implies \nabla_\mu \left( \pi^\mu \delta \phi - \mathcal{L} \delta x^\mu \right) & = 0 \\
+\Longleftrightarrow \nabla_\mu j^\mu & = 0 & \square
+\end{align*}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Energy-momentum Tensor}
+
+\begin{corollary}[Conservation of energy-momentum tensor]
+
+Dividing both sides of the above equation by $\delta x^\nu$, we find an explicit conserved tensor called the energy-momentum tensor,
+
+\begin{align*}
+T^\mu_{\phantom{\mu} \nu} & = \pi^\mu \partial_\nu \phi - \delta^\mu_{\phantom{\mu} \nu} \mathcal{L} \\
+T^{\mu \nu} & = \underset{\text{Inverse Minkowski metric}}{\underbrace{\eta^{\nu \alpha}} T^\nu_{\phantom{\mu} \alpha}} \\
+& = \eta^{\nu \alpha} \left( \pi^\mu \partial_\alpha \phi - \delta^\mu_{\phantom{\mu} \alpha} \mathcal{L} \right) \\
+& = \pi^\mu \partial^\nu \phi - \eta^{\mu \nu} \mathcal{L}
+\end{align*}
+
+$$\boxed{\nabla_\mu T^\mu_{\phantom{\mu} \nu} = \nabla_\mu T^{\mu \nu} = 0}$$
+\end{corollary}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item The energy-momentum tensor $T^{\mu \nu}$ physically represents the flux of $\pi^\mu$ through the surface form $\bigwedge \limits_{\alpha \neq \nu} \text{d} x^\alpha$. This corresponds to the flow of the field's energy($\mu = 0$)/momentum($\mu = 1, 2, 3$) along $x^\nu$.
+
+\item But if we have flow of $\pi^\mu$ in the $x^\nu$ direction, then it implies an energy/momentum in the $x^\nu$ direction. The world line correpsonding to this flow must intersect with the former through a hypersurface of simulteinity, giving rise to equal $T^{\nu \mu}$. 
+
+\item Thus, the energy-momentum tensor, being a geometric object with the mentioned physical meaning (motivated by particle and continuum dynamics), turns out to be symmetric,
+
+$$\boxed{T^{\mu \nu} = T^{\nu \mu}}$$
+\end{itemize}
+\end{frame}
+
+\section{Klein-Gordon Theory}
+
+\begin{frame}
+\begin{center}
+\Huge \textcolor{blue!50!gray}{Klein-Gordon Theory}
+\end{center}
+\end{frame}
+
+\subsection{Klein-Gordon Lagrangian}
+
+\begin{frame}
+\frametitle{Klein-Gordon Lagrangian}
+
+\begin{itemize}
+\item The classical-field theoretic construction of Klein-Gordon theory begins by asking which Lagrangian yields a symmetric energy-momentum tensor. Such a theory, by virtue of respecting the physical meaning of the energy-momentum tensor, successfully describes many 'physically valid' systems.
+
+\item It turns out that the Klein-Gordon theory is deeply rooted in nature. In quantum mechanics, it is the theory for spin-0 particles. In quantum electrodynamics, the Klein-Gordon theory can be used to construct that of Dirac spinor fields, which describe all massive spin-1/2 particles such as electrons.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item Recall the energy-momentum tensor for a scalar field $\phi$ and its symmetry,
+
+\begin{align*}
+T^{\mu \nu} & = \pi^\mu \partial^\nu \phi - \eta^{\mu \nu} \mathcal{L} \\
+T^{\mu \nu} & = T^{\nu \mu}
+\end{align*}
+
+where $\displaystyle{\pi^\mu = \frac{\partial \mathcal{L}}{\partial \left( \partial_\mu \phi \right)}}$. Thus,
+
+\begin{align*}
+\pi^\mu \partial^\nu \phi - \cancel{\eta^{\mu \nu} \mathcal{L}} & = \pi^\nu \partial^\mu \phi - \cancel{\eta^{\nu \mu} \mathcal{L}} & \left[ \eta^{\mu \nu} = \eta^{\nu \mu} \right] \\
+\pi^\mu \partial^\nu \phi & = \pi^\nu \partial^\mu \phi
+\end{align*}
+
+\item The above is true in the most general case when $\pi^\mu$ is equal to $\partial^\mu \phi$, allowing us to exchange the product of conjugate momentum $\pi^\mu$ and generalized velocity $\partial^\nu \phi$ as above (by commutativity of component multiplication). 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+Therefore, we have,
+
+\begin{align*}
+\pi^\mu & = \partial^\mu \phi \\
+\implies \frac{\partial \mathcal{L}}{\partial \left( \partial_\mu \phi \right)} & = \partial^\mu \phi
+\end{align*}
+
+'Integrating' over $\partial_\mu \phi$, we find that the Lagrangian is constrained to be of the form,
+
+$$\boxed{\mathcal{L} = \frac{1}{2} \partial_\mu \phi \partial^\mu \phi - V \left( \phi \right)}$$
+
+\begin{itemize}
+\item This is the Klein-Gordon Lagrangian $\mathcal{L}_{KG}$. Notice that it is analogous to the Lagrangian for classical mechanics, if we interpret $\frac{1}{2} \partial_\mu \phi \partial^\mu \phi$ as a kinetic term $T \left( \partial_\mu \phi \right)$ and $V \left( \phi \right)$ as a potential term.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+Indeed,
+
+\begin{align*}
+\pi^\mu & = \frac{\partial \mathcal{L}}{\partial \left( \partial_\mu \phi \right)} \\
+& = \frac{\partial}{\partial \left( \partial_\mu \phi \right)} \left[ \frac{1}{2} \partial_\alpha \phi \partial^\alpha \phi - V \left( \phi \right) \right] \\
+& = \frac{1}{2} \frac{\partial}{\partial \left( \partial_\mu \phi \right)} \left[ \partial_\alpha \phi \partial^\alpha \phi \right] \\
+& = \partial^\alpha \phi \frac{\partial}{\partial \left( \partial_\mu \phi \right)} \partial_\alpha \phi \\
+& = \partial^\alpha \phi \delta^\mu_{\phantom{\mu} \alpha} \\
+& = \partial^\mu \phi
+\end{align*}
+\end{frame}
+
+\subsection{Klein-Gordon Equation}
+
+\begin{frame}
+\frametitle{Klein-Gordon Equation}
+
+\begin{itemize}
+\item Let us find the equation of motion for a Klein-Gordon field by plugging its conjugate momentum into the Euler-Lagrange equation:
+
+$$\nabla_\mu \pi^\mu - \frac{\partial \mathcal{L}}{\partial \phi} = 0$$
+
+$$\implies \boxed{\nabla_\mu \partial^\mu \phi + \frac{\partial V}{\partial \phi} = 0}$$
+
+$$\Longleftrightarrow \square \phi + \frac{\partial V}{\partial \phi} = 0$$
+
+\item This is the celebrated Klein-Gordon equation [for a scalar field in a potential]. In the absence of a potential, we obtain the wave equation $\square \phi = 0$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item For small oscillations of $\phi$ about local minima of the potential $V \left( \phi \right)$, only differences in $\phi$ physically matter. In the series expansion for $\frac{\partial V}{\partial \phi}$, we can set a vanishing first power term. Hence, in the series for $V \left( \phi \right)$, the first power term for $\phi$ vanishes, and so do cubic and higher terms,
+
+$$V \left( \phi \right) = \frac{1}{2} m^2 \phi^2$$
+
+\item Plugging the above potential into the Klein-Gordon equation, we get the Klein-Gordon equation for a scalar field in a potential whose effects locally vanish:
+
+$$\boxed{\nabla_\mu \partial^\mu \phi + m^2 \phi = 0}$$
+
+\item This is analogous to Hooke's law for harmonic oscillators, with mass assuming the role of the 'spring constant'. That's no coincidence -- solutions to the above equation \emph{are} systems of infinite harmonic oscillators at each point in spacetime!
+\end{itemize}
 \end{frame}
 
 \end{document}
