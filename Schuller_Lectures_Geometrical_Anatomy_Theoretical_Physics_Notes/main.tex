@@ -11,6 +11,7 @@
 \newtheorem{corollary}{Corollary}[theorem]
 \newtheorem{lemma}{Lemma}[theorem]
 \newtheorem*{remark}{Remark}
+\usepackage{authblk}
 \usepackage{multirow, booktabs}
 \usepackage{calc}
 \usepackage{cancel}
@@ -21,6 +22,13 @@
 \usepackage{fullpage}
 \usepackage[margin=3cm]{geometry}
 \geometry{margin=1in, headsep=0.25in}
+\usepackage{hhline}
+\usepackage{hyperref}
+\hypersetup{
+colorlinks=true,
+linkcolor=blue,     
+urlcolor=blue,
+}
 \usepackage[retainorgcmds]{IEEEtrantools}
 \usepackage[utf8]{inputenc}
 \usepackage{lastpage}
@@ -38,21 +46,37 @@
 
 \title{A Conceptual Tour Through Frederic Schuller's \emph{Lectures on the Geometrical Anatomy of Theoretical Physics}}
 
-\author{Siddhartha Bhattacharjee}
+\author{Siddhartha Bhattacharjee \\
+Website: \href{https://booodaness.github.io/tempus-spatium/}{Tempus Spatium} \\
+Email: \href{javascript:location.href = 'mailto:' + ['sidb','tempus-spatium.8shield.net'].join('@')}{sidb@tempus-spatium.8shield.net}
+}
+\affil{Student, B.Sc. (Hons) Mathematical Physics, University of Waterloo}
 
 \date{\today}
 
 \begin{document}
+
 \maketitle
+
+\begin{abstract}
+In these notes, I venture through \href{https://people.utwente.nl/f.p.schuller}{Dr. Frederic P. Schuller}'s \emph{Lectures on the Geometrical Anatomy of Theoretical Physics}, found on \href{https://youtube.com/playlist?list=PLPH7f_7ZlzxTi6kS4vCmv4ZKm9u8g5yic}{YouTube}. Inspiration for the structure of the notes is drawn from Simon Rhea's \href{https://mathswithphysics.blogspot.com/2016/07/lectures-on-geometric-anatomy-of.html}{notes} for the lectures.
+
+The aim of this project is to capture some of the intuition in Dr. Schuller's lectures in the form of proofs, remarks and other ideas in a manner which fits in pedagogically and chrnologically into both the original lectures and Simon Rhea's notes.
+
+The manner of writing these notes is fairly personal. That said, its construction will hopefully allow it to be, for some, a useful resource that can be used alongside the original lectures and notes based on them.
+\end{abstract}
+
 \tableofcontents
 
 \section{Logic of propositions and predicates}
 
 \subsection{Propositional logic}
 
+\begin{shaded}
 \begin{definition}
-A \textbf{proposition} is a formal expression which can take the forms \emph{true} ($T$) and \emph{false} ($F$).
+A \textbf{proposition} $p$ is a formal expression which can take the forms \emph{true} ($T$) and \emph{false} ($F$).
 \end{definition}
+\end{shaded}
 
 Propositional logic is the algebra of propositions. By 'algebra', we mean the \emph{compositionality} of objects (here propositions) via operators (here, logical connectives).
 
@@ -62,7 +86,7 @@ A \textbf{tautology} is a proposition that is always $T$. A \textbf{contradictio
 
 It is tempting to think of logical operators/connectives as maps from one or more propositions, to a new proposition. However, as we are yet to construct set theory, such a treatment would be logically circular\footnote{A possible way to get around this is to construct categorical logic. However, category theory may be based on some parts of set theory, depending on whom one asks. In particular, category theory uses the notion of classes, which are set-like objects although they may not obey set-theoretic axiomatic systems such as the ZFC axioms.}. Therefore, the best we can do to define a logical operator is to lay out what it does to every combination of its input propositions. Think of this as 'fleshing out' the rules characterizing the said logical operator. Typically, this 'fleshing out' is done using truth tables.
 
-Informally\footnote{As we have not yet constructed numbers, any employment of such objects is for informal and intuitive purposes.}, if a logical operator $\mathcal{L}$ acts on $n$ propositions, there are $2^{n+1}$ ways of defining it. This corresponds to $2^n$ entries in the truth table for $\mathcal{L}$, each of which corresponds to some unique combination of entries whose output is fixed to have some truth value.
+Informally\footnote{As we have not yet constructed numbers, any employment of such objects is for informal and intuitive purposes.}, if a logical operator $\mathcal{L}$ acts on $n$ propositions, there are $2^{\left( 2^n \right)}$ ways of defining it. This corresponds to $2^n$ entries in the truth table for $\mathcal{L}$, each of which corresponds to some unique combination of entries whose output is fixed to have some truth value from the two choices, $T$ and $F$.
 
 Following are truth tables and discussion of some common logical operators.
 
@@ -70,10 +94,24 @@ Following are truth tables and discussion of some common logical operators.
 
 \subsubsection{Unary operators}
 
-Unary operators are logical connectives which act on one proposition and produce another. Thus, there are $2^{1+1} = 4$ possible unary operators, listed below:
+Unary operators are logical connectives which act on one proposition and produce another. Thus, there are $2^{\left( 2^1 \right)} = 4$ possible unary operators, listed below:
 
 \begin{center}
-
+\begin{tabular}{|c||c|c|c|c|}
+\hline 
+$p$ & $\text{id}_p$ & $\lnot p$ & $\bot p$ & $\top p$ \\
+\hhline{|=||=|=|=|=|}
+$F$ & $F$ & $T$ & $F$ & $T$ \\
+\hline
+$T$ & $T$ & $F$ & $F$ & $T$ \\
+\hline
+\end{tabular}
 \end{center}
+
+where $\text{id}$ is the \emph{identity} operator, $\lnot$ is the \emph{negation} operator, $\bot$ is the \emph{contradiction} operator and $\top$ is the \emph{tautology} operator.
+
+\subsubsection{Binary operators}
+
+There are $2^{\left( 2^2 \right)} = 16$ binary logical connectives. Some particularly important ones are:
 
 \end{document}
