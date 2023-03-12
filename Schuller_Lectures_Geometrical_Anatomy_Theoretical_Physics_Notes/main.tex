@@ -29,7 +29,7 @@
 \usepackage{setspace}
 \usepackage{titlesec}
 \titleclass{\section}{top}
-\newcommand\sectionbreak{\pagebreak}
+\newcommand\sectionbreak{\clearpage}
 \usepackage{wrapfig}
 \usepackage[table]{xcolor}
 \usepackage[most]{tcolorbox}
@@ -50,6 +50,30 @@
 
 \subsection{Propositional logic}
 
+\begin{definition}
+A \textbf{proposition} is a formal expression which can take the forms \emph{true} ($T$) and \emph{false} ($F$).
+\end{definition}
 
+Propositional logic is the algebra of propositions. By 'algebra', we mean the \emph{compositionality} of objects (here propositions) via operators (here, logical connectives).
+
+\begin{definition}
+A \textbf{tautology} is a proposition that is always $T$. A \textbf{contradiction} is a proposition that is always $F$.
+\end{definition}
+
+It is tempting to think of logical operators/connectives as maps from one or more propositions, to a new proposition. However, as we are yet to construct set theory, such a treatment would be logically circular\footnote{A possible way to get around this is to construct categorical logic. However, category theory may be based on some parts of set theory, depending on whom one asks. In particular, category theory uses the notion of classes, which are set-like objects although they may not obey set-theoretic axiomatic systems such as the ZFC axioms.}. Therefore, the best we can do to define a logical operator is to lay out what it does to every combination of its input propositions. Think of this as 'fleshing out' the rules characterizing the said logical operator. Typically, this 'fleshing out' is done using truth tables.
+
+Informally\footnote{As we have not yet constructed numbers, any employment of such objects is for informal and intuitive purposes.}, if a logical operator $\mathcal{L}$ acts on $n$ propositions, there are $2^{n+1}$ ways of defining it. This corresponds to $2^n$ entries in the truth table for $\mathcal{L}$, each of which corresponds to some unique combination of entries whose output is fixed to have some truth value.
+
+Following are truth tables and discussion of some common logical operators.
+
+\clearpage
+
+\subsubsection{Unary operators}
+
+Unary operators are logical connectives which act on one proposition and produce another. Thus, there are $2^{1+1} = 4$ possible unary operators, listed below:
+
+\begin{center}
+
+\end{center}
 
 \end{document}
