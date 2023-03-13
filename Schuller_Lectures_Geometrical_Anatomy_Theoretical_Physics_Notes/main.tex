@@ -59,7 +59,7 @@ Email: \href{javascript:location.href = 'mailto:' + ['sidb','tempus-spatium.8shi
 \maketitle
 
 \begin{abstract}
-In these notes, I venture through \href{https://people.utwente.nl/f.p.schuller}{Dr. Frederic P. Schuller}'s \emph{Lectures on the Geometrical Anatomy of Theoretical Physics}, found on \href{https://youtube.com/playlist?list=PLPH7f_7ZlzxTi6kS4vCmv4ZKm9u8g5yic}{YouTube}. Inspiration for the structure of the notes is drawn from Simon Rhea's \href{https://mathswithphysics.blogspot.com/2016/07/lectures-on-geometric-anatomy-of.html}{notes} on the lectures.
+In these notes, I venture through \href{https://people.utwente.nl/f.p.schuller}{Dr. Frederic P. Schuller}'s \emph{Lectures on the Geometrical Anatomy of Theoretical Physics}, found on \href{https://youtube.com/playlist?list=PLPH7f_7ZlzxTi6kS4vCmv4ZKm9u8g5yic}{YouTube}. This venturing entails interpreting his construction of ideas and discussing them both formally and informally. Inspiration for the structure of the notes is drawn from Simon Rhea's \href{https://mathswithphysics.blogspot.com/2016/07/lectures-on-geometric-anatomy-of.html}{notes} on the lectures.
 
 The aim of this project is to capture and add to some of the intuition in the lectures, in the form of proofs, remarks and other ideas. This will be done in a manner which fits pedagogically and chrnologically into both Dr. Frederic Schuller's lectures and Simon Rhea's notes.
 
@@ -78,7 +78,7 @@ A \textbf{proposition} $p$ is a formal expression which can take the forms \emph
 \end{definition}
 \end{shaded}
 
-Propositional logic is the algebra of propositions. By 'algebra', we mean the \emph{compositionality} of objects (here propositions) via operators (here, logical connectives).
+Informally\footnote{As we have not yet formally constructed notions such as that of an algebra, any allusion to such structures is only for informal and intuitive purposes.}, propositional logic is the algebra of propositions. By 'algebra', we mean the \emph{compositionality} of objects (here propositions) via operators (here, logical connectives).
 
 \begin{definition}
 A \textbf{tautology} is a proposition that is always $T$. A \textbf{contradiction} is a proposition that is always $F$.
@@ -86,7 +86,7 @@ A \textbf{tautology} is a proposition that is always $T$. A \textbf{contradictio
 
 It is tempting to think of logical operators/connectives as maps from one or more propositions, to a new proposition. However, as we are yet to construct set theory, such a treatment would be logically circular\footnote{A possible way to get around this is to construct categorical logic. However, category theory may be based on some parts of set theory, depending on whom one asks. In particular, category theory uses the notion of classes, which are set-like objects although they may not obey set-theoretic axiomatic systems such as the ZFC axioms.}. Therefore, the best we can do to define a logical operator is to lay out what it does to every combination of its input propositions. Think of this as 'fleshing out' the rules characterizing the said logical operator. Typically, this 'fleshing out' is done using truth tables.
 
-Informally\footnote{As we have not yet constructed numbers, any employment of such objects is for informal and intuitive purposes.}, if a logical operator $\mathcal{L}$ acts on $n$ propositions, there are $2^{\left( 2^n \right)}$ ways of defining it. This corresponds to $2^n$ entries in the truth table for $\mathcal{L}$, each of which corresponds to some unique combination of entries whose output is fixed to have some truth value from the two choices, $T$ and $F$.
+If a logical operator $\mathcal{L}$ acts on $n$ propositions, there are $2^{\left( 2^n \right)}$ ways of defining it. This corresponds to $2^n$ entries in the truth table for $\mathcal{L}$, each of which corresponds to some unique combination of entries whose output is fixed to have some truth value from the two choices, $T$ and $F$.
 
 Following are truth tables and discussion of some common logical operators.
 
@@ -113,5 +113,33 @@ where $\text{id}$ is the \emph{identity} operator, $\lnot$ is the \emph{negation
 \subsubsection{Binary operators}
 
 There are $2^{\left( 2^2 \right)} = 16$ binary logical connectives. Some particularly important ones are:
+
+\begin{center}
+\begin{tabular}{|c|c||c|c|c|c|c|}
+\hline
+$p$ & $q$ & $p \land q$ & $p \lor q$ & $p \underline{\lor} q$ & $p \implies q$ & $p \Longleftrightarrow q$ \\
+\hhline{|=|=||=|=|=|=|=|}
+$F$ & $F$ & $F$ & $F$ & $F$ & $T$ & $T$ \\
+\hline
+$F$ & $T$ & $F$ & $T$ & $T$ & $T$ & $F$ \\
+\hline
+$T$ & $F$ & $F$ & $T$ & $T$ & $F$ & $F$ \\
+\hline
+$T$ & $T$ & $T$ & $T$ & $F$ & $T$ & $T$ \\
+\hline
+\end{tabular}
+\end{center}
+
+The above binary operators are respectively called the \emph{and}; \emph{or}; \emph{exclusive or}; \emph{implication}; and \emph{equivalence} operators.
+
+\begin{shaded}
+\begin{lemma}
+All binary logical operators can be constructed using the above unary and binary operators.
+\end{lemma}
+
+\begin{proof}
+
+\end{proof}
+\end{shaded}
 
 \end{document}
