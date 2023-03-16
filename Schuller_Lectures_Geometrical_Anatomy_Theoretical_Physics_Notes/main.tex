@@ -9,8 +9,8 @@
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{definition}{Definition}[section]
 \newtheorem{corollary}{Corollary}[theorem]
-\newtheorem{lemma}{Lemma}[theorem]
-\newtheorem*{remark}{Remark}
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{remark}{Remark}[section]
 \usepackage{authblk}
 \usepackage{multirow, booktabs}
 \usepackage{calc}
@@ -133,20 +133,39 @@ $T$ & $T$ & $T$ & $T$ & $F$ & $T$ & $T$ \\
 The above binary operators are respectively called the \emph{and}; \emph{or}; \emph{exclusive or}; \emph{implication}; and \emph{equivalence} operators.
 
 \begin{remark}[Binding strength]
-
+In a given formal expression, the binary logical operator with the highest \emph{binding strength} separates the expression into two smaller expressions (typically on either side of the said binary operator). The expression can thus be converted to an equivalent expression by making the binary operator act on the mentioned expressions. This process can then be repeated for the smaller expressions, provided the binary operators appearing in them, if any, have a lower binding strength than the previous one. This forms a recursive process which is an example of \emph{evaluating} the original formal expression.
 \end{remark}
 
 \begin{shaded}
-\begin{remark}[Ex falso quad libet]
-The idea that $F \implies T$ is called '\textbf{ex falso quad libet}', i.e. from a false assumption, anything can follow. This principle is solidified by the below theorem.
+\begin{remark}[Principle of explosion]
+The idea that $F \implies T$ is called the \emph{principle of explosion} or \emph{ex falso quodlibet}, i.e. from a false assumption, anything true can follow. The intuition for this princiuple is that once a contradiction has been established, any proposition, including negations, can be gleaned from the contradiction.
+
+This results in the following important theorem.
 \end{remark}
 
-\begin{theorem}[Proof by contradiction]
-$\left( p \implies q \right) \Longleftrightarrow \left( \lnot q \implies \lnot p \right)$
+\begin{theorem}[Contraposition] If $p$ and $q$ are propisitions, then,
+
+$$\left( p \implies q \right) \Longleftrightarrow \left( \lnot q \implies \lnot p \right)$$
 \end{theorem}
 
 \begin{proof}
+We observe the following truth table, which by the definition of the equivalence operator, helps establish the above result:
 
+\begin{center}
+\begin{tabular}{|c|c||c|c||c|}
+\hline
+$p$ & $q$ & $p \implies q$ & $\lnot q \implies \lnot p$ & $\left( p \implies q \right) \Longleftrightarrow \left( \lnot q \implies \lnot p \right)$ \\
+\hhline{|=|=||=|=||=|}
+$F$ & $F$ & $T$ & $T$ & $T$ \\
+\hline
+$F$ & $T$ & $T$ & $T$ & $T$ \\
+\hline
+$T$ & $F$ & $F$ & $F$ & $T$ \\
+\hline
+$T$ & $T$ & $T$ & $T$ & $T$ \\
+\hline
+\end{tabular}
+\end{center}
 \end{proof}
 \end{shaded}
 
