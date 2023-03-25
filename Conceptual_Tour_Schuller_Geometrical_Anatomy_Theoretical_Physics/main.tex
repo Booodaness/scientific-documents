@@ -62,7 +62,7 @@ Email: \href{javascript:location.href = 'mailto:' + ['sidb','tempus-spatium.8shi
 \begin{abstract}
 In these notes, I venture through \href{https://people.utwente.nl/f.p.schuller}{Dr. Frederic P. Schuller}'s \emph{Lectures on the Geometrical Anatomy of Theoretical Physics}, found on \href{https://youtube.com/playlist?list=PLPH7f_7ZlzxTi6kS4vCmv4ZKm9u8g5yic}{YouTube}. This venturing entails interpreting his construction of ideas and discussing them both formally and informally. Inspiration for the structure of the notes is drawn from Simon Rhea's \href{https://mathswithphysics.blogspot.com/2016/07/lectures-on-geometric-anatomy-of.html}{notes} on the lectures.
 
-The aim of this project is to capture and add to some of the intuition in the lectures, in the form of proofs, remarks and other ideas. This will be done in a manner which fits pedagogically and chrnologically into both Dr. Frederic Schuller's lectures and Simon Rhea's notes.
+The aim of this project is to capture and add to some of the intuition in the lectures, in the form of proofs, remarks and other ideas. This will be done in a manner which fits pedagogically and chronologically into both Dr. Frederic Schuller's lectures and Simon Rhea's notes.
 
 The manner of writing these notes is fairly personal. That said, its construction will hopefully allow it to be, for some, a useful resource that can be used alongside the original lectures and notes based on them.
 \end{abstract}
@@ -170,12 +170,55 @@ $T$ & $T$ & $T$ & $T$ & $T$ \\
 \end{proof}
 \end{shaded}
 
-\begin{lemma}
-All binary logical operators can be constructed using the above unary and binary operators.
-\end{lemma}
+\begin{shaded}
+\begin{theorem}[De Morgan's Laws]
+De Morgan's laws or theorem is a set of the following two rules,
 
+$$\lnot \left( p \land q \right) = \lnot p \lor \lnot q$$
+
+$$\lnot \left( p \lor q \right) = \lnot p \land \lnot q$$
+
+The above statements can be exhaustively shown to be true using truth tables.
+\end{theorem}
+\end{shaded}
+
+\begin{definition}
+The \textbf{nand} operator $\uparrow$ is the binary operator defined by:
+
+\begin{center}
+\begin{tabular}{|c|c||c|}
+\hline
+$p$ & $q$ & $p \uparrow q$ \\
+\hhline{|=|=||=|}
+$F$ & $F$ & $T$ \\
+\hline
+$F$ & $T$ & $T$ \\
+\hline
+$T$ & $F$ & $T$ \\
+\hline
+$T$ & $T$ & $F$ \\
+\hline
+\end{tabular}
+\end{center}
+\end{definition}
+
+We have that $p \uparrow q = \lnot \left( p \land q \right)$. This shows how the \emph{nand} operator internally contains the \emph{not} and \emph{and} operators.
+
+\begin{lemma}[Disjunctive normal form]
+
+\end{lemma}
 \begin{proof}
 
 \end{proof}
+
+\begin{theorem}[Functional completeness]
+Any N-ary logical operator $\heartsuit \left( p_1, \dots, p_N \right)$ can be constructed using the \emph{nand} ($\uparrow$) binary operator.
+\end{theorem}
+\begin{proof}
+
+\end{proof}
+\begin{example}
+
+\end{example}
 
 \end{document}
