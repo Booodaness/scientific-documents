@@ -42,6 +42,7 @@ urlcolor=blue,
 \usepackage{wrapfig}
 \usepackage[table]{xcolor}
 \usepackage[most]{tcolorbox}
+\usepackage{venndiagram}
 \usepackage{xcolor}
 \colorlet{shadecolor}{orange!15}
 
@@ -139,7 +140,7 @@ In a given formal expression, the binary logical operator with the highest \emph
 
 \begin{shaded}
 \begin{remark}[Principle of explosion]
-The idea that $F \implies T$ is called the \emph{principle of explosion} or \emph{ex falso quodlibet}, i.e. from a false assumption, anything true can follow. The intuition for this princiuple is that once a contradiction has been established, any proposition, including negations, can be gleaned from the contradiction.
+The idea that $F \implies T$ is called the \emph{principle of explosion} or \emph{ex falso quodlibet}, i.e. from a false assumption, anything true can follow. The intuition for this principle is that once a contradiction has been established, any proposition, including negations, can be gleaned from the contradiction.
 
 This results in the following important theorem.
 \end{remark}
@@ -169,6 +170,12 @@ $T$ & $T$ & $T$ & $T$ & $T$ \\
 \end{center}
 \end{proof}
 \end{shaded}
+
+A clue into the truth of the above theorem can be seen in the following Venn diagrams\footnote{At this stage, Venn diagrams are only intuitive tools but yet to be constructed rigorously as we have not yet defined sets, on which these diagrams are based.}.
+
+\begin{venndiagram2sets}
+\fillA \fillB
+\end{venndiagram2sets}
 
 \begin{shaded}
 \begin{theorem}[De Morgan's Laws]
