@@ -1,0 +1,196 @@
+% beamerthemeFeng.sty
+% style file for beamer presentation
+
+% tikz is used to ``draw'' title page and other templates in beamer
+\usepackage{tikz,etoolbox}
+\usetikzlibrary{shapes,arrows}
+
+\definecolor{UWBlack}{HTML}{000000}
+\definecolor{UWWhite}{HTML}{FFFFFF}
+
+
+\definecolor{UWMathPinkL1}{HTML}{FFBEEF}
+\definecolor{UWMathPinkL2}{HTML}{FF63AA}
+\definecolor{UWMathPinkL3}{HTML}{DF2498}
+\definecolor{UWMathPinkL4}{HTML}{C60078}
+\definecolor{UWGrayL1}{HTML}{DFDFDF}
+\definecolor{UWGrayL2}{HTML}{A2A2A2}
+\definecolor{UWGrayL3}{HTML}{787878}
+\definecolor{UWGrayL4}{HTML}{000000}
+\definecolor{UWGoldL1}{HTML}{FFFFAA}
+\definecolor{UWGoldL2}{HTML}{FFEA3D}
+\definecolor{UWGoldL3}{HTML}{FFD54F}
+\definecolor{UWGoldL4}{HTML}{E4B429}
+
+\definecolor{carrot}{HTML}{EE693F}
+\definecolor{ivory}{HTML}{F1F3CE}
+\definecolor{emerald}{HTML}{265C00}
+\definecolor{turquise}{HTML}{5BC8AC}
+\definecolor{peacockblue}{HTML}{1E656D}
+\definecolor{spicy}{HTML}{B51D0A}
+\definecolor{bluegreen}{HTML}{5F968E}
+\definecolor{rust}{HTML}{9B4F0F}
+\definecolor{burntorange}{HTML}{DE7A22}
+\definecolor{sea}{HTML}{20948B}
+\definecolor{lagoon}{HTML}{6AB187}
+
+
+% Set colors for different components in a slide
+\setbeamercolor{background canvas}{bg=UWWhite}
+\setbeamercolor{author}{fg=UWGoldL3}
+\setbeamercolor{institute}{fg=UWMathPinkL3}
+\setbeamercolor{title}{fg=UWGrayL4}
+\setbeamercolor{section in head/foot}{bg=UWBlack, fg=UWGoldL3}
+\setbeamercolor{author in head/foot}{fg=UWGoldL3, bg=UWBlack}
+\setbeamercolor{title in head/foot}{fg=UWBlack,bg=UWGoldL3}
+\setbeamercolor{institute in head/foot}{fg=UWGoldL3, bg=UWBlack}
+\setbeamercolor{navigation symbols}{fg=UWBlack}
+\setbeamercolor{normal text}{fg=UWGrayL3}
+\setbeamercolor{section in toc}{fg=emerald}
+\setbeamercolor{subsection in toc}{fg=bluegreen}
+\setbeamercolor{frametitle}{fg=UWMathPinkL2, bg=UWGrayL1}
+\setbeamercolor{block title}{bg=emerald, fg=ivory}
+\setbeamercolor{block body}{bg=peacockblue!20, fg=peacockblue}
+\setbeamercolor{section number projected}{bg=turquise,fg=black}
+\setbeamercolor{block title example}{fg=rust,
+	bg= sea!40}
+\setbeamercolor{block body example}{fg= burntorange,
+	bg= lagoon!20}
+
+\setbeamerfont{frametitle}{series=\bfseries} % bold frame title
+\setbeamerfont{section number projected}{% bold TOC bullet
+  family=\rmfamily,series=\bfseries,size=\normalsize}
+  
+% two common fields in conference presentations
+\newcommand\jointwork[1]{\def\insertjointwork{#1}}
+\newcommand\conference[1]{\def\insertconference{#1}}
+
+% Title page style
+\setbeamertemplate{title page}{
+\begin{tikzpicture}[remember picture, overlay]
+\fill[UWWhite]
+  ([yshift=30pt]current page.west) rectangle (current page.south east);
+
+\fill[UWBlack]
+  ([yshift=30pt]current page.west) rectangle (current page.north east);
+
+\node[anchor=east] at ([yshift=-50pt,xshift=-15pt]current page.north east)
+  {
+  \includegraphics[width=0.4\linewidth]{./UniversityOfWaterloo_logo_vert_rev_rgb.png}};
+
+\node[anchor=north west] at ([yshift=-70pt,xshift=15pt]current page.north west) (institute)
+	{
+	\parbox[t]{.78\paperwidth}{
+    \usebeamerfont{institute}\usebeamercolor[fg]{institute}\large\bfseries\insertinstitute}
+    };
+    
+\node[anchor=west] at ([yshift=-45pt,xshift=15pt]current page.north west) (author)
+	{
+	\parbox[t]{.78\paperwidth}{
+    \usebeamerfont{author}\usebeamercolor[fg]{author}\Large\bfseries \insertauthor}
+    };
+
+
+    
+\node[anchor=north] at ([yshift=15pt]current page.center) (title)
+	{
+	\parbox[t]{\textwidth}{\huge\bfseries\centering
+	\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle}
+	};
+    
+\node[anchor=north] at ([yshift=-40pt]current page.center) (jointwork)
+	{
+	\parbox[t]{\paperwidth}{\bfseries\centering\insertjointwork}
+	};
+	
+\node[anchor=north] at ([yshift=40pt]current page.south) (jointwork)
+	{
+	\parbox[t]{\paperwidth}{\centering\insertconference}
+	};
+\end{tikzpicture}
+}
+
+\setbeamertemplate{headline} % add navigation to headline
+{%
+  \begin{beamercolorbox}{section in head/foot}
+    \vskip5pt\bfseries
+    \insertnavigation{\paperwidth}
+    \vskip2pt
+  \end{beamercolorbox}%
+}
+
+
+\renewcommand*{\slideentry}[6]{} % no solid circle in headline
+
+% three-parts footline, color determined in beamer template
+\setbeamertemplate{footline}
+{
+	\leavevmode % vertical mode is ended and horizontal mode is entered. In vertical mode, TeX stacks horizontal boxes vertically, whereas in horizontal mode, they are taken as part of the text line. 
+	\begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.5ex,dp=1.125ex,
+      leftskip=.3cm,rightskip=.3cm plus1fil]{author in head/foot}
+		\usebeamerfont{author in head/foot}\insertshortauthor
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.5ex,dp=1.125ex,
+      leftskip=.3cm,rightskip=.3cm plus1fil,center]{title in head/foot}
+      {\usebeamerfont{title in head/foot}\insertshorttitle}
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.5ex,dp=1.125ex,
+      leftskip=.3cm,rightskip=.3cm plus1fil]{institute in head/foot}
+      \hfill    {\usebeamercolor[fg]{institute in head/foot}\insertshortinstitute}    
+	\end{beamercolorbox}%
+}
+
+\setbeamertemplate{navigation symbols}{\bfseries\insertframenumber/\inserttotalframenumber}
+
+\setbeamertemplate{sections/subsections in toc}[ball]
+
+% make the itemize bullets pixelated >
+\setbeamertemplate{itemize item}{
+	\tikz{
+		\draw[fill=spicy,draw=none] (0, 0) rectangle(0.075, 0.075);
+		\draw[fill=spicy,draw=none] (0.075, 0.075) rectangle(0.15, 0.15);
+		\draw[fill=spicy,draw=none] (0, 0.15) rectangle(0.075, 0.225);
+	}
+}
+
+% make the subitems also pixelated >, but a little smaller and red
+\setbeamertemplate{itemize subitem}{
+	\tikz{
+		\draw[fill=carrot,draw=none] (0, 0) rectangle(0.05, 0.05);
+		\draw[fill=carrot,draw=none] (0.05, 0.05) rectangle(0.1, 0.1);
+		\draw[fill=carrot,draw=none] (0, 0.1) rectangle(0.05, 0.15);
+	}
+}
+
+\AtBeginEnvironment{block}{
+	\setbeamertemplate{itemize item}{
+		\tikz{
+			\draw[fill=spicy,draw=none] (0, 0) rectangle(0.075, 0.075);
+			\draw[fill=spicy,draw=none] (0.075, 0.075) rectangle(0.15, 0.15);
+			\draw[fill=spicy,draw=none] (0, 0.15) rectangle(0.075, 0.225);
+		}
+	}
+
+	\setbeamertemplate{itemize subitem}{
+		\tikz{
+			\draw[fill=carrot,draw=none] (0, 0) rectangle(0.05, 0.05);
+			\draw[fill=carrot,draw=none] (0.05, 0.05) rectangle(0.1, 0.1);
+			\draw[fill=carrot,draw=none] (0, 0.1) rectangle(0.05, 0.15);
+		}
+	}
+}
+
+\setbeamertemplate{blocks}[rounded][shadow=false]
+
+\setbeamercovered{invisible}
+
+\usefonttheme[onlymath]{serif} % change the math font theme
+
+\AtBeginEnvironment{theorem}{%
+  \setbeamercolor{block title}{bg=peppercorn, fg=pearl}
+  \setbeamercolor{block body}{bg=parsnip, fg=spicy}
+}
+
+% set color scheme in different parts 
+% please refer to beamer cheatsheet below for details
+% http://www.cpt.univ-mrs.fr/~masson/latex/Beamer-appearance-cheat-sheet.pdf

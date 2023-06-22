@@ -1,0 +1,77 @@
+\documentclass[9pt,handout]{beamer}
+
+\input{StyleFile.tex}
+
+
+\title[\textbf{Catch Phrase}]{An Awesome Work} % The short title appears at the bottom of every slide, the full title is only on the title page
+
+\author[\textbf{Ben Feng (ben.feng@uwaterloo.ca)}]
+{Mingbin (Ben) Feng\\
+mbfeng@uwaterloo.ca} % Your name
+
+\institute[\textbf{University of Waterloo, Actuarial Science}] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+{Dept. Statistics and Actuarial Science\\
+University of Waterloo % Your institution for the title page
+}
+
+\jointwork{Joint work with amazing co-authors}
+\conference{Conference Name, Location, Year}
+
+%===== Uncomment the following if you wish to use references
+%\usepackage[backend=bibtex,citestyle=authoryear-icomp,natbib,maxcitenames=1]{biblatex}
+%\addbibresource{bibfile.bib}
+
+% use this so appendices' page numbers do not count
+\usepackage{appendixnumberbeamer}
+
+\begin{document}
+
+% Title page, navigation surpressed, no page number
+{
+\beamertemplatenavigationsymbolsempty
+\begin{frame}[plain]
+\titlepage
+\end{frame}
+}
+
+% TOC, navigation surpressed, no page number
+{
+\beamertemplatenavigationsymbolsempty
+\defbeamertemplate*{headline}{miniframes theme no subsection no content}
+{ \begin{beamercolorbox}{section in head/foot}
+    \vskip\headheight
+  \end{beamercolorbox}}
+\begin{frame}{Outline} 
+\tableofcontents 
+\end{frame} 
+}
+\addtocounter{framenumber}{-2}
+\section{Section Title}
+\subsection{Subsection title}
+
+\begin{frame}{Frame Title}
+
+\begin{block}{Block Title}
+	\begin{itemize}
+		\item Block Items
+		\begin{itemize}
+			\item Block Subitems
+		\end{itemize}
+	\end{itemize}
+\end{block}
+
+\begin{example}
+	This is an Example block
+\end{example}
+\end{frame}
+
+
+
+
+%% References
+%\appendix
+%\begin{frame}[allowframebreaks]
+%        \frametitle{References}
+%        \printbibliography
+%\end{frame}
+\end{document}
