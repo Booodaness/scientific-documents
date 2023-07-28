@@ -1,0 +1,345 @@
+\documentclass[9pt,handout]{beamer}
+
+\input{StyleFile.tex}
+
+
+\title[\textbf{Quantum Operators Modelling Measurement}]{Building Quantum Operators Modelling Measurement} % The short title appears at the bottom of every slide, the full title is only on the title page
+
+\author[\textbf{Sid (s3bhatta@uwaterloo.ca)}]
+{Siddhartha Bhattacharjee \\
+Email: s3bhatta@uwaterloo.ca \\
+Discord: booodaness} % Your name
+
+\institute[\textbf{University of Waterloo, Faculty of Science}] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+{Mathematical Physics (1C)\\
+University of Waterloo % Your institution for the title page
+}
+
+\jointwork{(Probably, that is)}
+\conference{PhysClub Student Seminar, August 2, 2023}
+
+%===== Uncomment the following if you wish to use references
+%\usepackage[backend=bibtex,citestyle=authoryear-icomp,natbib,maxcitenames=1]{biblatex}
+%\addbibresource{bibfile.bib}
+
+% use this so appendices' page numbers do not count
+\usepackage{appendixnumberbeamer}
+\usepackage{cancel}
+
+\newcommand{\pr}[0]{\text{pr}}
+\newcommand{\tr}[0]{\text{tr}}
+
+\begin{document}
+
+% Title page, navigation surpressed, no page number
+{
+\beamertemplatenavigationsymbolsempty
+\begin{frame}[plain]
+\titlepage
+\end{frame}
+}
+
+% TOC, navigation surpressed, no page number
+{
+\beamertemplatenavigationsymbolsempty
+\defbeamertemplate*{headline}{miniframes theme no subsection no content}
+{ \begin{beamercolorbox}{section in head/foot}
+    \vskip\headheight
+  \end{beamercolorbox}}
+\begin{frame}{Outline} 
+\tableofcontents 
+\end{frame} 
+}
+\addtocounter{framenumber}{-2}
+
+\section{Preliminaries}
+
+\subsection{Axioms of Quantum Mechanics}
+\begin{frame}{Axioms of Quantum Mechanics}
+\begin{itemize}
+\item In these slides, we will explicitly make use of the following axioms of quantum mechanics (QM):
+
+\begin{block}{Axioms used}
+\begin{enumerate}
+\item The state $\left\lvert \Psi \right\rangle$ of a quantum system $\mathcal{S}$ can be represented by a vector in a separable Hilbert space $\mathbb{H}$.
+\item Observables on $\mathcal{S}$ can be represented by self-adjoint linear operators $\mathbb{H} \to \mathbb{H}$ on the Hilbert space of states $\mathbb{H}$ of the system $\mathcal{S}$.
+\end{enumerate}
+\end{block}
+
+\item Notice that we have not mentioned an axiom from the Hilbert space formulation of QM, commonly called the \textbf{Born rule}. In one form, it states that the probability that a quantum measurement of an observable $\widehat{A}$ makes a state $\left\lvert \Psi \right\rangle$ collapse to an eigenstate\footnote{a notion central to the Copenhagen interpretation of QM} $\left\lvert a_k \right\rangle$ is,
+
+\begin{block}{Born rule}
+$$\pr \left( \left\lvert a_k \right\rangle \right) = \left\langle \Psi \right. \left\lvert a_k \right\rangle \left\langle a_k \right. \left\lvert \Psi \right\rangle$$
+\end{block}
+\end{itemize}
+
+We are, in fact, going to \emph{derive} the above principle from a simpler assumption!
+\end{frame}
+
+\subsection{Motivation}
+\begin{frame}{Motivation}
+\begin{itemize}
+\item The motivation for this study begins by asking why the Born rule involves an expectation value. Before making the observation\footnote{For simplicity, we assume $\mathbb{H}$ has a dimension that is either finite or countably infinite.}, let us define the \textbf{expectation value} of a self-adjoint operator $\widehat{A} : \mathbb{H} \to \mathbb{H}$,
+
+$$E \left( \widehat{A} \right) : = \sum_{k} \pr \left( \left\lvert a_k \right\rangle \right) a_k$$
+
+where $\left\{ a_k \right\}$ is a normalized eigenbasis for $\mathbb{H}$, i.e., any state $\left\lvert \Psi \right\rangle \in \mathbb{H}$ can be written as a unique linear combination (over $\mathbb{C}$) of $\left\{ a_k \right\}$ and, for all $k$,
+
+\begin{align*}
+\widehat{A} \left\lvert a_k \right\rangle & = a_k \left\lvert a_k \right\rangle \\
+\left\langle \left. a_k \right\rvert a_l \right\rangle & = \delta_{k l} := \begin{cases} 
+1 & k = l \\
+0 & k \neq l
+\end{cases}
+\end{align*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\begin{itemize}
+\item As a consequence of the above, $\left\langle a_k \left. \right\rvert a_k \right\rangle = 1$ and we have,
+
+\begin{align*}
+a_k & = a_k \left\langle a_k \left. \right\rvert a_k \right\rangle \\
+& = \left\langle a_k \left\lvert a_k \right\rvert a_k \right\rangle \\
+& = \left\langle a_k \left\lvert \widehat{A} \right\rvert a_k \right\rangle
+\end{align*}
+
+Plugging this into the definition of the expectation value of $\widehat{A}$,
+
+\begin{block}{Expectation values, without Born rule}
+$$E \left( \widehat{A} \right) = \sum_{k} \pr \left( \left\lvert a_k \right\rangle \right) \left\langle a_k \left\lvert \widehat{A} \right\rvert a_k \right\rangle$$
+\end{block}
+
+Using the Born rule,
+
+\begin{align*}
+E \left( \widehat{A} \right) = \sum_{k} \pr \left( \left\lvert a_k \right\rangle \right) \left\langle a_k \left\lvert \widehat{A} \right\rvert a_k \right\rangle & = \sum_k \left\langle \Psi \right. \left\lvert a_k \right\rangle \left\langle a_k \right. \left\lvert \Psi \right\rangle \left\langle a_k \left\lvert \widehat{A} \right\rvert a_k \right\rangle \\
+& = \sum_k \sum_l \left\langle \Psi \right. \left\lvert a_k \right\rangle \left\langle a_k \left\lvert \widehat{A} \right\rvert a_l \right\rangle \left\langle a_l \right. \left\lvert \Psi \right\rangle \\
+& = \left\langle \Psi \left\lvert \widehat{A} \right\rvert \Psi \right\rangle
+\end{align*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\begin{itemize}
+\item Therefore, the Born rule simplifies the expression for the expectation value of a quantum operator. 
+
+\begin{block}{Expectation values, with Born rule}
+$$E \left( \widehat{A} \right) = \left\langle \Psi \left\lvert \widehat{A} \right\rvert \Psi \right\rangle$$
+\end{block}
+
+
+\item It follows that the Born rule itself hides the expectation value of a projection operators corresponding to eigenstates:
+
+\begin{align*}
+\pr \left( \left\lvert a_k \right\rangle \right) & = \left\langle \Psi \right. \left\lvert a_k \right\rangle \left\langle a_k \right. \left\lvert \Psi \right\rangle \\
+& = \left\langle \Psi \right\rvert \left\lvert a_k \right\rangle \left\langle a_k \right\rvert \left\lvert \Psi \right\rangle \\
+& = E \left( \left\lvert a_k \right\rangle \left\langle a_k \right\rvert \right)
+\end{align*}
+
+\begin{block}{Born rule, with expectation values}
+$$\pr \left( \left\lvert a_k \right\rangle \right) = E \left( \left\lvert a_k \right\rangle \left\langle a_k \right\rvert \right)$$
+\end{block}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\begin{itemize}
+\item Equipped with the above ideas, we note,
+
+\begin{align*}
+E \left( \widehat{I} \right) & = \left\langle \Psi \left\lvert \widehat{I} \right\rvert \Psi \right\rangle \\
+& = \left\langle \Psi \left\lvert \right. \Psi \right\rangle
+\end{align*}
+
+But,
+
+\begin{align*}
+E \left( \widehat{I} \right) : & = \sum_{k} \pr \left( \left\lvert a_k \right\rangle \right) \left\langle a_k \left\lvert \widehat{I} \right\rvert a_k \right\rangle \\
+& = \sum_k \pr \left( \left\lvert a_k \right\rangle \right) \left\langle a_k \left. \right\rvert a_k \right\rangle \\
+& = \sum_k \pr \left( \left\lvert a_k \right\rangle \right) \\
+: & = 1
+\end{align*}
+
+Therefore, we have,
+
+\begin{block}{Normalization}
+$$\left\langle \Psi \left\lvert \right. \Psi \right\rangle = 1$$
+\end{block}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\begin{itemize}
+\item However, for the purposes of these slides, the above statement is not necessary. We could have, for instance, modified the Born rule without loss or gain of theory as,
+
+\begin{block}{Born rule, with explicit normalization}
+$$\pr \left( \left\lvert a_k \right\rangle \right) = \frac{1}{\left\langle \Psi \left\lvert \right. \Psi \right\rangle} \left\langle \Psi \right. \left\lvert a_k \right\rangle \left\langle a_k \right. \left\lvert \Psi \right\rangle$$
+\end{block}
+
+Explicit normalization of states then becomes unnecessary as the above rule is invariant under normalization of the form $\displaystyle{\left\lvert \Psi \right\rangle \to \frac{1}{\left\langle \Psi \left\lvert \right. \Psi \right\rangle} \left\lvert \Psi \right\rangle}$.
+
+\item In general, the idea is that scaling states by \emph{any} complex number should not change physics\footnote{In \emph{The Principles of Quantum Mechanics}, Paul Dirac gives great attention to this point and how it is related to the idea that eigenstates matter only up to scale as orthogonality of states is a physical distinction and scaling does not disturb orthogonality.}; this idea will be formalized later on.
+\end{itemize}
+\end{frame}
+
+\subsection{Density Operators}
+\begin{frame}{Pure and Mixed Quantum States}
+\begin{itemize}
+\item Recall that a quantum system has a state $\left\lvert \Psi \right\rangle$ belonging to a [separable] Hilbert space $\mathcal{H}$. But there is more to a state than this notion, as follows.
+
+\item A quantum state $\left\lvert \Psi \right\rangle$ is \textbf{pure} if it is described by a \emph{single} ket, say $\left\lvert \Psi_1 \right\rangle \in \mathcal{H}$,
+
+$$\left\lvert \Psi \right\rangle = \left\lvert \Psi_1 \right\rangle$$
+
+\item A quantum state $\left\lvert \Psi \right\rangle$ is \textbf{mixed} if it is possibly described by \emph{multiple} kets, say $\left\lvert \Psi_1 \right\rangle, \left\lvert \Psi_2 \right\rangle, \dots \left\lvert \Psi_N \right\rangle \in \mathcal{H}$. 
+
+The probability of $\left\lvert \Psi \right\rangle$ being described by a given state $\left\lvert \Psi_\alpha \right\rangle$ can be described by a probability map,
+
+\begin{align*}
+\pr : \left\lvert \Psi_\alpha \right\rangle & \to \text{pr} \left( \left\lvert \Psi_\alpha \right\rangle \right) \in \left[ 0, 1 \right] \\
+\sum_{\alpha} \pr \left( \left\lvert \Psi_\alpha \right\rangle \right) & = 1
+\end{align*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Density Operators}
+\begin{itemize}
+\item In general, the information contained in the possible state(s) of a quantum system are packed into what is called its \textbf{density operator} $\widehat{\rho}$,
+
+\begin{block}{Density operators}
+$$\widehat{\rho} : = \sum_{\alpha} \pr \left( \left\lvert \Psi_\alpha \right\rangle \right) \left\lvert \Psi_\alpha \right\rangle \left\langle \Psi_\alpha \right\rvert$$
+\end{block}
+
+For a pure state $\left\lvert \Psi \right\rangle$, the density operator is simply $\left\lvert \Psi \right\rangle \left\langle \Psi \right\rvert$.
+
+\item For future use, we define the trace of a linear operator,
+
+\begin{block}{Trace of linear operators}
+$$\tr \left( \widehat{A} \right) : = \sum_k \left\langle a_k \left\lvert \widehat{A} \right\rvert a_k \right\rangle = \sum_k a_k$$
+\end{block}
+
+We will soon use these constructions to simplify the expression for the expectation value of a linear operator.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Properties of Trace}
+\begin{itemize}
+\item Firstly, trace is a \textbf{linear} operation as,
+
+\begin{align*}
+\tr \left( c \widehat{A} \right) & : = \sum_k \left\langle a_k \left\lvert c \widehat{A} \right\rvert a_k \right\rangle \\
+& = c \sum_k \left\langle a_k \left\lvert \widehat{A} \right\rvert a_k \right\rangle \\
+& = c \: \tr \left( \widehat{A} \right) \\
+\tr \left( \widehat{A} + \widehat{B} \right) : & = \sum_k \left\langle a_k \left\lvert \left( \widehat{A} + \widehat{B} \right) \right\rvert a_k \right\rangle \\
+& = \sum_k \left[ \left\langle a_k \left\lvert \widehat{A} \right\rvert a_k \right\rangle + \left\langle a_k \left\lvert \widehat{B} \right\rvert a_k \right\rangle \right] \\
+& = \sum_k \left\langle a_k \left\lvert \widehat{A} \right\rvert a_k \right\rangle + \sum_k \left\langle a_k \left\lvert \widehat{B} \right\rvert a_k \right\rangle \\
+& = \tr \left( \widehat{A} \right) + \tr \left( \widehat{B} \right)
+\end{align*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\begin{itemize}
+\item Secondly, trace is a \emph{symmetric} operation,
+
+$$\tr \left( \widehat{A} \widehat{B} \right) : = \sum_m \left\langle a_m \left\lvert \widehat{A} \widehat{B} \right\rvert a_m \right\rangle$$
+
+\begin{align*}
+& = \sum_m \left\langle a_m \right\rvert \left( \sum_i \sum_j \left\langle a_i \left\lvert \widehat{A} \right\vert a_j \right\rangle \left\lvert a_i \right\rangle \left\langle a_j \right\rvert \right) \left( \sum_k \sum_l \left\langle a_k \left\lvert \widehat{B} \right\vert a_l \right\rangle \left\lvert a_k \right\rangle \left\langle a_l \right\rvert \right) \left\lvert a_m \right\rangle \\
+& = \sum_m \sum_i \sum_j \sum_k \sum_l \left\langle a_i \left\lvert \widehat{A} \right\vert a_j \right\rangle \left\langle a_k \left\lvert \widehat{B} \right\vert a_l \right\rangle \left\langle a_m \right\rvert \left. a_i \right\rangle \left\langle a_j \right\rvert \left. a_k \right\rangle \left\langle a_l \right\rvert \left. a_m \right\rangle \\
+& = \sum_m \cancel{\sum_i} \sum_j \cancel{\sum_k} \cancel{\sum_l} \left\langle a_{\cancel{i}} \left\lvert \widehat{A} \right\vert a_j \right\rangle \left\langle a_{\cancel{k}} \left\lvert \widehat{B} \right\vert a_{\cancel{l}} \right\rangle \delta_{m \cancel{i}} \delta_{j \cancel{k}} \delta_{\cancel{l} m} \\
+& = \sum_m \sum_j \left\langle a_{m} \left\lvert \widehat{A} \right\vert a_j \right\rangle \left\langle a_{j} \left\lvert \widehat{B} \right\vert a_{m} \right\rangle \\
+& = \sum_m \sum_j \left\langle a_{j} \left\lvert \widehat{B} \right\vert a_{m} \right\rangle \left\langle a_{m} \left\lvert \widehat{A} \right\vert a_j \right\rangle \\
+& = \sum_m \sum_j \left\langle a_{m} \left\lvert \widehat{B} \right\vert a_{j} \right\rangle \left\langle a_{j} \left\lvert \widehat{A} \right\vert a_{m} \right\rangle \\
+& = \tr \left( \widehat{B} \widehat{A} \right)
+\end{align*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\begin{itemize}
+\item To summarize,
+
+\begin{block}{Properties of trace}
+\begin{enumerate}
+\item Linearity
+
+\begin{align*}
+\tr \left( c \widehat{A} \right) & = c \tr \left( \widehat{A} \right) \\
+\tr \left( \widehat{A} + \widehat{B} \right) & = \tr \left( \widehat{A} \right) + \tr \left( \widehat{B} \right)
+\end{align*}
+
+\item Symmetry
+
+$$\tr \left( \widehat{A} \widehat{B} \right) = \tr \left( \widehat{B} \widehat{A} \right)$$
+\end{enumerate}
+\end{block}
+
+\item As a corollary,
+
+\begin{align*}
+\tr \left( \left( \widehat{A}_1 \dots A_{M-1} \right) \widehat{A}_M \right) & = \tr \left( \widehat{A}_M \left( \widehat{A}_1 \dots \widehat{A}_{M-1} \right) \right) = \dots
+\end{align*}
+
+\begin{block}{Cyclicity}
+$$\tr \left( \widehat{A}_1 \dots \widehat{A}_M \right) = \tr \left( \widehat{A}_M \widehat{A}_1 \dots \widehat{A}_{M-1} \right) = \tr \left( \widehat{A}_{M-1} \widehat{A}_M \widehat{A}_1 \dots \widehat{A}_{M-2} \right) = \dots$$
+\end{block}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Expectation Values Using Density Operators}
+\begin{itemize}
+\item For a pure quantum state $\left\lvert \Psi \right\rangle$,
+
+\begin{align*}
+E \left( \widehat{A} \right) = \left\langle \Psi \left\lvert \widehat{A} \right\rvert \Psi \right\rangle & = \left( \sum_k \left\langle \Psi \right. \left\lvert a_k \right\rangle \left\langle a_k \right\rvert \right) \widehat{A} \left( \sum_l \left\lvert a_l \right\rangle \left\langle a_l \right\rvert \left. \Psi \right\rangle \right) \\
+& = \sum_k \sum_l \left\langle \Psi \right. \left\lvert a_k \right\rangle \left\langle a_l \right. \left\lvert \Psi \right\rangle \left\langle a_k \left\lvert \widehat{A} \right\rvert a_l \right\rangle \\
+& = \sum_k \sum_l \left\langle \Psi \right. \left\lvert a_k \right\rangle \left\langle a_l \right. \left\lvert \Psi \right\rangle \left\langle a_k \left\lvert a_k \right\rvert a_k \right\rangle \\
+& = \sum_k \sum_l \left\langle \Psi \right. \left\lvert a_k \right\rangle \left\langle a_l \right. \left\lvert \Psi \right\rangle \left\langle a_k \right\rvert \left. a_l \right\rangle a_k \\
+& = \tr \left( \sum_k \sum_l \left\langle \Psi \right. \left\lvert a_k \right\rangle \left\langle a_l \right. \left\lvert \Psi \right\rangle \left\lvert a_l \right\rangle \left\langle a_k \right\rvert a_k \right) \\
+& = \tr \left[ \left( \sum_k \left\langle \Psi \right. \left\lvert a_k \right\rangle \left\langle a_k \right\rvert \right) \left( \sum_l \left\lvert a_l \right\rangle \left\langle a_l \right\rvert \left. \Psi \right\rangle \right) \widehat{A} \right] \\
+& = \tr \left( \left\lvert \Psi \right\rangle \left\langle \Psi \right\rvert \widehat{A} \right)
+\end{align*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\begin{itemize}
+\item Let us redefine the expectation value of a linear operator $\widehat{A}$ taking into account mixed states,
+
+$$E \left( \widehat{A} \right) := \sum_{\alpha} \pr \left( \left\lvert \Psi_\alpha \right\rangle \right) E_\alpha \left( \widehat{A} \right)$$
+
+where $E_\alpha \left( \widehat{A} \right)$ is the previously-defined notion of expectation values, which holds for pure states $\left\lvert \Psi \right\rangle = \left\lvert \Psi_\alpha \right\rangle$.
+
+\begin{align*}
+E \left( \widehat{A} \right) & = \sum_{\alpha} \pr \left( \left\lvert \Psi_\alpha \right\rangle \right) \tr \left( \left\lvert \Psi \right\rangle \left\langle \Psi \right\rangle \widehat{A} \right) \\
+& = \sum_{\alpha} \tr \left( \pr \left( \left\lvert \Psi_\alpha \right\rangle \right) \left\lvert \Psi \right\rangle \left\langle \Psi \right\rangle \widehat{A} \right) \\
+& = \tr \left( \sum_{\alpha} \pr \left( \left\lvert \Psi_\alpha \right\rangle \right) \left\lvert \Psi \right\rangle \left\langle \Psi \right\rangle \widehat{A} \right) \\
+& = \tr \left( \widehat{\rho} \widehat{A} \right)
+\end{align*}
+
+\begin{block}{Expectation values, with Born rule, using density operators}
+$$E \left( \widehat{A} \right) = \tr \left( \widehat{\rho} \widehat{A} \right)$$
+\end{block}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\begin{itemize}
+\item This leads to the following corollary,
+
+\begin{block}{Born rule, with density operators}
+$$\pr \left( \left\lvert a_k \right\rangle \right) = \tr \left( \widehat{\rho} \left\lvert a_k \right\rangle \left\langle a_k \right\rvert \right)$$
+\end{block}
+\end{itemize}
+\end{frame}
+
+%% References
+%\appendix
+%\begin{frame}[allowframebreaks]
+%        \frametitle{References}
+%        \printbibliography
+%\end{frame}
+\end{document}
