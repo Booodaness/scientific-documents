@@ -25,6 +25,13 @@ University of Waterloo % Your institution for the title page
 % use this so appendices' page numbers do not count
 \usepackage{appendixnumberbeamer}
 \usepackage{cancel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=.,
+    filecolor=.,      
+    urlcolor=blue,
+    }
 \usepackage{tikz-cd}
 
 \newcommand{\pr}[0]{\text{pr}}
@@ -43,7 +50,7 @@ University of Waterloo % Your institution for the title page
 \begin{frame}{Abstract}
 In this study, we investigate the nature of quantum measurement by exploring the relationships between the Born rule, expectation values, density operators and such notions from first principles. 
   
-This reveals that a generalized form of the Born rule can be sufficiently characterized by measurement-invariant density operators. The analysis further leads naturally to the Many Worlds Interpretation (MWI) of quantum mechanics, although in an abstract sense of the concept of 'many worlds'.
+This reveals a generalized form of the Born rule. Moreover, the usual form of the Born rule can be sufficiently characterized by an explicit modelling of wavefunction collapse and measurement-invariant density operators.
 \end{frame}
 
 % TOC, navigation surpressed, no page number
@@ -574,8 +581,8 @@ $$\pr \left( c \left\lvert a_k \right\rangle \right) = \frac{\tr \left( \widehat
 
 \begin{align*}
 \pr_{\text{sup}} \left( \left\lvert \Phi \right\rangle \right) & : = \pr \left( \sum_k \left\lvert a_k \right\rangle \left\langle a_k \right\rvert \left. \Phi \right\rangle \right) \\
-& = \frac{\tr \left[ \widehat{\rho} \left( \sum_k \left\lvert a_k \right\rangle \left\langle a_k \right\rvert \left. \Phi \right\rangle \right) \left( \sum_l \left\langle \Phi \right\rvert \left. a_l \right\rangle \left\langle a_l \right\rvert \right) \right]}{\tr \left[ \left( \sum_k \left\lvert a_k \right\rangle \left\langle a_k \right\rvert \left. \Phi \right\rangle \right) \left( \sum_l \left\langle \Phi \right\rvert \left. a_l \right\rangle \left\langle a_l \right\rvert \right) \right]} \\
-& = \frac{\tr \left( \widehat{\rho} \left\lvert \Phi \right\rangle \left\langle \Phi \right\rvert \right)}{\tr \left( \left\lvert \Phi \right\rangle \left\langle \Phi \right\rvert \right)}
+& = \frac{\tr \left[ \widehat{\rho} \left( \sum_k \left\lvert a_k \right\rangle \left\langle a_k \right\rvert \left. \Phi \right\rangle \right) \left( \sum_l \left\langle \Phi \right\rvert \left. a_l \right\rangle \left\langle a_l \right\rvert \right) \right]}{\left[ \tr \left( \left( \sum_k \left\lvert a_k \right\rangle \left\langle a_k \right\rvert \left. \Phi \right\rangle \right) \left( \sum_l \left\langle \Phi \right\rvert \left. a_l \right\rangle \left\langle a_l \right\rvert \right) \right) \right]^{1/2}} \\
+& = \frac{\tr \left( \widehat{\rho} \left\lvert \Phi \right\rangle \left\langle \Phi \right\rvert \right)}{\left[ \tr \left( \left\lvert \Phi \right\rangle \left\langle \Phi \right\rvert \right) \right]^{1/2}}
 \end{align*}
 
 \item We interpret the above relationship to quantify the probability associated with the transition of a mixed state to a pure state. 
@@ -587,17 +594,17 @@ $$\pr \left( c \left\lvert a_k \right\rangle \right) = \frac{\tr \left( \widehat
 \item When the initial state is a pure state $\left\lvert \Psi \right\rangle$,
 
 \begin{align*}
-\pr \left( \left\lvert \Phi \right\rangle \right) & = \frac{\tr \left( \frac{1}{\tr \left( \left\lvert \Psi \right\rangle \left\langle \Psi \right\rvert \right)} \left\lvert \Psi \right\rangle \left\langle \Psi \right\rvert \left. \Phi \right\rangle \left\langle \Phi \right\rvert \right)}{\tr \left( \left\lvert \Phi \right\rangle \left\langle \Phi \right\rvert \right)} \\
-& = \frac{\tr \left( \left\lvert \Psi \right\rangle \left\langle \Psi \right\rvert \left. \Phi \right\rangle \left\langle \Phi \right\rvert \right)}{\tr \left( \left\lvert \Psi \right\rangle \left\langle \Psi \right\rvert \right) \tr \left( \left\lvert \Phi \right\rangle \left\langle \Phi \right\rvert \right)} \\
-& = \frac{\left\langle \Psi \right\rvert \left. \Phi \right\rangle \left\langle \Phi \right\rvert \left. \Psi \right\rangle}{\left\langle \Psi \right\rvert \left. \Psi \right\rangle \left\langle \Phi \right\rvert \left. \Phi \right\rangle}
+\pr \left( \left\lvert \Phi \right\rangle \right) & = \frac{\tr \left( \frac{1}{\left[ \tr \left( \left\lvert \Psi \right\rangle \left\langle \Psi \right\rvert \right) \right]^{1/2}} \left\lvert \Psi \right\rangle \left\langle \Psi \right\rvert \left. \Phi \right\rangle \left\langle \Phi \right\rvert \right)}{\left[ \tr \left( \left\lvert \Phi \right\rangle \left\langle \Phi \right\rvert \right) \right]^{1/2}} \\
+& = \frac{\tr \left( \left\lvert \Psi \right\rangle \left\langle \Psi \right\rvert \left. \Phi \right\rangle \left\langle \Phi \right\rvert \right)}{\left[ \tr \left( \left\lvert \Psi \right\rangle \left\langle \Psi \right\rvert \right) \tr \left( \left\lvert \Phi \right\rangle \left\langle \Phi \right\rvert \right) \right]^{1/2}} \\
+& = \frac{\left\langle \Psi \right\rvert \left. \Phi \right\rangle \left\langle \Phi \right\rvert \left. \Psi \right\rangle}{\left( \left\langle \Psi \right\rvert \left. \Psi \right\rangle \left\langle \Phi \right\rvert \left. \Phi \right\rangle \right)^{1/2}}
 \end{align*}
 
 This is a generalized form of the Born rule which does not directly involve measurement. Here, $\displaystyle{\frac{\left\langle \Psi \right\rvert \left. \Phi \right\rangle}{\left( \left\langle \Psi \right\rvert \left. \Psi \right\rangle \left\langle \Phi \right\rvert \left. \Phi \right\rangle \right)^{1/2}}}$ is interpreted as the transition amplitude corresponding to initial and final states $\left\lvert \Psi \right\rangle$ and $\left\lvert \Phi \right\rangle$, respectively.
 
-\item We now adopt the following notation for transition from an initial density (for a pure state at this stage) to a final density,
+\item We now adopt the following notation for transition from an initial density to a final density (for a pure state at this stage),
 
 \begin{block}{Transition from mixed states to pure states}
-$$\pr \left( \widehat{\rho}; \left\lvert \Phi \right\rangle \left\langle \Phi \right\rvert \right) : = \frac{\tr \left( \widehat{\rho} \left\lvert \Phi \right\rangle \left\langle \Phi \right\rvert \right)}{\tr \left( \left\lvert \Phi \right\rangle \left\langle \Phi \right\rvert \right)}$$
+$$\pr \left( \widehat{\rho}; \left\lvert \Phi \right\rangle \left\langle \Phi \right\rvert \right) : = \frac{\tr \left( \widehat{\rho} \left\lvert \Phi \right\rangle \left\langle \Phi \right\rvert \right)}{\left[ \tr \left( \left\lvert \Phi \right\rangle \left\langle \Phi \right\rvert \right) \right]^{1/2}}$$
 \end{block}
 \end{itemize}
 \end{frame}
@@ -605,19 +612,21 @@ $$\pr \left( \widehat{\rho}; \left\lvert \Phi \right\rangle \left\langle \Phi \r
 \subsection{Transition Between Impure States}
 \begin{frame}{Transition Between Impure States}
 \begin{itemize}
-\item Once again, we use the linear properties involved in expressions obtained for probability to compute the probability of transition from a mixed state with a density $\widehat{\rho}$ to another mixed state with a density $\displaystyle{\widehat{\rho^\prime} = \sum_\alpha \pr \left( \left\lvert \Phi_\alpha \right\rangle \right) \left\lvert \Phi_\alpha \right\rangle \left\langle \Phi_\alpha \right\rvert}$,
+\item Once again, we use the linear properties involved in expressions obtained for probability to compute the probability of transition from a mixed state with a density $\widehat{\rho}$ to another mixed state with a density $\displaystyle{\widehat{\rho^\prime} = \sum_\alpha \pr \left( \widehat{\rho^\prime}; \left\lvert \Phi_\alpha \right\rangle \right) \left\lvert \Phi_\alpha \right\rangle \left\langle \Phi_\alpha \right\rvert}$,
 
 \begin{align*}
-\pr_{\text{mixed}} \left( \left\{ \left\lvert \Phi_\alpha \right\rangle \right\}, \left\{ \pr \left( \left\lvert \Phi_\alpha \right\rangle \right) \right\} \right) : & = \sum_\alpha \pr \left( \left\lvert \Phi_\alpha \right\rangle \right) \pr \left( \widehat{\rho}; \left\lvert \Phi_\alpha \right\rangle \left\langle \Phi_\alpha \right\rvert \right) \\
-& = \sum_\alpha \pr \left( \left\lvert \Phi_\alpha \right\rangle \right) \frac{\tr \left( \widehat{\rho} \left\lvert \Phi_\alpha \right\rangle \left\langle \Phi_\alpha \right\rvert \right)}{\tr \left( \left\lvert \Phi_\alpha \right\rangle \left\langle \Phi_\alpha \right\rvert \right)} \\
-& = \tr \left[ \sum_\alpha \frac{\pr \left( \left\lvert \Phi_\alpha \right\rangle \right)}{\tr \left( \left\lvert \Phi_\alpha \right\rangle \left\langle \Phi_\alpha \right\rvert \right)} \widehat{\rho} \left\lvert \Phi_\alpha \right\rangle \left\langle \Phi_\alpha \right\rvert \right] \\
-& = \tr \left[ \widehat{\rho} \sum_\alpha \frac{\pr \left( \left\lvert \Phi_\alpha \right\rangle \right)}{\tr \left( \left\lvert \Phi_\alpha \right\rangle \left\langle \Phi_\alpha \right\rvert \right)} \left\lvert \Phi_\alpha \right\rangle \left\langle \Phi_\alpha \right\rvert \right] \\
-& = \tr \left( \widehat{\rho} \: \widehat{\rho^\prime} \right)
+\pr_{\text{mixed}} \left( \left\{ \left\lvert \Phi_\alpha \right\rangle \right\}, \left\{ \pr \left( \left\lvert \Phi_\alpha \right\rangle \right) \right\} \right) : & = \pr \left( \widehat{\rho}; \sum_\alpha \pr \left( \widehat{\rho^\prime}; \left\lvert \Phi_\alpha \right\rangle \right) \left\lvert \Phi_\alpha \right\rangle \left\langle \Phi_\alpha \right\rvert \right) \\
+& = \sum_\alpha \pr \left( \widehat{\rho^\prime}; \left\lvert \Phi_\alpha \right\rangle \right) \pr \left( \widehat{\rho}; \left\lvert \Phi_\alpha \right\rangle \left\langle \Phi_\alpha \right\rvert \right) \\
+& = \sum_\alpha \pr \left( \widehat{\rho^\prime}; \left\lvert \Phi_\alpha \right\rangle \right) \frac{\tr \left( \widehat{\rho} \left\lvert \Phi_\alpha \right\rangle \left\langle \Phi_\alpha \right\rvert \right)}{\tr \left( \left\lvert \Phi_\alpha \right\rangle \left\langle \Phi_\alpha \right\rvert \right)} \\
+& = \tr \left[ \sum_\alpha \frac{\pr \left( \widehat{\rho^\prime}; \left\lvert \Phi_\alpha \right\rangle \right)}{\tr \left( \left\lvert \Phi_\alpha \right\rangle \left\langle \Phi_\alpha \right\rvert \right)} \widehat{\rho} \left\lvert \Phi_\alpha \right\rangle \left\langle \Phi_\alpha \right\rvert \right] \\
+& = \tr \left[ \widehat{\rho} \sum_\alpha \frac{\pr \left( \widehat{\rho^\prime}; \left\lvert \Phi_\alpha \right\rangle \right)}{\tr \left( \left\lvert \Phi_\alpha \right\rangle \left\langle \Phi_\alpha \right\rvert \right)} \left\lvert \Phi_\alpha \right\rangle \left\langle \Phi_\alpha \right\rvert \right]
 \end{align*}
 \end{itemize}
 \end{frame}
 
 \begin{frame}{}
+$$ = \tr \left( \widehat{\rho} \: \widehat{\rho^\prime} \right)$$
+
 \begin{itemize}
 \item Using notation similar to before, we write the probability of transition from a mixed state with density $\widehat{\rho}$ to that with density $\widehat{\rho^\prime}$ as,
 
@@ -652,41 +661,149 @@ Which begs the question, WHY?
 \end{itemize}
 \end{frame}
 
-\subsection{Measurement Axioms}
-\begin{frame}{Measurement Axioms}
+\subsection{Principles of Measurement}
+\begin{frame}{Principles of Measurement}
 \begin{itemize}
-\item Since going from transition of states to eigenstates, to transition of states to entire ensembles of superimposed states may seem like cheating, we will axiomatize the latter and recover the former.
+\item Since going from transition of states to eigenstates, to transition of states to entire ensembles of superimposed states may seem like cheating, we can axiomatize the latter (transition between mixed states) and recover the former (Born rule). This is fairly straightforward:
 
-\item It turns out that to do so, we need the following new axioms aside from the ones we stated in the beginning (i.e. all the traditional axioms for quantum mechanics except the Born rule). We will call these the 'measurement axioms' as it will be seen that the Born rule can be proved using them.
+$$\pr \left( \widehat{\rho}; \left\lvert a_k \right\rangle \left\langle a_k \right\rvert \right) = \tr \left( \widehat{\rho} \left\lvert a_k \right\rangle \left\langle a_k \right\rvert \right)$$
+
+This is identical to the previously-explored condition of BD (Born rule, with density operators).
+
+\item It turns out that an alternative but more constructive way to derive the Born rule is using new principles of measurement: wavefunction collapse and the measurement invariance of density operators.
 \end{itemize}
 \end{frame}
 
 \begin{frame}{}
-\begin{block}{Measurement Axioms}
+\begin{block}{Principles of Measurement}
 \begin{enumerate}
-\item \textbf{Transition probability}: The probability of transition of a mixed state $\widehat{\rho}$ to a mixed state $\widehat{\rho^\prime}$ is given by,
-
-$$\pr \left( \widehat{\rho}; \widehat{\rho^\prime} \right) = \tr \left( \widehat{\rho} \widehat{\rho^\prime} \right)$$
-
 \item \textbf{Wavefunction collapse}: After measurement of an observable $\widehat{A}$, a mixed state described by states $\left\{ \left\lvert \Psi_\alpha \right\rangle \right\}$ and a density $\widehat{\rho}$ transitions in the manner,
 
-$$\widehat{\rho} \to \widehat{\sigma} : = \sum_\alpha \sum_k \pr \left( \left\lvert \Psi_\alpha \right\rangle \right) \pr_\alpha \left( \left\lvert a_k \right\rangle \right) \left\lvert a_k \right\rangle \left\langle a_k \right\rvert$$
+\begin{align*}
+\widehat{\rho} \to \widehat{\sigma} : & = \sum_\alpha \sum_k \pr \left( \left\lvert \Psi_\alpha \right\rangle \right) \pr \left( \left\lvert \Psi_\alpha \right\rangle \left\langle \Psi_\alpha \right\rvert; \left\lvert a_k \right\rangle \left\langle a_k \right\rvert \right) \left\lvert a_k \right\rangle \left\langle a_k \right\rvert \\
+\pr \left( \left\lvert \Psi_\alpha \right\rangle \right) & = \pr \left( \widehat{\sigma}; \left\lvert \Psi_\alpha \right\rangle \right)
+\end{align*}
 
-\item \textbf{Determinism}: A measurement is deterministic! I.e.,
+\item \textbf{Measurement invariance of density operators}: A measurement does not change the density operator! I.e.,
 
-$$\pr \left( \widehat{\rho}, \widehat{\sigma} \right) : = 1$$
+$$\widehat{\sigma} = \widehat{\rho}$$
 \end{enumerate}
 \end{block}
 
+Let us briefly look at wavefunction collapse before recovering the Born rule using it and the measurement invariance of density operators!
+\end{frame}
+
+\begin{frame}{Wavefunction Collapse}
 \begin{itemize}
-\item We have already motivated transition probabilities; now, we will look at wavefunction collapse and determinism before deriving the Born rule!
+\item In the Copenhagen interpretation of quantum mechanics, the measurement of an observable $\widehat{A}$ makes a quantum state prepared in some pure state $\left\lvert \Psi \right\rangle$ probabilistically collapse to an eigenstate $\left\lvert a_k \right\rangle$.
+
+\item Immediately after measurement, the new state behaves like a mixed state with the eigenstates as its constituent states,
+
+$$\widehat{\sigma} = \sum_k \pr \left( \left\lvert \Psi \right\rangle \left\langle \Psi \right\rvert; \left\lvert a_k \right\rangle \right) \left\lvert a_k \right\rangle \left\langle a_k \right\rvert$$
+
+\item For a mixed state in a density $\widehat{\rho}$, the new state is a weighed sum of eigenstates with the weights being conditional probabilities corresponding to the states packed into the initial density,
+
+\begin{align*}
+\widehat{\sigma} & = \sum_\alpha \sum_k \pr \left( \widehat{\sigma}; \left\lvert \Psi_\alpha \right\rangle \left\langle \Psi_\alpha \right\rvert \right) \pr \left( \left\lvert \Psi_\alpha \right\rangle \left\langle \Psi_\alpha \right\rvert; \left\lvert a_k \right\rangle \left\langle a_k \right\rvert \right) \left\lvert a_k \right\rangle \left\langle a_k \right\rvert \\
+& = \sum_\alpha \sum_k \sum_l \pr \left( \widehat{\sigma}; \left\lvert \Psi_\alpha \right\rangle \left\langle \Psi_\alpha \right\rvert \right) \pr \left( \left\lvert \Psi_\alpha \right\rangle \left\langle \Psi_\alpha \right\rvert; \left\lvert a_k \right\rangle \left\langle a_k \right\rvert \right) \delta_{k l} \left\lvert a_k \right\rangle \left\langle a_l \right\rvert
+\end{align*}
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Wavefunction collapse}
+\subsection{Rederiving the Born Rule}
+\begin{frame}{Rederiving the Born Rule}
 \begin{itemize}
-\item 
+\item Consider the density operator for a mixed state before measurement,
+
+\begin{align*}
+\widehat{\rho} & = \sum_\alpha \pr \left( \widehat{\rho}; \left\lvert \Psi_\alpha \right\rangle \left\langle \Psi_\alpha \right\rvert \right) \left\lvert \Psi_\alpha \right\rangle \left\langle \Psi_\alpha \right\rvert \\
+& = \sum_\alpha \pr \left( \widehat{\rho}; \left\lvert \Psi_\alpha \right\rangle \left\langle \Psi_\alpha \right\rvert \right) \left( \sum_k \left\lvert a_k \right\rangle \left\langle a_k \right\rvert \left. \Psi \right\rangle \right) \left( \sum_l \left\langle \Psi \right\rvert \left. a_l \right\rangle \left\langle a_l \right\rvert \right) \\
+& = \sum_\alpha \sum_k \sum_l \pr \left( \widehat{\rho}; \left\lvert \Psi_\alpha \right\rangle \left\langle \Psi_\alpha \right\rvert \right) \left\langle a_k \right\rvert \left. \Psi \right\rangle \left\langle \Psi \right\rvert \left. a_l \right\rangle \left\lvert a_k \right\rangle \left\langle a_l \right\rvert
+\end{align*}
+
+\item Recall from the principles of measurement that the density operator is unchanged after measurement i.e. $\widehat{\sigma} = \widehat{\rho}$,
+
+\begin{align*}
+& \sum_\alpha \sum_k \sum_l \pr \left( \widehat{\sigma}; \left\lvert \Psi_\alpha \right\rangle \left\langle \Psi_\alpha \right\rvert \right) \pr \left( \left\lvert \Psi_\alpha \right\rangle \left\langle \Psi_\alpha \right\rvert; \left\lvert a_k \right\rangle \left\langle a_k \right\rvert \right) \delta_{k l} \left\lvert a_k \right\rangle \left\langle a_l \right\rvert \\
+= & \sum_\alpha \sum_k \sum_l \pr \left( \widehat{\rho}; \left\lvert \Psi_\alpha \right\rangle \left\langle \Psi_\alpha \right\rvert \right) \left\langle a_k \right\rvert \left. \Psi \right\rangle \left\langle \Psi \right\rvert \left. a_l \right\rangle \left\lvert a_k \right\rangle \left\langle a_l \right\rvert
+\end{align*}
 \end{itemize}
+\end{frame}
+
+\begin{frame}{}
+Since the above must be true for pure and mixed states alike,
+
+\begin{align*}
+\sum_k \sum_l \pr \left( \left\lvert \Psi_\alpha \right\rangle \left\langle \Psi_\alpha \right\rvert; \left\lvert a_k \right\rangle \left\langle a_k \right\rvert \right) \delta_{k l} \left\lvert a_k \right\rangle \left\langle a_l \right\rvert & = \sum_k \sum_l \left\langle a_k \right\rvert \left. \Psi \right\rangle \left\langle \Psi \right\rvert \left. a_l \right\rangle \left\lvert a_k \right\rangle \left\langle a_l \right\rvert \\
+\pr \left( \left\lvert \Psi_\alpha \right\rangle \left\langle \Psi_\alpha \right\rvert; \left\lvert a_k \right\rangle \left\langle a_k \right\rvert \right) \delta_{k l} & = \left\langle a_k \right\rvert \left. \Psi \right\rangle \left\langle \Psi \right\rvert \left. a_l \right\rangle
+\end{align*}
+
+Setting $k = l$, we recover the Born rule,
+
+$$\pr \left( \left\lvert \Psi_\alpha \right\rangle \left\langle \Psi_\alpha \right\rvert; \left\lvert a_k \right\rangle \left\langle a_k \right\rvert \right) = \left\langle \Psi \right\rvert \left. a_k \right\rangle \left\langle a_k \right\rvert \left. \Psi \right\rangle$$
+\end{frame}
+
+\subsection{Determinism}
+\begin{frame}{Determinism}
+\begin{itemize}
+\item We have seen so far how the Born rule can be derived from either transition between mixed states, or new principles of quantum measurement.
+
+\item For the purpose of describing the Born rule alone, transition between states is a more efficient assumption than principles of measurement, but on the other hand, the measurement principles provide more of a 'mechanism' underlying measurement than transition amplitudes.
+
+\item To begin seeing this mechanism, consider both transition between states and measurement principles. If we start with a density $\widehat{\rho}$ and apply a measurement to get a density $\widehat{\sigma}$, we must have $\widehat{\rho} = \widehat{\sigma}$. Therefore,
+
+\begin{align*}
+\pr \left( \widehat{\rho}; \widehat{\sigma} \right) & = \pr \left( \widehat{\rho}; \widehat{\rho} \right) \\
+: & = \tr \left( \widehat{\rho}^2 \right) 
+\end{align*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\begin{block}{Transition during measurement}
+The probability associated with the [invariant] transition of a density operator induced by a measurement is equal to the purity of the density operator.
+
+\textbf{Corollary}: The transition of a state under measurement is \emph{deterministic} iff the state is pure,
+
+$$\pr \left( \left\lvert \Psi \right\rangle \left\langle \Psi \right\rvert; \widehat{\sigma} \right) = 1$$
+
+where,
+
+$$\widehat{\sigma} = \sum_k \pr \left( \left\lvert \Psi \right\rangle \left\langle \Psi \right\rvert; \left\lvert a_k \right\rangle \right) \left\lvert a_k \right\rangle \left\langle a_k \right\rvert$$
+\end{block}
+
+\begin{itemize}
+\item A natural interpretation of the above statement along with the underlying mechanism of measurement is the Many Worlds Interpretation of quantum mechanics.
+\end{itemize}
+\end{frame}
+
+\subsection{Unitarity}
+\begin{frame}{Unitarity}
+\begin{itemize}
+\item In the previous slide, we have shown that quantum measurement is, in a sense, \emph{deterministic} during the measurement of strictly pure states.
+
+\item Does this violate quantum mechanics? The answer is 'NO'. 
+Collapse to individual eigenstates still involves non-unital probabilities in the above framework.
+
+\item The specific transition amplitude which yielded a probability of unity corresponds to that of a measurement-induced transition from an initial pure state to a final 'mixed' state of the eigenstates, weighed with the probabilities of transitioning to these eigenstates.
+
+\item The above scenario turned out to be deterministic as all eigenstates, with their own non-unital transition probabilities, are accounted for in the final, apparently impure state, which really turns out to be pure.
+
+\item In fact, this phenomenon is equivalent to unitarity, at least for pure states.
+\end{itemize}
+\end{frame}
+
+\section{References}
+\begin{frame}{References}
+\begin{enumerate}
+\item \emph{Quantum Mechanics: The Theoretical Minimum}, Leonard Susskind
+\item \emph{The Principles of Quantum Mechanics}, Paul Dirac
+\item \emph{Mathematical Foundations of Quantum Mechanics}, John von Neumann
+\item \emph{Quantum Physics: Symbolism of Atomic Measurements}, Julian Schwinger
+\item \href{https://ncatlab.org/nlab/show/HomePage}{nLab}
+\item \href{https://plato.stanford.edu/}{Stanford Encyclopedia of Philosophy}
+\item \href{https://www.wikipedia.org/}{Wikipedia}
+\end{enumerate}
 \end{frame}
 
 %% References
