@@ -3,7 +3,7 @@
 \input{StyleFile.tex}
 
 
-\title[\textbf{Quantum Operators Modelling Measurement}]{Building Quantum Operators Modelling Measurement} % The short title appears at the bottom of every slide, the full title is only on the title page
+\title[\textbf{A Closer Look at Quantum Measurements}]{A Closer Look at Quantum Measurements} % The short title appears at the bottom of every slide, the full title is only on the title page
 
 \author[\textbf{Sid (s3bhatta@uwaterloo.ca)}]
 {Siddhartha Bhattacharjee \\
@@ -15,7 +15,7 @@ Discord: booodaness} % Your name
 University of Waterloo % Your institution for the title page
 }
 
-\jointwork{(Probably, that is)}
+\jointwork{}
 \conference{PhysClub Student Seminar, August 2, 2023}
 
 %===== Uncomment the following if you wish to use references
@@ -25,6 +25,7 @@ University of Waterloo % Your institution for the title page
 % use this so appendices' page numbers do not count
 \usepackage{appendixnumberbeamer}
 \usepackage{cancel}
+\usepackage{tikz-cd}
 
 \newcommand{\pr}[0]{\text{pr}}
 \newcommand{\tr}[0]{\text{tr}}
@@ -38,6 +39,12 @@ University of Waterloo % Your institution for the title page
 \titlepage
 \end{frame}
 }
+
+\begin{frame}{Abstract}
+In this study, we investigate the nature of quantum measurement by exploring the relationships between the Born rule, expectation values, density operators and such notions from first principles. 
+  
+This reveals that a generalized form of the Born rule can be sufficiently characterized by measurement-invariant density operators. The analysis further leads naturally to the Many Worlds Interpretation (MWI) of quantum mechanics, although in an abstract sense of the concept of 'many worlds'.
+\end{frame}
 
 % TOC, navigation surpressed, no page number
 {
@@ -59,7 +66,7 @@ University of Waterloo % Your institution for the title page
 \begin{itemize}
 \item In these slides, we will explicitly make use of the following axioms of quantum mechanics (QM):
 
-\begin{block}{Axioms used}
+\begin{block}{Axioms necessarily used}
 \begin{enumerate}
 \item The state $\left\lvert \Psi \right\rangle$ of a quantum system $\mathcal{S}$ can be represented by a vector in a separable Hilbert space $\mathbb{H}$.
 \item Observables on $\mathcal{S}$ can be represented by self-adjoint linear operators $\mathbb{H} \to \mathbb{H}$ on the Hilbert space of states $\mathbb{H}$ of the system $\mathcal{S}$.
@@ -130,7 +137,7 @@ $$E \left( \widehat{A} \right) = \left\langle \Psi \left\lvert \widehat{A} \righ
 \end{block}
 
 
-\item It follows that the Born rule itself hides the expectation value of a projection operators corresponding to eigenstates:
+\item It follows that the Born rule itself hides the expectation value of projectors corresponding to eigenstates:
 
 \begin{align*}
 \pr \left( \left\lvert a_k \right\rangle \right) & = \left\langle \Psi \right. \left\lvert a_k \right\rangle \left\langle a_k \right. \left\lvert \Psi \right\rangle \\
@@ -141,6 +148,23 @@ $$E \left( \widehat{A} \right) = \left\langle \Psi \left\lvert \widehat{A} \righ
 \begin{block}{Born rule, with expectation values}
 $$\pr \left( \left\lvert a_k \right\rangle \right) = E \left( \left\lvert a_k \right\rangle \left\langle a_k \right\rvert \right)$$
 \end{block}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\begin{itemize}
+\item In fact, the above statement can be derived from first principles using the definition of expectation values. 
+
+It can be proved that the eigenbasis for a projector $\left\lvert a_k \right\rangle \left\langle a_k \right\rvert$ is the same as that of the corresponding operator $\widehat{A}$. Thus,
+
+\begin{align*}
+E \left( \left\lvert a_k \right\rangle \left\langle a_k \right\rvert \right) & = \sum_l \pr \left( \left\lvert a_l \right\rangle \right) \left\langle a_l \right\rvert \left. a_k \right\rangle \left\langle a_k \right\rvert \left. a_l \right\rangle \\
+& = \sum_l \pr \left( \left\lvert a_l \right\rangle \right) \delta_{l k} \delta_{k l} \\
+& = \cancel{\sum_l} \pr \left( \left\lvert a_l \right\rangle \right) \delta_{k \cancel{l}} \\
+& = \pr \left( \left\lvert a_k \right\rangle \right)
+\end{align*}
+
+\item Therefore, the above statement is independent of the Born rule itself.
 \end{itemize}
 \end{frame}
 
@@ -178,7 +202,7 @@ $$\left\langle \Psi \left\lvert \right. \Psi \right\rangle = 1$$
 $$\pr \left( \left\lvert a_k \right\rangle \right) = \frac{1}{\left\langle \Psi \left\lvert \right. \Psi \right\rangle} \left\langle \Psi \right. \left\lvert a_k \right\rangle \left\langle a_k \right. \left\lvert \Psi \right\rangle$$
 \end{block}
 
-Explicit normalization of states then becomes unnecessary as the above rule is invariant under normalization of the form $\displaystyle{\left\lvert \Psi \right\rangle \to \frac{1}{\left\langle \Psi \left\lvert \right. \Psi \right\rangle} \left\lvert \Psi \right\rangle}$.
+Explicit normalization of states then becomes unnecessary as the above rule is invariant under normalization of the form $\displaystyle{\left\lvert \Psi \right\rangle \to \frac{1}{\left[ \left\langle \Psi \left\lvert \right. \Psi \right\rangle \right]^{1/2}} \left\lvert \Psi \right\rangle}$.
 
 \item In general, the idea is that scaling states by \emph{any} complex number should not change physics\footnote{In \emph{The Principles of Quantum Mechanics}, Paul Dirac gives great attention to this point and how it is related to the idea that eigenstates matter only up to scale as orthogonality of states is a physical distinction and scaling does not disturb orthogonality.}; this idea will be formalized later on.
 \end{itemize}
@@ -214,13 +238,58 @@ $$\widehat{\rho} : = \sum_{\alpha} \pr \left( \left\lvert \Psi_\alpha \right\ran
 
 For a pure state $\left\lvert \Psi \right\rangle$, the density operator is simply $\left\lvert \Psi \right\rangle \left\langle \Psi \right\rvert$.
 
+\item Density operators are idempotent only for normalized pure states,
+
+\begin{align*}
+\widehat{\rho}^2 & = \left\lvert \Psi \right\rangle \left\langle \Psi \right\rvert \left. \Psi \right\rangle \left\langle \Psi \right\rvert \\
+& = \left\lvert \Psi \right\rangle \left\langle \Psi \right\rvert \\
+& = \widehat{\rho}
+\end{align*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+For impure states,
+
+\begin{align*}
+\widehat{\rho}^2 & = \left[ \sum_{\alpha} \pr \left( \left\lvert \Psi_\alpha \right\rangle \right) \left\lvert \Psi_\alpha \right\rangle \left\langle \Psi_\alpha \right\rvert \right] \left[ \sum_{\beta} \pr \left( \left\lvert \Psi_\beta \right\rangle \right) \left\lvert \Psi_\beta \right\rangle \left\langle \Psi_\beta \right\rvert \right] \\
+& = \sum_\alpha \sum_\beta \pr \left( \left\lvert \Psi_\alpha \right\rangle \right) \pr \left( \left\lvert \Psi_\beta \right\rangle \right) \left\lvert \Psi_\alpha \right\rangle \left\langle \Psi_\alpha \right\rvert \left. \Psi_\beta \right\rangle \left\langle \Psi_\beta \right\rvert
+\end{align*}
+
+Consider the following two cases:
+
+\begin{enumerate}
+\item $\left\langle \Psi_\alpha \right\rvert \left. \Psi_\beta \right\rangle = \delta_{\alpha \beta}$. Then, 
+
+$$\widehat{\rho}^2 = \sum_\alpha \left[ \pr \left( \left\lvert \Psi_\alpha \right\rangle \right) \right]^2 \left\lvert \Psi_\alpha \right\rangle \left\langle \Psi_\alpha \right\rvert$$
+
+Since by definition there are at least 2 states possibly describing a mixed state, for each state, $\pr \left( \left\lvert \Psi_\alpha \right\rangle \right) < 1$. Therefore, we can never have $\left[ \pr \left( \left\lvert \Psi_\alpha \right\rangle \right) \right]^2 = \pr \left( \left\lvert \Psi_\alpha \right\rangle \right)$. As a consequence, $\widehat{\rho}^2 \neq \widehat{\rho}$.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{}
+\begin{enumerate}
+\setcounter{enumi}{1}
+\item $\left\langle \Psi_\alpha \right\rvert \left. \Psi_\beta \right\rangle \neq \delta_{\alpha \beta}$. Then, there are non-zero entries corresponding to the indices $\alpha \neq \beta$, which is not true for $\widehat{\rho}$ as,
+
+\begin{align*}
+\widehat{\rho} & = \sum_{\alpha} \pr \left( \left\lvert \Psi_\alpha \right\rangle \right) \left\lvert \Psi_\alpha \right\rangle \left\langle \Psi_\alpha \right\rvert \\
+& = \sum_\alpha \sum_\beta \pr \left( \left\lvert \Psi_\alpha \right\rangle \right) \pr \left( \left\lvert \Psi_\beta \right\rangle \right) \left\lvert \Psi_\alpha \right\rangle \delta_{\alpha \beta} \left\langle \Psi_\beta \right\rvert
+\end{align*}
+
+For $\alpha \neq \beta$, the component of $\widehat{\rho}$ corresponding to $\left\lvert \Psi_\alpha \right\rangle \left\langle \Psi_\beta \right\rvert$ is $0$. Therefore, we necessarily have $\widehat{\rho}^2 \neq \widehat{\rho}$.
+\end{enumerate}
+
+\begin{block}{Idempotence of density operators}
+A density operator $\widehat{\rho}$ is idempotent i.e. obeys $\widehat{\rho}^2 = \widehat{\rho}$ iff the underlying state is pure and normalized.
+\end{block}
+
+\begin{itemize}
 \item For future use, we define the trace of a linear operator,
 
 \begin{block}{Trace of linear operators}
 $$\tr \left( \widehat{A} \right) : = \sum_k \left\langle a_k \left\lvert \widehat{A} \right\rvert a_k \right\rangle = \sum_k a_k$$
 \end{block}
-
-We will soon use these constructions to simplify the expression for the expectation value of a linear operator.
 \end{itemize}
 \end{frame}
 
@@ -307,32 +376,316 @@ E \left( \widehat{A} \right) = \left\langle \Psi \left\lvert \widehat{A} \right\
 
 \begin{frame}{}
 \begin{itemize}
-\item Let us redefine the expectation value of a linear operator $\widehat{A}$ taking into account mixed states,
+\item We define the expectation value of a linear operator $\widehat{A}$ for mixed states, 
 
 $$E \left( \widehat{A} \right) := \sum_{\alpha} \pr \left( \left\lvert \Psi_\alpha \right\rangle \right) E_\alpha \left( \widehat{A} \right)$$
 
-where $E_\alpha \left( \widehat{A} \right)$ is the previously-defined notion of expectation values, which holds for pure states $\left\lvert \Psi \right\rangle = \left\lvert \Psi_\alpha \right\rangle$.
+where $E_\alpha \left( \widehat{A} \right)$ is denote expectation values for pure states $\left\lvert \Psi \right\rangle = \left\lvert \Psi_\alpha \right\rangle$.
 
 \begin{align*}
-E \left( \widehat{A} \right) & = \sum_{\alpha} \pr \left( \left\lvert \Psi_\alpha \right\rangle \right) \tr \left( \left\lvert \Psi \right\rangle \left\langle \Psi \right\rangle \widehat{A} \right) \\
-& = \sum_{\alpha} \tr \left( \pr \left( \left\lvert \Psi_\alpha \right\rangle \right) \left\lvert \Psi \right\rangle \left\langle \Psi \right\rangle \widehat{A} \right) \\
-& = \tr \left( \sum_{\alpha} \pr \left( \left\lvert \Psi_\alpha \right\rangle \right) \left\lvert \Psi \right\rangle \left\langle \Psi \right\rangle \widehat{A} \right) \\
-& = \tr \left( \widehat{\rho} \widehat{A} \right)
+E \left( \widehat{A} \right) = \sum_{\alpha} \pr \left( \left\lvert \Psi_\alpha \right\rangle \right) \tr \left( \left\lvert \Psi \right\rangle \left\langle \Psi \right\rangle \widehat{A} \right) & = \sum_{\alpha} \tr \left( \pr \left( \left\lvert \Psi_\alpha \right\rangle \right) \left\lvert \Psi \right\rangle \left\langle \Psi \right\rangle \widehat{A} \right) \\
+= \tr \left( \sum_{\alpha} \pr \left( \left\lvert \Psi_\alpha \right\rangle \right) \left\lvert \Psi \right\rangle \left\langle \Psi \right\rangle \widehat{A} \right) & = \tr \left( \widehat{\rho} \widehat{A} \right)
 \end{align*}
 
-\begin{block}{Expectation values, with Born rule, using density operators}
+\begin{block}{Expectation values, with density operators, with Born rule}
 $$E \left( \widehat{A} \right) = \tr \left( \widehat{\rho} \widehat{A} \right)$$
 \end{block}
-\end{itemize}
-\end{frame}
 
-\begin{frame}{}
-\begin{itemize}
 \item This leads to the following corollary,
 
 \begin{block}{Born rule, with density operators}
 $$\pr \left( \left\lvert a_k \right\rangle \right) = \tr \left( \widehat{\rho} \left\lvert a_k \right\rangle \left\langle a_k \right\rvert \right)$$
 \end{block}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Purity}
+\begin{itemize}
+\item Notice that for a normalized pure state,
+
+\begin{align*}
+\tr \left( \widehat{\rho}^2 \right) & = \tr \left( \widehat{\rho} \right) \\
+& = \tr \left( \widehat{\rho} \widehat{I} \right) \\
+& = E \left( \widehat{I} \right) \\
+& = \left\langle \Psi \left\lvert \widehat{I} \right\rvert \Psi \right\rangle \\
+& = \left\langle \Psi \right\rvert \left. \Psi \right\rangle \\
+& = 1
+\end{align*}
+
+\item On the other hand, for impure states, $\widehat{\rho}^2 \neq \widehat{\rho}$, making the above relation inapplicable. We therefore define a quantity which by construction is equal to $1$ iff the concerned quantum state is pure,
+
+\begin{block}{Purity of density operators}
+The purity of a density operator $\widehat{\rho}$ is defined as the quantity $\tr \left( \widehat{\rho}^2 \right)$.
+\end{block}
+\end{itemize}
+\end{frame}
+
+\subsection{Summary}
+\begin{frame}{Summary}
+It is useful to summarize important relationships so far, in one place:
+
+\begin{block}{Important relationships}
+\begin{enumerate}
+\item Born rule (B)
+
+$$\pr_\alpha \left( \left\lvert a_k \right\rangle \right) = \left\langle \Psi_\alpha \right. \left\lvert a_k \right\rangle \left\langle a_k \right. \left\lvert \Psi_\alpha \right\rangle = \tr \left( \left\lvert \Psi_\alpha \right\rangle \left\langle \Psi_\alpha \right\rvert \left. a_k \right\rangle \left\langle a_k \right\rvert \right)$$
+
+\item Expectation values, without Born rule (E)
+
+\begin{align*}
+E_\alpha \left( \widehat{A} \right) & = \sum_{k} \pr_\alpha \left( \left\lvert a_k \right\rangle \right) \left\langle a_k \left\lvert \widehat{A} \right\rvert a_k \right\rangle = \tr \left( \sum_{k} \pr_\alpha \left( \left\lvert a_k \right\rangle \right) \left\lvert a_k \right\rangle \left\langle a_k \right\rvert \widehat{A} \right) \\
+E \left( \widehat{A} \right) & = \sum_\alpha \pr \left( \left\lvert \Psi_\alpha \right\rangle \right) E_\alpha \left( \widehat{A} \right) \\
+& = \tr \left[ \sum_\alpha \sum_k \pr \left( \left\lvert \Psi_\alpha \right\rangle \right) \pr_\alpha \left( \left\lvert a_k \right\rangle \right) \left\lvert a_k \right\rangle \left\langle a_k \right\rvert \widehat{A} \right]
+\end{align*}
+\end{enumerate}
+\end{block}
+\end{frame}
+
+\begin{frame}{}
+\begin{block}{}
+\begin{enumerate}
+\setcounter{enumi}{2}
+\item Density operators (D)
+
+$$\widehat{\rho} : = \sum_{\alpha} \pr \left( \left\lvert \Psi_\alpha \right\rangle \right) \left\lvert \Psi_\alpha \right\rangle \left\langle \Psi_\alpha \right\rvert$$
+
+\item Born rule, with expectation values (BE)
+
+$$\pr \left( \left\lvert a_k \right\rangle \right) = E \left( \left\lvert a_k \right\rangle \left\langle a_k \right\rvert \right)$$
+
+\item Born rule, with density operators (BD)
+
+$$\pr \left( \left\lvert a_k \right\rangle \right) = \tr \left( \widehat{\rho} \left\lvert a_k \right\rangle \left\langle a_k \right\rvert \right)$$
+
+\item Expectation values, with Born rule (EB)
+
+$$E_\alpha \left( \widehat{A} \right) = \left\langle \Psi_\alpha \left\lvert \widehat{A} \right\rvert \Psi_\alpha \right\rangle = \tr \left( \left\lvert \Psi_\alpha \right\rangle \left\langle \Psi_\alpha \right\rvert \widehat{A} \right)$$
+
+\item Expectation values, with density operators, with Born rule (EDB)
+
+$$E \left( \widehat{A} \right) = \tr \left( \widehat{\rho} \widehat{A} \right)$$
+
+\item Purity of density operators (P)
+
+$$\left[ \tr \left( \widehat{\rho}^2 \right) = 1 \right] \Longleftrightarrow \widehat{\rho} \text{ describes a pure state}$$
+\end{enumerate}
+\end{block}
+\end{frame}
+
+\begin{frame}{}
+\begin{itemize}
+\item Thus, we start seeing connections between:
+
+\begin{enumerate}
+\item Born rule (B)
+\item Expectation values (E)
+\item Density operators (D)
+\end{enumerate}
+
+\item It is easy to check that we are yet to state/establish the following relationships: ED, DB, DE, BED, BDE, EBD, DBE, DEB. 
+
+\item It turns out that BD (and equivalently BE) implies B (by considering pure states). Similarly, EDB implies EB.
+
+\item Furthermore, since E and D are independent ideas when built from first principles, it can be shown that ED, DE, DBE, DEB and EBD are not possible. 
+
+This is because relating E and D using usual algebraic tools requires B as a \emph{priori}; however, this is subtle and will be explored in detail later into the slides.
+
+As a consequence, BED and BDE are not possible at the moment either.
+
+\item To summarize, the independent relationships found so far are: \textbf{E}, \textbf{D}, \textbf{BE}, \textbf{BD} and \textbf{EDB}.
+
+On the other hand, by the above analysis, there \emph{are} no other relationships that can be found using the tools constructed so far!
+\end{itemize}
+\end{frame}
+
+\section{Transition Between States}
+
+\subsection{Normalization}
+\begin{frame}{Normalization}
+\begin{itemize}
+\item Recall that $\pr \left( \left\lvert a_k \right\rangle \right)$ represents the probability that the measurement of an appropriate observable $\widehat{A}$ makes a quantum state represented by a density operator $\widehat{\rho}$ collapse to the eigenstate $\left\lvert a_k \right\rangle$.
+
+\item Consider a complex number $c \in \mathbb{C}$. We ask, what is the probability that the state collapses to $c \left\lvert a_k \right\rangle$ after measuring $\widehat{A}$?
+
+\item It turns out that the relationships so far \emph{fail} if we use them as-is (in particular, Born rule with density operators i.e. BD):
+
+\begin{align*}
+\pr \left( c \left\lvert a_k \right\rangle \right) & = \tr \left( \widehat{\rho} c \left\lvert a_k \right\rangle \left\langle a_k \right\rvert c^* \right) \\
+& = \tr \left( c^* c \widehat{\rho} \left\lvert a_k \right\rangle \left\langle a_k \right\rvert \right) \\
+& = c^* c \: \tr \left( \widehat{\rho} \left\lvert a_k \right\rangle \left\langle a_k \right\rvert \right) \\
+& = c^* c \: \pr \left( \left\lvert a_k \right\rangle \right)
+\end{align*}
+
+But as $c$ is arbitrary, the above probability is not normalized, which is clearly not consistent.
+
+\item The key conflict here is that traces are linear, whereas probabilities over states should not be. This is further seen in the fact that scaling a state does not make it linearly independent to the original state, therefore it is really the same physical state.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\begin{itemize}
+\item To fix this problem, we must rewrite all relationships so far by performing \textbf{normalization}:
+
+\begin{align*}
+\left\lvert \Psi \right\rangle & \to \frac{1}{\left[ \left\langle \Psi \left\lvert \right. \Psi \right\rangle \right]^{1/2}} \left\lvert \Psi \right\rangle \\
+& = \frac{1}{\left[ \tr \left( \left\lvert \Psi \right\rangle \left\langle \Psi \right\rvert \right) \right]^{1/2}} \left\lvert \Psi \right\rangle
+\end{align*}
+
+\item We could have restricted states to be unit vectors in $\mathbb{H}$ to begin with, but the reason for adopting the above approach is twofold:
+
+\begin{enumerate}
+\item It is satisfying to have that the norm of a state does not \emph{matter}, thereby generalizing the domain of states to all of $\mathbb{H}$. This also encodes the physical equivalence of linearly dependent states.
+
+\item By considering how probabilities behave over linear combinations of states, we can see a hint of transition amplitudes between entire density states and not just from density states to eigenstates.
+\end{enumerate}
+
+\item Now, let us rewrite the important relationships mentioned earlier, with explicit normalization where required.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\begin{block}{Important normalized relationships}
+\begin{enumerate}
+\item Density operators, normalized (DN)
+
+$$\widehat{\rho} : = \sum_\alpha \frac{\pr \left( \left\lvert \Psi_\alpha \right\rangle \right)}{\left[ \tr \left( \left\lvert \Psi_\alpha \right\rangle \left\langle \Psi_\alpha \right\rvert \right) \right]^{1/2}} \left\lvert \Psi_\alpha \right\rangle \left\langle \Psi_\alpha \right\rvert$$
+
+\item Born rule, with expectation values, normalized (BEN)
+
+$$\pr \left( c \left\lvert a_k \right\rangle \right) = \frac{E \left( c \left\lvert a_k \right\rangle \left\langle a_k \right\rvert c^* \right)}{\tr \left( c \left\lvert a_k \right\rangle \left\langle a_k \right\rvert c^* \right)}$$
+
+\item Born rule, with density operators, normalized (BDN)
+
+$$\pr \left( c \left\lvert a_k \right\rangle \right) = \frac{\tr \left( \widehat{\rho} c \left\lvert a_k \right\rangle \left\langle a_k \right\rvert c^* \right)}{\tr \left( c \left\lvert a_k \right\rangle \left\langle a_k \right\rvert c^* \right)}$$
+\end{enumerate}
+\end{block}
+
+\begin{itemize}
+\item It can be shown that EDB follows from DN, E, BEN and BDN. Furthermore, normalizing E and EDB is not required.
+
+\item We can now handle calculations concerning measurement of a normalized mixed state to not only any scaled version of some eigenstate, but also the transition of these mixed states to entire mixed states!
+\end{itemize}
+\end{frame}
+
+\subsection{Transition to Pure States}
+\begin{frame}{Transition to Pure States}
+\begin{itemize}
+\item We will now interpret the normalized relationships above backwards, start with the right hand side of BDN, use its linear properties for sums of projectors and end up with the probability of finding a superposition of states generalizing the left hand side,
+
+\begin{align*}
+\pr_{\text{sup}} \left( \left\lvert \Phi \right\rangle \right) & : = \pr \left( \sum_k \left\lvert a_k \right\rangle \left\langle a_k \right\rvert \left. \Phi \right\rangle \right) \\
+& = \frac{\tr \left[ \widehat{\rho} \left( \sum_k \left\lvert a_k \right\rangle \left\langle a_k \right\rvert \left. \Phi \right\rangle \right) \left( \sum_l \left\langle \Phi \right\rvert \left. a_l \right\rangle \left\langle a_l \right\rvert \right) \right]}{\tr \left[ \left( \sum_k \left\lvert a_k \right\rangle \left\langle a_k \right\rvert \left. \Phi \right\rangle \right) \left( \sum_l \left\langle \Phi \right\rvert \left. a_l \right\rangle \left\langle a_l \right\rvert \right) \right]} \\
+& = \frac{\tr \left( \widehat{\rho} \left\lvert \Phi \right\rangle \left\langle \Phi \right\rvert \right)}{\tr \left( \left\lvert \Phi \right\rangle \left\langle \Phi \right\rvert \right)}
+\end{align*}
+
+\item We interpret the above relationship to quantify the probability associated with the transition of a mixed state to a pure state. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\begin{itemize}
+\item When the initial state is a pure state $\left\lvert \Psi \right\rangle$,
+
+\begin{align*}
+\pr \left( \left\lvert \Phi \right\rangle \right) & = \frac{\tr \left( \frac{1}{\tr \left( \left\lvert \Psi \right\rangle \left\langle \Psi \right\rvert \right)} \left\lvert \Psi \right\rangle \left\langle \Psi \right\rvert \left. \Phi \right\rangle \left\langle \Phi \right\rvert \right)}{\tr \left( \left\lvert \Phi \right\rangle \left\langle \Phi \right\rvert \right)} \\
+& = \frac{\tr \left( \left\lvert \Psi \right\rangle \left\langle \Psi \right\rvert \left. \Phi \right\rangle \left\langle \Phi \right\rvert \right)}{\tr \left( \left\lvert \Psi \right\rangle \left\langle \Psi \right\rvert \right) \tr \left( \left\lvert \Phi \right\rangle \left\langle \Phi \right\rvert \right)} \\
+& = \frac{\left\langle \Psi \right\rvert \left. \Phi \right\rangle \left\langle \Phi \right\rvert \left. \Psi \right\rangle}{\left\langle \Psi \right\rvert \left. \Psi \right\rangle \left\langle \Phi \right\rvert \left. \Phi \right\rangle}
+\end{align*}
+
+This is a generalized form of the Born rule which does not directly involve measurement. Here, $\displaystyle{\frac{\left\langle \Psi \right\rvert \left. \Phi \right\rangle}{\left( \left\langle \Psi \right\rvert \left. \Psi \right\rangle \left\langle \Phi \right\rvert \left. \Phi \right\rangle \right)^{1/2}}}$ is interpreted as the transition amplitude corresponding to initial and final states $\left\lvert \Psi \right\rangle$ and $\left\lvert \Phi \right\rangle$, respectively.
+
+\item We now adopt the following notation for transition from an initial density (for a pure state at this stage) to a final density,
+
+\begin{block}{Transition from mixed states to pure states}
+$$\pr \left( \widehat{\rho}; \left\lvert \Phi \right\rangle \left\langle \Phi \right\rvert \right) : = \frac{\tr \left( \widehat{\rho} \left\lvert \Phi \right\rangle \left\langle \Phi \right\rvert \right)}{\tr \left( \left\lvert \Phi \right\rangle \left\langle \Phi \right\rvert \right)}$$
+\end{block}
+\end{itemize}
+\end{frame}
+
+\subsection{Transition Between Impure States}
+\begin{frame}{Transition Between Impure States}
+\begin{itemize}
+\item Once again, we use the linear properties involved in expressions obtained for probability to compute the probability of transition from a mixed state with a density $\widehat{\rho}$ to another mixed state with a density $\displaystyle{\widehat{\rho^\prime} = \sum_\alpha \pr \left( \left\lvert \Phi_\alpha \right\rangle \right) \left\lvert \Phi_\alpha \right\rangle \left\langle \Phi_\alpha \right\rvert}$,
+
+\begin{align*}
+\pr_{\text{mixed}} \left( \left\{ \left\lvert \Phi_\alpha \right\rangle \right\}, \left\{ \pr \left( \left\lvert \Phi_\alpha \right\rangle \right) \right\} \right) : & = \sum_\alpha \pr \left( \left\lvert \Phi_\alpha \right\rangle \right) \pr \left( \widehat{\rho}; \left\lvert \Phi_\alpha \right\rangle \left\langle \Phi_\alpha \right\rvert \right) \\
+& = \sum_\alpha \pr \left( \left\lvert \Phi_\alpha \right\rangle \right) \frac{\tr \left( \widehat{\rho} \left\lvert \Phi_\alpha \right\rangle \left\langle \Phi_\alpha \right\rvert \right)}{\tr \left( \left\lvert \Phi_\alpha \right\rangle \left\langle \Phi_\alpha \right\rvert \right)} \\
+& = \tr \left[ \sum_\alpha \frac{\pr \left( \left\lvert \Phi_\alpha \right\rangle \right)}{\tr \left( \left\lvert \Phi_\alpha \right\rangle \left\langle \Phi_\alpha \right\rvert \right)} \widehat{\rho} \left\lvert \Phi_\alpha \right\rangle \left\langle \Phi_\alpha \right\rvert \right] \\
+& = \tr \left[ \widehat{\rho} \sum_\alpha \frac{\pr \left( \left\lvert \Phi_\alpha \right\rangle \right)}{\tr \left( \left\lvert \Phi_\alpha \right\rangle \left\langle \Phi_\alpha \right\rvert \right)} \left\lvert \Phi_\alpha \right\rangle \left\langle \Phi_\alpha \right\rvert \right] \\
+& = \tr \left( \widehat{\rho} \: \widehat{\rho^\prime} \right)
+\end{align*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\begin{itemize}
+\item Using notation similar to before, we write the probability of transition from a mixed state with density $\widehat{\rho}$ to that with density $\widehat{\rho^\prime}$ as,
+
+\begin{block}{Transition between mixed states}
+$$\pr \left( \widehat{\rho}; \widehat{\rho^\prime} \right) = \tr \left( \widehat{\rho} \widehat{\rho^\prime} \right)$$
+\end{block}
+
+\item An immediate and interesting consequence of the above is symmetry,
+
+\begin{block}{Symmetry of transition between mixed states}
+$$\pr \left( \widehat{\rho}; \widehat{\rho^\prime} \right) = \pr \left( \widehat{\rho^\prime}; \widehat{\rho} \right)$$
+\end{block}
+
+Therefore, if states are, for example, parameterized by time, so are density operators, and the above fact translates to a form of time symmetry in quantum mechanics.
+\end{itemize}
+\end{frame}
+
+\section{Reinterpreting the Born Rule}
+\begin{frame}{Reinterpreting the Born Rule}
+\begin{itemize}
+\item Now is a good time to pause and question what is going on. 
+
+\item We went all the way from the probability of transitions from mixed states to eigenstates — to that of transitions from mixed states to superpositions of eigenstates comprising pure states — to that of transitions from mixed states to mixed states!
+
+\item We performed the above by interpreting that since the probabilities mentioned were in the form of traces acting on projectors and traces are linear, we can add projectors corresponding to a superposition of the appropriate eigenstates.
+
+Which begs the question, WHY?
+
+\item One way to answer this question is to say we were handwaving and it turned out the final notion made sense. For example, transition amplitudes in the form of pure final states, seen before, are crucial to traditional quantum mechanics and 'make sense' just as much as the usual constructions do.
+
+\item However, such an answer may be justifiably unsatisfactory to many people. Therefore, similar to much of the climb to abstraction in the history of mathematical physics, we will now go in reverse gear!
+\end{itemize}
+\end{frame}
+
+\subsection{Measurement Axioms}
+\begin{frame}{Measurement Axioms}
+\begin{itemize}
+\item Since going from transition of states to eigenstates, to transition of states to entire ensembles of superimposed states may seem like cheating, we will axiomatize the latter and recover the former.
+
+\item It turns out that to do so, we need the following new axioms aside from the ones we stated in the beginning (i.e. all the traditional axioms for quantum mechanics except the Born rule). We will call these the 'measurement axioms' as it will be seen that the Born rule can be proved using them.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{}
+\begin{block}{Measurement Axioms}
+\begin{enumerate}
+\item \textbf{Transition probability}: The probability of transition of a mixed state $\widehat{\rho}$ to a mixed state $\widehat{\rho^\prime}$ is given by,
+
+$$\pr \left( \widehat{\rho}; \widehat{\rho^\prime} \right) = \tr \left( \widehat{\rho} \widehat{\rho^\prime} \right)$$
+
+\item \textbf{Wavefunction collapse}: After measurement of an observable $\widehat{A}$, a mixed state described by states $\left\{ \left\lvert \Psi_\alpha \right\rangle \right\}$ and a density $\widehat{\rho}$ transitions in the manner,
+
+$$\widehat{\rho} \to \widehat{\sigma} : = \sum_\alpha \sum_k \pr \left( \left\lvert \Psi_\alpha \right\rangle \right) \pr_\alpha \left( \left\lvert a_k \right\rangle \right) \left\lvert a_k \right\rangle \left\langle a_k \right\rvert$$
+
+\item \textbf{Determinism}: A measurement is deterministic! I.e.,
+
+$$\pr \left( \widehat{\rho}, \widehat{\sigma} \right) : = 1$$
+\end{enumerate}
+\end{block}
+
+\begin{itemize}
+\item We have already motivated transition probabilities; now, we will look at wavefunction collapse and determinism before deriving the Born rule!
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Wavefunction collapse}
+\begin{itemize}
+\item 
 \end{itemize}
 \end{frame}
 
