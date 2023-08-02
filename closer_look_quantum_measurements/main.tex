@@ -555,7 +555,7 @@ But as $c$ is arbitrary, the above probability is not normalized, which is clear
 \begin{enumerate}
 \item Density operators, normalized (DN)
 
-$$\widehat{\rho} : = \sum_\alpha \frac{\pr \left( \left\lvert \Psi_\alpha \right\rangle \right)}{\left[ \tr \left( \left\lvert \Psi_\alpha \right\rangle \left\langle \Psi_\alpha \right\rvert \right) \right]^{1/2}} \left\lvert \Psi_\alpha \right\rangle \left\langle \Psi_\alpha \right\rvert$$
+$$\widehat{\rho} : = \sum_\alpha \frac{\pr \left( \left\lvert \Psi_\alpha \right\rangle \right)}{\tr \left( \left\lvert \Psi_\alpha \right\rangle \left\langle \Psi_\alpha \right\rvert \right)} \left\lvert \Psi_\alpha \right\rangle \left\langle \Psi_\alpha \right\rvert$$
 
 \item Born rule, with expectation values, normalized (BEN)
 
@@ -581,8 +581,8 @@ $$\pr \left( c \left\lvert a_k \right\rangle \right) = \frac{\tr \left( \widehat
 
 \begin{align*}
 \pr_{\text{sup}} \left( \left\lvert \Phi \right\rangle \right) & : = \pr \left( \sum_k \left\lvert a_k \right\rangle \left\langle a_k \right\rvert \left. \Phi \right\rangle \right) \\
-& = \frac{\tr \left[ \widehat{\rho} \left( \sum_k \left\lvert a_k \right\rangle \left\langle a_k \right\rvert \left. \Phi \right\rangle \right) \left( \sum_l \left\langle \Phi \right\rvert \left. a_l \right\rangle \left\langle a_l \right\rvert \right) \right]}{\left[ \tr \left( \left( \sum_k \left\lvert a_k \right\rangle \left\langle a_k \right\rvert \left. \Phi \right\rangle \right) \left( \sum_l \left\langle \Phi \right\rvert \left. a_l \right\rangle \left\langle a_l \right\rvert \right) \right) \right]^{1/2}} \\
-& = \frac{\tr \left( \widehat{\rho} \left\lvert \Phi \right\rangle \left\langle \Phi \right\rvert \right)}{\left[ \tr \left( \left\lvert \Phi \right\rangle \left\langle \Phi \right\rvert \right) \right]^{1/2}}
+& = \frac{\tr \left[ \widehat{\rho} \left( \sum_k \left\lvert a_k \right\rangle \left\langle a_k \right\rvert \left. \Phi \right\rangle \right) \left( \sum_l \left\langle \Phi \right\rvert \left. a_l \right\rangle \left\langle a_l \right\rvert \right) \right]}{\tr \left[ \left( \sum_k \left\lvert a_k \right\rangle \left\langle a_k \right\rvert \left. \Phi \right\rangle \right) \left( \sum_l \left\langle \Phi \right\rvert \left. a_l \right\rangle \left\langle a_l \right\rvert \right) \right]} \\
+& = \frac{\tr \left( \widehat{\rho} \left\lvert \Phi \right\rangle \left\langle \Phi \right\rvert \right)}{\tr \left( \left\lvert \Phi \right\rangle \left\langle \Phi \right\rvert \right)}
 \end{align*}
 
 \item We interpret the above relationship to quantify the probability associated with the transition of a mixed state to a pure state. 
@@ -594,17 +594,17 @@ $$\pr \left( c \left\lvert a_k \right\rangle \right) = \frac{\tr \left( \widehat
 \item When the initial state is a pure state $\left\lvert \Psi \right\rangle$,
 
 \begin{align*}
-\pr \left( \left\lvert \Phi \right\rangle \right) & = \frac{\tr \left( \frac{1}{\left[ \tr \left( \left\lvert \Psi \right\rangle \left\langle \Psi \right\rvert \right) \right]^{1/2}} \left\lvert \Psi \right\rangle \left\langle \Psi \right\rvert \left. \Phi \right\rangle \left\langle \Phi \right\rvert \right)}{\left[ \tr \left( \left\lvert \Phi \right\rangle \left\langle \Phi \right\rvert \right) \right]^{1/2}} \\
-& = \frac{\tr \left( \left\lvert \Psi \right\rangle \left\langle \Psi \right\rvert \left. \Phi \right\rangle \left\langle \Phi \right\rvert \right)}{\left[ \tr \left( \left\lvert \Psi \right\rangle \left\langle \Psi \right\rvert \right) \tr \left( \left\lvert \Phi \right\rangle \left\langle \Phi \right\rvert \right) \right]^{1/2}} \\
-& = \frac{\left\langle \Psi \right\rvert \left. \Phi \right\rangle \left\langle \Phi \right\rvert \left. \Psi \right\rangle}{\left( \left\langle \Psi \right\rvert \left. \Psi \right\rangle \left\langle \Phi \right\rvert \left. \Phi \right\rangle \right)^{1/2}}
+\pr \left( \left\lvert \Phi \right\rangle \right) & = \frac{\tr \left( \frac{1}{\tr \left( \left\lvert \Psi \right\rangle \left\langle \Psi \right\rvert \right)} \left\lvert \Psi \right\rangle \left\langle \Psi \right\rvert \left. \Phi \right\rangle \left\langle \Phi \right\rvert \right)}{\tr \left( \left\lvert \Phi \right\rangle \left\langle \Phi \right\rvert \right)} \\
+& = \frac{\tr \left( \left\lvert \Psi \right\rangle \left\langle \Psi \right\rvert \left. \Phi \right\rangle \left\langle \Phi \right\rvert \right)}{\tr \left( \left\lvert \Psi \right\rangle \left\langle \Psi \right\rvert \right) \tr \left( \left\lvert \Phi \right\rangle \left\langle \Phi \right\rvert \right)} \\
+& = \frac{\left\langle \Psi \right\rvert \left. \Phi \right\rangle \left\langle \Phi \right\rvert \left. \Psi \right\rangle}{\left\langle \Psi \right\rvert \left. \Psi \right\rangle \left\langle \Phi \right\rvert \left. \Phi \right\rangle}
 \end{align*}
 
-This is a generalized form of the Born rule which does not directly involve measurement. Here, $\displaystyle{\frac{\left\langle \Psi \right\rvert \left. \Phi \right\rangle}{\left( \left\langle \Psi \right\rvert \left. \Psi \right\rangle \left\langle \Phi \right\rvert \left. \Phi \right\rangle \right)^{1/2}}}$ is interpreted as the transition amplitude corresponding to initial and final states $\left\lvert \Psi \right\rangle$ and $\left\lvert \Phi \right\rangle$, respectively.
+This is a generalized form of the Born rule which does not directly involve measurement. Here, $\displaystyle{\frac{\left\langle \Psi \right\rvert \left. \Phi \right\rangle}{\left\langle \Psi \right\rvert \left. \Psi \right\rangle \left\langle \Phi \right\rvert \left. \Phi \right\rangle}}$ is interpreted as the transition amplitude corresponding to initial and final states $\left\lvert \Psi \right\rangle$ and $\left\lvert \Phi \right\rangle$, respectively.
 
 \item We now adopt the following notation for transition from an initial density to a final density (for a pure state at this stage),
 
-\begin{block}{Transition from mixed states to pure states}
-$$\pr \left( \widehat{\rho}; \left\lvert \Phi \right\rangle \left\langle \Phi \right\rvert \right) : = \frac{\tr \left( \widehat{\rho} \left\lvert \Phi \right\rangle \left\langle \Phi \right\rvert \right)}{\left[ \tr \left( \left\lvert \Phi \right\rangle \left\langle \Phi \right\rvert \right) \right]^{1/2}}$$
+\begin{block}{Transition to pure states}
+$$\pr \left( \widehat{\rho}; \left\lvert \Phi \right\rangle \left\langle \Phi \right\rvert \right) : = \frac{\tr \left( \widehat{\rho} \left\lvert \Phi \right\rangle \left\langle \Phi \right\rvert \right)}{\tr \left( \left\lvert \Phi \right\rangle \left\langle \Phi \right\rvert \right)}$$
 \end{block}
 \end{itemize}
 \end{frame}
@@ -636,7 +636,7 @@ $$\pr \left( \widehat{\rho}; \widehat{\rho^\prime} \right) = \tr \left( \widehat
 
 \item An immediate and interesting consequence of the above is symmetry,
 
-\begin{block}{Symmetry of transition between mixed states}
+\begin{block}{Transition symmetry}
 $$\pr \left( \widehat{\rho}; \widehat{\rho^\prime} \right) = \pr \left( \widehat{\rho^\prime}; \widehat{\rho} \right)$$
 \end{block}
 
