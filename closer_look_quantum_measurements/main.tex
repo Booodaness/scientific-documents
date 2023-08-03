@@ -256,7 +256,7 @@ For a pure state $\left\lvert \Psi \right\rangle$, the density operator is simpl
 \end{frame}
 
 \begin{frame}{}
-For impure states,
+For mixed states,
 
 \begin{align*}
 \widehat{\rho}^2 & = \left[ \sum_{\alpha} \pr \left( \left\lvert \Psi_\alpha \right\rangle \right) \left\lvert \Psi_\alpha \right\rangle \left\langle \Psi_\alpha \right\rvert \right] \left[ \sum_{\beta} \pr \left( \left\lvert \Psi_\beta \right\rangle \right) \left\lvert \Psi_\beta \right\rangle \left\langle \Psi_\beta \right\rvert \right] \\
@@ -419,7 +419,7 @@ $$\pr \left( \left\lvert a_k \right\rangle \right) = \tr \left( \widehat{\rho} \
 & = 1
 \end{align*}
 
-\item On the other hand, for impure states, $\widehat{\rho}^2 \neq \widehat{\rho}$, making the above relation inapplicable. We therefore define a quantity which by construction is equal to $1$ iff the concerned quantum state is pure,
+\item On the other hand, for mixed states, $\widehat{\rho}^2 \neq \widehat{\rho}$, making the above relation inapplicable. We therefore define a quantity which by construction is equal to $1$ iff the concerned quantum state is pure,
 
 \begin{block}{Purity of density operators}
 The purity of a density operator $\widehat{\rho}$ is defined as the quantity $\tr \left( \widehat{\rho}^2 \right)$.
@@ -609,8 +609,8 @@ $$\pr \left( \widehat{\rho}; \left\lvert \Phi \right\rangle \left\langle \Phi \r
 \end{itemize}
 \end{frame}
 
-\subsection{Transition Between Impure States}
-\begin{frame}{Transition Between Impure States}
+\subsection{Transition Between Mixed States}
+\begin{frame}{Transition Between Mixed States}
 \begin{itemize}
 \item Once again, we use the linear properties involved in expressions obtained for probability to compute the probability of transition from a mixed state with a density $\widehat{\rho}$ to another mixed state with a density $\displaystyle{\widehat{\rho^\prime} = \sum_\alpha \pr \left( \widehat{\rho^\prime}; \left\lvert \Phi_\alpha \right\rangle \right) \left\lvert \Phi_\alpha \right\rangle \left\langle \Phi_\alpha \right\rvert}$,
 
@@ -787,7 +787,7 @@ Collapse to individual eigenstates still involves non-unital probabilities in th
 
 \item The specific transition amplitude which yielded a probability of unity corresponds to that of a measurement-induced transition from an initial pure state to a final 'mixed' state of the eigenstates, weighed with the probabilities of transitioning to these eigenstates.
 
-\item The above scenario turned out to be deterministic as all eigenstates, with their own non-unital transition probabilities, are accounted for in the final, apparently impure state, which really turns out to be pure.
+\item The above scenario turned out to be deterministic as all eigenstates, with their own non-unital transition probabilities, are accounted for in the final, apparently mixed state, which really turns out to be pure.
 
 \item In fact, this phenomenon is equivalent to unitarity, at least for pure states.
 \end{itemize}
