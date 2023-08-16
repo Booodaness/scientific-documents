@@ -1,0 +1,337 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% writeLaTeX Example: A quick guide to LaTeX
+%
+% Source: Dave Richeson (divisbyzero.com), Dickinson College
+% 
+% A one-size-fits-all LaTeX cheat sheet. Kept to two pages, so it 
+% can be printed (double-sided) on one piece of paper
+% 
+% Feel free to distribute this example, but please keep the referral
+% to divisbyzero.com
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% How to use writeLaTeX: 
+%
+% You edit the source code here on the left, and the preview on the
+% right shows you the result within a few seconds.
+%
+% Bookmark this page and share the URL with your co-authors. They can
+% edit at the same time!
+%
+% You can upload figures, bibliographies, custom classes and
+% styles using the files menu.
+%
+% If you're new to LaTeX, the wikibook is a great place to start:
+% http://en.wikibooks.org/wiki/LaTeX
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper]{article}
+\usepackage{amssymb,amsmath,amsthm,amsfonts}
+\usepackage{multicol,multirow}
+\usepackage{calc}
+\usepackage{ifthen}
+\usepackage[landscape]{geometry}
+\usepackage[colorlinks=true,citecolor=blue,linkcolor=blue]{hyperref}
+
+
+\ifthenelse{\lengthtest { \paperwidth = 11in}}
+    { \geometry{top=.5in,left=.5in,right=.5in,bottom=.5in} }
+	{\ifthenelse{ \lengthtest{ \paperwidth = 297mm}}
+		{\geometry{top=1cm,left=1cm,right=1cm,bottom=1cm} }
+		{\geometry{top=1cm,left=1cm,right=1cm,bottom=1cm} }
+	}
+
+\pagestyle{empty}
+\makeatletter
+\renewcommand{\section}{\@startsection{section}{1}{0mm}%
+                                {-1ex plus -.5ex minus -.2ex}%
+                                {0.5ex plus .2ex}%x
+                                {\normalfont\large\bfseries}}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{0mm}%
+                                {-1explus -.5ex minus -.2ex}%
+                                {0.5ex plus .2ex}%
+                                {\normalfont\normalsize\bfseries}}
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{0mm}%
+                                {-1ex plus -.5ex minus -.2ex}%
+                                {1ex plus .2ex}%
+                                {\normalfont\small\bfseries}}
+\makeatother
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt plus 0.5ex}
+% -----------------------------------------------------------------------
+
+\title{Griffith QM Time Dependent Perturbation Theory CheatSheet}
+
+\begin{document}
+
+\raggedright
+\footnotesize
+
+\begin{center}
+     \Large{\textbf{Griffith QM Time Dependent Perturbation Theory CheatSheet (UCB 137B)}} \\
+\end{center}
+\begin{multicols}{3}
+\setlength{\premulticols}{1pt}
+\setlength{\postmulticols}{1pt}
+\setlength{\multicolsep}{1pt}
+\setlength{\columnsep}{2pt}
+
+\section{TIPT}
+\begin{align*}
+    H = H_0 + H' \\
+    E_n = E_n^0 + E_n^1 \\
+    |\psi_n\rangle = |\psi_n^0\rangle + |\psi_n^1\rangle \\
+    E_n^1 = \langle \psi_n^0 | H' | \psi_n^0 \rangle \\
+    |\psi_n^1\rangle = \sum_{m\neq n} \frac{\langle \psi_m^0 | H' | \psi_n^0 \rangle}{E_n^0-E_m^0} | \psi_m^0\rangle
+\end{align*}
+
+\subsection{Degenerate Case}
+\begin{align*}
+    \text{Degenerate space: } \{|i\rangle\} \to E\\
+    \quad W_{ab} = \langle a | H' | b \rangle \text{ Non-Diagonal} \\
+    \text{Eigenvalue and Eivenvectors} \to E_n^1, |\hat{i}\rangle
+\end{align*}
+
+
+\section{Variational Method}
+\begin{align*}
+    \langle H \rangle(\lambda) &= 
+    \frac{\langle \psi(x,\lambda)|H|\psi(x,\lambda) \rangle}{\langle \psi(x,\lambda)|\psi(x,\lambda) \rangle} \\
+    \langle H \rangle(\lambda) &\geq E_{.g.s} \\
+    \frac{d}{d\lambda} \langle H \rangle(\lambda_0) = 0 &\Rightarrow
+    \langle H \rangle(\lambda_0) \approx E_{.g.s}
+\end{align*}
+
+\section{WKB Method}
+\begin{align*}
+    \frac{d^2 \psi(x)}{dx^2} &= -k^2(x) \psi(x)& \\ k(x)&=\frac1\hbar \sqrt{2m(E-V(x)} \\
+    \phi(x) &= \int^x k(x) dx \\
+    \psi(x) &= \frac1{\sqrt{k(x)}} (C_+ e^{i \phi(x)} + C_- e^{-i \phi(x)})\\ 
+    &= \frac1{\sqrt{k(x)}} (C_1 \sin{\phi(x)} + C_2 \cos{\phi(x)})
+\end{align*}
+
+\subsection{Energy Level}
+\begin{align*}
+    \int_{R_{classical}} k(x) dx = n\pi \\
+    \text{one $\infty$ wall} \quad n \to n-1/4 \\
+    \text{No $\infty$ wall} \quad n \to n-1/2 
+\end{align*}
+
+\subsection{Tunneling}
+\begin{align*}
+    T = e^{-2\gamma} \\
+    \gamma = \int_{R_{forbidden}} k(x) dx
+\end{align*}
+
+\section{TDPT}
+\begin{align*}
+    H = H_0 + V(t) \\
+    \text{Eigenstate of $H_0$: } |n\rangle, E_n\\
+    \text{transition: } |i\rangle \to | f\rangle \\
+    V_{f i}(t) = \langle f | V(t) | i \rangle \\
+    \omega_{f i} = (E_f-E_i)/\hbar \\
+    c_f(T) = \frac{-i}{\hbar} \int_0^T V_{f i}(t) e^{-i \omega_{f i} t} dt 
+\end{align*}
+
+\subsection{Constant Perturbation}
+\begin{align*}
+    V(t) = \begin{cases}
+    V, & 0 \leq t \leq T \\
+    0, & \text{otherwise}
+    \end{cases} \\
+    V_{fi}(t)= constant \\
+    P_{i\to f}(t)= |c_f(t)|^2 = 4 \frac{|V_{fi}|^2}{\hbar^2}  \frac{\sin^2(\omega_{fi})t/2}{\omega_{fi}^2} \\
+    \omega_{fi} \to 0 \quad \text{(degenerate states):} \\
+    |c_f(t)|^2 = \frac{|V_{fi}|^2}{\hbar^2} t^2
+\end{align*}
+
+\subsection{Absorption}
+\begin{align*}
+    V(t) = V \sin(\omega t) \\
+    P_{i\to f}(t) = \frac{|V_{fi}|^2}{\hbar^2}  \frac{\sin^2((\omega_{fi}-\omega)t/2)}{(\omega_{fi}-\omega)^2}
+\end{align*}
+
+\subsection{Simulated Emission}
+\begin{align*}
+    E_i > E_f,\quad \omega_{fi}<0 \\
+    P_{i\to f}(t) = \frac{|V_{fi}|^2}{\hbar^2}  \frac{\sin^2((\omega_{fi}+\omega)t/2)}{(\omega_{fi}+\omega)^2}
+\end{align*}
+
+\subsection{Fermi Golden Rule}
+\begin{align*}
+    E_i \to E_f\text{  (continuous states)} \\
+    P_{i\to f} = 
+\frac{2\pi}{\hbar} |\langle f | V| i\rangle |^2 \rho(E_f) t \\
+\end{align*}
+
+\subsection{Selection Rule}
+For spherical symmetric potential: 
+\begin{align*}
+    \langle n',l',m'| \vec{r} | n,l,m \rangle &\neq 0 \text{  when:} \\
+    \Delta l &= \pm 1 \text{  and:}\\
+    \Delta l &= \pm 1 \text{ or } 0
+\end{align*}
+
+
+\section{Scattering}
+\begin{align*}
+    \psi(r,\theta) &= e^{ikz} + f(\theta) \frac{e^{ikr}}{r}, \text{  for large r} \\
+    k &= \frac{\sqrt{2mE}}\hbar \\
+    \frac{d \sigma}{d \Omega} &= |f(\theta)|^2 \\
+    \sigma &= \int d\omega \frac{d \sigma}{d \Omega}
+\end{align*}
+
+\subsection{Born Approximation}
+\begin{align*}
+    f(\theta) = -\frac{m}{2\pi \hbar^2} \int  V(\vec{r}) e^{i(\vec{k}'-\vec{k})\cdot \vec{r}} d^3\vec{r}
+    \intertext{Low Energy:}
+    f(\theta) = -\frac{m}{2\pi \hbar^2} \int  V(\vec{r}) d^3\vec{r} 
+    \intertext{Spherical symmetric:}
+    f(\theta) = -\frac{2m}{\hbar^2 \kappa} \int_0^\infty r V(r) \sin(\kappa r) dr \\
+    \kappa = 2k\sin(\theta/2)
+\end{align*}
+
+\subsubsection{Yukawa Potential}
+\begin{align*}
+    V(r) = V_0 \frac{e^{-r/R}}{r} \\
+    f(\theta) = -\frac{2mV_0 R^2}{\hbar^2} \frac{1}{1+4k^2R^2\sin^2(\theta/2)} \\
+    \sigma = (\frac{2mV_0R^2}{\hbar^2})^2 \frac{4\pi}{1+4k^2R^2}
+\end{align*}
+
+\subsubsection{Rutherford Scattering}
+Let $V_0 = q_1q_2/4\pi \epsilon_0$, $R=\infty$:
+\begin{align*}
+    f(\theta) = -\frac{2mq_1q_2}{4\pi\epsilon_0\hbar^2\kappa^2}
+\end{align*}
+
+\subsection{Partial Waves}
+\begin{align*}
+    f(\theta) &= \frac1k \sum_{i=0}^\infty (2l+1)e^{i \delta_l} \sin(\delta_l) P_l(\cos(\theta)) \\
+    \sigma &= \frac{4\pi}{k^2}\sum_{l=0}^\infty (2l+1) \sin^2(\delta_l)
+\end{align*}
+
+\subsubsection{Optical Theorem}
+\begin{equation*}
+    Im[f(0)] = \frac{k \sigma}{4\pi}
+\end{equation*}
+
+\subsubsection{Hard Ball}
+\begin{align*}
+    \delta_l = \tan^{-1}(\frac{j_l(ka)}{\eta_l(ka)}) \\
+     ka << 1 \to \sigma = 4\pi a^2
+\end{align*}
+
+\section{Useful Models}
+
+\subsection{Density of States}
+\begin{align*}
+    E &= \hbar^2 k^2 /2m \\
+    dN &= \frac{L^3}{(2\pi)^3} d^3k = \frac{L^3}{(2\pi)^3} d\Omega dk \\
+    dN &= \frac{L^3}{(2\pi)^3} 4\pi \frac{m}{\hbar^2 k} dE \\
+    \rho(E) &= \frac{dN}{dE} = \frac{L^3}{2\pi^2} \frac{mk}{\hbar^2}
+\end{align*}
+
+\subsection{infinite square well}
+\begin{align*}
+    H(x) = \frac{p^2}{2m} + \begin{cases}
+    0, & 0\leq x\leq a \\
+    \infty, & \text{otherwise}
+    \end{cases} \\
+    E_n = \frac1{2m} (\frac{n \pi \hbar}{a})^2 \\
+    \psi_n = \sqrt{\frac{2}{a}} \sin(\frac{n\pi x}{a}) e^{-iE_nt/\hbar}
+\end{align*}
+
+\subsection{Harmonic Oscillator}
+\begin{align*}
+    H(x) &= \frac{p^2}{2m} + \frac12 m\omega^2x^2 \\
+    E_n &= (n+1/2)\hbar \omega \\
+    \psi_n(x) &= \frac1{\sqrt{2^n n!}} (\frac{m\omega}{\pi \hbar})^{1/4} e^{-\zeta^2/2} H_n(\zeta) \\
+    \zeta &= \sqrt{\frac{m\omega}{\hbar}x}
+\end{align*}
+
+\subsection{Virial Theorem}
+\begin{align*}
+    2 \langle T \rangle = \langle \vec{r} \cdot \nabla V \rangle 
+    \quad \text{(3D)}\\
+    2 \langle T \rangle = \langle x  \frac{dV}{dx} \rangle \quad \text{(1D)}\\
+    2 \langle T \rangle = n \langle V \rangle \quad (V\propto r^n) \\
+    \langle T\rangle = -E_n, \quad \langle V \rangle = 2 E_n \quad \text{(hydrogen)}\\
+    \langle T\rangle = \langle V \rangle = E_n/2 \quad \text{(harmonic oscillator)}\\
+\end{align*}
+
+\section{Math}
+
+\subsection{Legendre Polynomials}
+Domain: $(-1,1)$ \\
+Even, Odd, Even, Odd ...
+\begin{align*}
+    P_0(x) &= 1 \\
+    P_1(x) &= x \\
+    P_2(x) &= \frac12 (3x^2-1) \\
+    P_3(x) &= \frac12 (5x^3 - 3x) 
+\end{align*}
+
+\subsection{Hankel Functions}
+Solution to Radial Shrodinger Equation:
+\begin{align*}
+    -\frac{\hbar^2}{2m} \frac{1}{r^2} \frac{\partial}{\partial r} (r^2 R_{El}) + [V(r) + \frac{\hbar^2 l (l+1)}{2m r^2}]R_{El} = E R_{El} \\
+    V = 0 \to R_{El} = j_l(kr) \\
+    V \neq 0 \to R_{El} = j_l(kr+\delta_l) \\
+    r \to \infty \Rightarrow R_{El} = \frac{\sin(kr-l\pi/2+\delta_l(E))}{kr}
+\end{align*}
+When $kr >> 1$ 
+\begin{align*}
+    j_l(kr) &\to \frac{\sin{kr-l\pi/2}}{kr} \\
+    \eta_l(kr) &\to \frac{-\cos{kr-l\pi/2}}{kr} \\
+    h_l(kr) &\to \frac{e^{i(kr-l\pi/2)}}{ikr} \\
+    h_l^*(kr) &\to \frac{e^{-i(kr-l\pi/2)}}{-ikr} \\
+    j_l(kr) &= \frac{1}{2} (h_l(kr)+h^*(kr))
+\end{align*}
+
+\subsection{Hermite  Polynomials}
+Domain: $(-\infty,\infty)$ \\
+Even, Odd, Even, Odd ...
+\begin{align*}
+    H_0(x) &= 1 \\
+    H_1(x) &= 2x \\
+    H_2(x) &= 4x^2-2 \\
+    H_3(x) &= 8x^3-12x 
+\end{align*}
+
+\subsection{Spherical Harmonics}
+\begin{align*}
+    |l,m \rangle &= Y_l^m(\theta, \phi) \\
+    Y_0^0(\theta,\phi) &= \frac12 \frac1{\sqrt{\pi}} \\
+    Y_1^0(\theta,\phi) &= \frac12 \sqrt{\frac3\pi} \cos{\theta} \\
+    Y_1^{-1}(\theta,\phi) &= \frac12 \sqrt{\frac{3}{2\pi}} \sin{\theta} e^{-i \phi} \\
+    Y_1^{-1}(\theta,\phi) &= -\frac12 \sqrt{\frac{3}{2\pi}} \sin{\theta} e^{i \phi} 
+\end{align*}
+
+\subsection{Green's Function}
+For a Linear Operator $\hat{D}_x$
+\begin{align*}
+    \text{Homogeneous solution:  }\hat{D}_x \psi_0(x) = 0 \\
+    \text{Hard Problem:  }\hat{D}_x \psi(x) = f(x) \\
+    \text{Simple Problem:  }\hat{D}_x G(x,x') = \delta(x-x') \\
+    \psi(x) = \psi_0(x) + \int_{\text{f Domain}} G(x,x') f(x') dx'
+\end{align*}
+
+\subsection{Some Integrals}
+\begin{align*}
+    \Gamma(n+1) &=  n! \\
+    \Gamma(z+1) &= z \Gamma(z) \\
+    \int_0^\infty x^n e^{-ax} dx &= \frac{n!}{a^{n+1}} \\
+    \int_0^\infty e^{-ax^b} dx &= a^{-1/b} \Gamma(1/b+1) \\
+    \int_0^\infty e^{-ax} \sin{bx} dx &= \frac{b}{a^2+b^2} \\
+    \int_0^\infty e^{-ax} \cos{bx} dx &= \frac{a}{a^2+b^2} \\
+    \int_{-\infty}^\infty e^{-ax^2+bx} dx &= \sqrt{\frac{\pi}{a}} e^{\frac{b^2}{4a}} \\
+    \int_0^\infty e^{-ax^2}x^n dx &= I_n(a)\\
+    I_0=\frac12 \sqrt{\frac{\pi}{a}}, I_1&=\frac{1}{2a}, I_2=\frac1{4a} \sqrt{\frac{\pi}{a}}, I_3=\frac{1}{2a^2}
+\end{align*}
+
+
+\end{multicols}
+
+\end{document}
