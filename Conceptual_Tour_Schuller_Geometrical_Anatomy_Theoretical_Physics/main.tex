@@ -1,0 +1,231 @@
+\documentclass[12pt]{article}
+\newlength{\tabcont}
+\setlength{\parindent}{0.0in}
+\setlength{\parskip}{0.05in}
+\parindent 0in
+\parskip 12pt
+
+\usepackage{amsmath, amsthm,amsfonts, amssymb, amscd}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{remark}{Remark}[section]
+\newtheorem{example}{Example}[section]
+\usepackage{authblk}
+\usepackage{multirow, booktabs}
+\usepackage{calc}
+\usepackage{cancel}
+\usepackage{empheq}
+\usepackage{enumitem}
+\usepackage{framed}
+\usepackage{fancyhdr}
+\usepackage{fullpage}
+\usepackage[margin=3cm]{geometry}
+\geometry{margin=1in, headsep=0.25in}
+\usepackage{hhline}
+\usepackage{hyperref}
+\hypersetup{
+colorlinks=true,
+linkcolor=blue,     
+urlcolor=blue,
+}
+\usepackage[retainorgcmds]{IEEEtrantools}
+\usepackage[utf8]{inputenc}
+\usepackage{lastpage}
+\usepackage{mathrsfs}
+\usepackage{multicol}
+\usepackage{setspace}
+\usepackage{titlesec}
+\titleclass{\section}{top}
+\newcommand\sectionbreak{\clearpage}
+\usepackage{wrapfig}
+\usepackage[table]{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{venndiagram}
+\usepackage{xcolor}
+\colorlet{shadecolor}{orange!15}
+
+\title{A Conceptual Tour Through Frederic Schuller's \emph{Lectures on the Geometrical Anatomy of Theoretical Physics}}
+
+\author{Siddhartha Bhattacharjee \\
+Website: \href{https://booodaness.github.io/tempus-spatium/}{Tempus Spatium} \\
+Email: \href{javascript:location.href = 'mailto:' + ['sidb','tempus-spatium.8shield.net'].join('@')}{sidb@tempus-spatium.8shield.net}
+}
+\affil{Student, B.Sc. (Hons) Mathematical Physics, University of Waterloo}
+
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+In these notes, I venture through \href{https://people.utwente.nl/f.p.schuller}{Dr. Frederic P. Schuller}'s \emph{Lectures on the Geometrical Anatomy of Theoretical Physics}, found on \href{https://youtube.com/playlist?list=PLPH7f_7ZlzxTi6kS4vCmv4ZKm9u8g5yic}{YouTube}. This venturing entails interpreting his construction of ideas and discussing them both formally and informally. Inspiration for the structure of the notes is drawn from Simon Rhea's \href{https://mathswithphysics.blogspot.com/2016/07/lectures-on-geometric-anatomy-of.html}{notes} on the lectures.
+
+The aim of this project is to capture and add to some of the intuition in the lectures, in the form of proofs, remarks and other ideas. This will be done in a manner which fits pedagogically and chronologically into both Dr. Frederic Schuller's lectures and Simon Rhea's notes.
+
+The manner of writing these notes is fairly personal. That said, its construction will hopefully allow it to be, for some, a useful resource that can be used alongside the original lectures and notes based on them.
+\end{abstract}
+
+\tableofcontents
+
+\section{Logic of propositions and predicates}
+
+\subsection{Propositional logic}
+
+\begin{shaded}
+\begin{definition}
+A \textbf{proposition} $p$ is a formal expression which can take the forms \emph{true} ($T$) and \emph{false} ($F$).
+\end{definition}
+\end{shaded}
+
+Informally\footnote{As we have not yet formally constructed notions such as that of an algebra, any allusion to such structures is only for informal and intuitive purposes.}, propositional logic is the algebra of propositions. By 'algebra', we mean the \emph{compositionality} of objects (here propositions) via operators (here, logical connectives).
+
+\begin{definition}
+A \textbf{tautology} is a proposition that is always $T$. A \textbf{contradiction} is a proposition that is always $F$.
+\end{definition}
+
+It is tempting to think of logical operators/connectives as maps from one or more propositions, to a new proposition. However, as we are yet to construct set theory, such a treatment would be logically circular\footnote{A possible way to get around this is to construct categorical logic. However, category theory may be based on some parts of set theory, depending on whom one asks. In particular, category theory uses the notion of classes, which are set-like objects although they may not obey set-theoretic axiomatic systems such as the ZFC axioms.}. Therefore, the best we can do to define a logical operator is to lay out what it does to every combination of its input propositions. Think of this as 'fleshing out' the rules characterizing the said logical operator. Typically, this 'fleshing out' is done using truth tables.
+
+If a logical operator $\mathcal{L}$ acts on $n$ propositions, there are $2^{\left( 2^n \right)}$ ways of defining it. This corresponds to $2^n$ entries in the truth table for $\mathcal{L}$, each of which corresponds to some unique combination of entries whose output is fixed to have some truth value from the two choices, $T$ and $F$.
+
+Following are truth tables and discussion of some common logical operators.
+
+\clearpage
+
+\subsubsection{Unary operators}
+
+Unary operators are logical connectives which act on one proposition and produce another. Thus, there are $2^{\left( 2^1 \right)} = 4$ possible unary operators, listed below:
+
+\begin{center}
+\begin{tabular}{|c||c|c|c|c|}
+\hline 
+$p$ & $\text{id}_p$ & $\lnot p$ & $\bot p$ & $\top p$ \\
+\hhline{|=||=|=|=|=|}
+$F$ & $F$ & $T$ & $F$ & $T$ \\
+\hline
+$T$ & $T$ & $F$ & $F$ & $T$ \\
+\hline
+\end{tabular}
+\end{center}
+
+where $\text{id}$ is the \emph{identity} operator, $\lnot$ is the \emph{negation} operator, $\bot$ is the \emph{contradiction} operator and $\top$ is the \emph{tautology} operator.
+
+\subsubsection{Binary operators}
+
+There are $2^{\left( 2^2 \right)} = 16$ binary logical connectives. Some particularly important ones are:
+
+\begin{center}
+\begin{tabular}{|c|c||c|c|c|c|c|}
+\hline
+$p$ & $q$ & $p \land q$ & $p \lor q$ & $p \underline{\lor} q$ & $p \implies q$ & $p \Longleftrightarrow q$ \\
+\hhline{|=|=||=|=|=|=|=|}
+$F$ & $F$ & $F$ & $F$ & $F$ & $T$ & $T$ \\
+\hline
+$F$ & $T$ & $F$ & $T$ & $T$ & $T$ & $F$ \\
+\hline
+$T$ & $F$ & $F$ & $T$ & $T$ & $F$ & $F$ \\
+\hline
+$T$ & $T$ & $T$ & $T$ & $F$ & $T$ & $T$ \\
+\hline
+\end{tabular}
+\end{center}
+
+The above binary operators are respectively called the \emph{and}; \emph{or}; \emph{exclusive or}; \emph{implication}; and \emph{equivalence} operators.
+
+\begin{remark}[Binding strength]
+In a given formal expression, the binary logical operator with the highest \emph{binding strength} separates the expression into two smaller expressions (typically on either side of the said binary operator). The expression can thus be converted to an equivalent expression by making the binary operator act on the mentioned expressions. This process can then be repeated for the smaller expressions, provided the binary operators appearing in them, if any, have a lower binding strength than the previous one. This forms a recursive process which is an example of \emph{evaluating} the original formal expression.
+\end{remark}
+
+\begin{shaded}
+\begin{remark}[Principle of explosion]
+The idea that $F \implies T$ is called the \emph{principle of explosion} or \emph{ex falso quodlibet}, i.e. from a false assumption, anything true can follow. The intuition for this principle is that once a contradiction has been established, any proposition, including negations, can be gleaned from the contradiction.
+
+This results in the following important theorem.
+\end{remark}
+
+\begin{theorem}[Contraposition] If $p$ and $q$ are propisitions, then,
+
+$$\left( p \implies q \right) \Longleftrightarrow \left( \lnot q \implies \lnot p \right)$$
+\end{theorem}
+
+\begin{proof}
+We observe the following truth table, which by the definition of the equivalence operator, helps establish the above result:
+
+\begin{center}
+\begin{tabular}{|c|c||c|c||c|}
+\hline
+$p$ & $q$ & $p \implies q$ & $\lnot q \implies \lnot p$ & $\left( p \implies q \right) \Longleftrightarrow \left( \lnot q \implies \lnot p \right)$ \\
+\hhline{|=|=||=|=||=|}
+$F$ & $F$ & $T$ & $T$ & $T$ \\
+\hline
+$F$ & $T$ & $T$ & $T$ & $T$ \\
+\hline
+$T$ & $F$ & $F$ & $F$ & $T$ \\
+\hline
+$T$ & $T$ & $T$ & $T$ & $T$ \\
+\hline
+\end{tabular}
+\end{center}
+\end{proof}
+\end{shaded}
+
+A clue into the truth of the above theorem can be seen in the following Venn diagrams\footnote{At this stage, Venn diagrams are only intuitive tools but yet to be constructed rigorously as we have not yet defined sets, on which these diagrams are essentially based.}.
+
+\begin{venndiagram2sets}
+\fillA \fillB
+\end{venndiagram2sets}
+
+\begin{shaded}
+\begin{theorem}[De Morgan's Laws]
+De Morgan's laws or theorem is a set of the following two rules,
+
+$$\lnot \left( p \land q \right) = \lnot p \lor \lnot q$$
+
+$$\lnot \left( p \lor q \right) = \lnot p \land \lnot q$$
+
+The above statements can be exhaustively shown to be true using truth tables.
+\end{theorem}
+\end{shaded}
+
+\begin{definition}
+The \textbf{nand} operator $\uparrow$ is the binary operator defined by:
+
+\begin{center}
+\begin{tabular}{|c|c||c|}
+\hline
+$p$ & $q$ & $p \uparrow q$ \\
+\hhline{|=|=||=|}
+$F$ & $F$ & $T$ \\
+\hline
+$F$ & $T$ & $T$ \\
+\hline
+$T$ & $F$ & $T$ \\
+\hline
+$T$ & $T$ & $F$ \\
+\hline
+\end{tabular}
+\end{center}
+\end{definition}
+
+We have that $p \uparrow q = \lnot \left( p \land q \right)$. This shows how the \emph{nand} operator internally contains the \emph{not} and \emph{and} operators.
+
+\begin{lemma}[Disjunctive normal form]
+
+\end{lemma}
+\begin{proof}
+
+\end{proof}
+
+\begin{theorem}[Functional completeness]
+Any N-ary logical operator $\heartsuit \left( p_1, \dots, p_N \right)$ can be constructed using the \emph{nand} ($\uparrow$) binary operator.
+\end{theorem}
+\begin{proof}
+
+\end{proof}
+\begin{example}
+
+\end{example}
+
+\end{document}
