@@ -1,0 +1,140 @@
+\documentclass[12pt,twoside]{report}
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{longtable}
+\usepackage{supertabular}
+\usepackage{afterpage}
+
+\usepackage[sort]{natbib}
+\bibliographystyle{sb}
+    \bibpunct[:]{(}{)}{;}{a}{}{,}
+\usepackage[colorlinks=false,hidelinks]{hyperref}  %change to true if you want to see links in color for drafting; hidelinks removes the boxes around links
+
+\usepackage{doi} % turns dois into links
+
+\usepackage{gb4e}\noautomath %% or use expex, as preferred
+
+\input{localpackages.tex}
+
+
+\title{Your Scintillating Title Here}
+\author{You!}
+
+\begin{document}
+\input{titlepage}
+
+\afterpage{\blankpage} %%adds blank page after titlepage to get abstract to print correctly
+
+\chapter*{Abstract}
+\thispagestyle{empty}
+\emph{Here's the place for your abstract}
+  \newpage
+
+    \thispagestyle{empty}
+    { }
+
+\afterpage{\blankpage}
+
+\pagenumbering{roman}
+
+
+
+\addtocontents{toc}{\vspace{0pt}\protect\noindent\parbox[t]{\textwidth}{\normalsize\textcolor{black}{\textbf{Front matter}}}\par}
+
+
+%\clearpage
+%\phantomsection\addcontentsline{toc}{section}{Abstract}
+%\stepcounter{page}
+
+
+\singlespacing
+\setstretch{0.95}
+\tableofcontents
+%\addcontentsline{toc}{section}{Table of contents}
+\setstretch{1}
+
+\listoffigures\addcontentsline{toc}{section}{List of figures}
+
+\clearpage\chapter*{List of abbreviations}\addcontentsline{toc}{section}{List of abbreviations}
+
+\begin{table}[ht]
+\begin{tabular}{l|l}
+1      & first person                    \\
+2      & second person                   \\
+3      & third person                    \\
+sg     & singular                        \\
+dl     & dual                            \\
+pl     & plural                          \\
+%\arrayrulecolor{gray}\hdashline
+\textsc{acc}    & accusative                      \\
+\textsc{aux}    & auxiliary                       \\
+\textsc{vicin}  & vicinity                       
+\end{tabular}
+\end{table}
+
+\clearpage\chapter*{Acknowledgments}\addcontentsline{toc}{section}{Acknowledgements}
+
+
+
+
+\normalsize
+\newpage
+\pagenumbering{arabic}
+\doublespacing
+\setlength{\parindent}{1.5em}
+
+\chapter{Introduction}\label{introduction}
+
+\citet{anderson1985phonology} is a book that should now show up in the references.
+
+\begin{exe} \ex \label{staednacds} \begin{xlist}
+\ex[] {*I don’t [go e\textturnr].}
+\ex[] {I don’t [go ðe\textturnr]. }
+\end{xlist}
+\end{exe}
+
+Here's an unnumbered example.
+
+\begin{exe} 
+\ex[] {Don't [it\textsuperscript{h}:\ae t].}
+\end{exe}
+
+
+
+\section {Discussion}
+
+Here's another example, see \ref{ex:example} for the example.
+
+\begin{exe}
+\ex\label{ex:example} Here's an \textbf{example}.
+\end{exe}
+
+\subsection{A subsection}
+Some text
+
+\begin{figure}[ht] %puts a figure either here or the top of the next page.
+    \centering
+%    \includegraphics[width=0.6\linewidth]{deleter-r-stats.png}
+    \caption{Caption}
+    \label{fig:mylabel}
+\end{figure}
+ 
+
+\subsection{Another subsection}
+
+\section{Conclusion}
+
+
+\appendix
+\chapter{This is an appendix}
+
+\clearpage\singlespacing
+
+
+%\phantomsection
+
+\bibliography{references/Bibliog,references/references}  %Name of your bibliography file, exported from Zotero.
+
+
+\end{document}
+

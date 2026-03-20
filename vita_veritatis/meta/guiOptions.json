@@ -1,0 +1,64 @@
+{
+  "GuiNovelView": {
+    "lastCol": "HIDDEN"
+  },
+  "GuiOutline": {
+    "headerOrder": [
+      "TITLE",
+      "LEVEL",
+      "LABEL",
+      "LINE",
+      "CCOUNT",
+      "WCOUNT",
+      "PCOUNT",
+      "POV",
+      "FOCUS",
+      "CHAR",
+      "PLOT",
+      "TIME",
+      "WORLD",
+      "OBJECT",
+      "ENTITY",
+      "CUSTOM",
+      "SYNOP"
+    ],
+    "columnWidth": {
+      "TITLE": 133,
+      "LEVEL": 26,
+      "LABEL": 100,
+      "LINE": 26,
+      "CCOUNT": 33,
+      "WCOUNT": 37,
+      "PCOUNT": 37,
+      "POV": 66,
+      "FOCUS": 66,
+      "CHAR": 66,
+      "PLOT": 66,
+      "TIME": 66,
+      "WORLD": 66,
+      "OBJECT": 66,
+      "ENTITY": 66,
+      "CUSTOM": 66,
+      "SYNOP": 645
+    },
+    "columnHidden": {
+      "TITLE": false,
+      "LEVEL": true,
+      "LABEL": false,
+      "LINE": true,
+      "CCOUNT": true,
+      "WCOUNT": false,
+      "PCOUNT": false,
+      "POV": false,
+      "FOCUS": true,
+      "CHAR": false,
+      "PLOT": false,
+      "TIME": true,
+      "WORLD": false,
+      "OBJECT": true,
+      "ENTITY": true,
+      "CUSTOM": true,
+      "SYNOP": false
+    }
+  }
+}

@@ -1,0 +1,301 @@
+<?xml version='1.0' encoding='utf-8'?>
+<novelWriterXML appVersion="2.0.2" hexVersion="0x020002f0" fileVersion="1.5" timeStamp="2025-10-23 18:36:22">
+  <project id="4f7b366c-f9d6-4ebf-83c7-f23cbe0743ca" saveCount="3" autoCount="52" editTime="3369">
+    <name>Vita Veritatis</name>
+    <title>Vita Veritatis</title>
+    <author>Siddhartha Bhattacharjee</author>
+  </project>
+  <settings>
+    <doBackup>yes</doBackup>
+    <language>None</language>
+    <spellChecking auto="no">None</spellChecking>
+    <lastHandle>
+      <entry key="editor">7f4a5eb8697a5</entry>
+      <entry key="viewer">None</entry>
+      <entry key="novelTree">aec67962c24b6</entry>
+      <entry key="outline">None</entry>
+    </lastHandle>
+    <autoReplace/>
+    <titleFormat>
+      <entry key="title">%title%</entry>
+      <entry key="chapter">%title%</entry>
+      <entry key="unnumbered">%title%</entry>
+      <entry key="scene">* * *</entry>
+      <entry key="section"></entry>
+    </titleFormat>
+    <status>
+      <entry key="sc586fc" count="21" red="100" green="100" blue="100">New</entry>
+      <entry key="se13e88" count="0" red="200" green="50" blue="0">Note</entry>
+      <entry key="sa05700" count="0" red="200" green="150" blue="0">Draft</entry>
+      <entry key="s58b87d" count="0" red="50" green="200" blue="0">Finished</entry>
+    </status>
+    <importance>
+      <entry key="id07145" count="44" red="100" green="100" blue="100">New</entry>
+      <entry key="ib9bbc4" count="0" red="200" green="50" blue="0">Minor</entry>
+      <entry key="i4be158" count="0" red="200" green="150" blue="0">Major</entry>
+      <entry key="i8439c0" count="0" red="50" green="200" blue="0">Main</entry>
+    </importance>
+  </settings>
+  <content items="65" novelWords="35" notesWords="78">
+    <item handle="aec67962c24b6" parent="None" root="aec67962c24b6" order="0" type="ROOT" class="NOVEL">
+      <meta expanded="yes"/>
+      <name status="sc586fc" import="id07145">Novel</name>
+    </item>
+    <item handle="6e7f1226bf31f" parent="aec67962c24b6" root="aec67962c24b6" order="0" type="FILE" class="NOVEL" layout="DOCUMENT">
+      <meta expanded="no" heading="H1" charCount="41" wordCount="5" paraCount="1" cursorPos="54"/>
+      <name status="sc586fc" import="id07145" active="yes">Title Page</name>
+    </item>
+    <item handle="9be2a96190ee1" parent="aec67962c24b6" root="aec67962c24b6" order="1" type="FILE" class="NOVEL" layout="DOCUMENT">
+      <meta expanded="no" heading="H2" charCount="21" wordCount="3" paraCount="0" cursorPos="26"/>
+      <name status="sc586fc" import="id07145" active="yes">Prelude: Plato's Rave</name>
+    </item>
+    <item handle="ec84df926f358" parent="aec67962c24b6" root="aec67962c24b6" order="2" type="FILE" class="NOVEL" layout="DOCUMENT">
+      <meta expanded="yes" heading="H2" charCount="12" wordCount="1" paraCount="0" cursorPos="17"/>
+      <name status="sc586fc" import="id07145" active="yes">Introduction</name>
+    </item>
+    <item handle="c9b9c70b23c73" parent="ec84df926f358" root="aec67962c24b6" order="0" type="FILE" class="NOVEL" layout="DOCUMENT">
+      <meta expanded="no" heading="H3" charCount="14" wordCount="1" paraCount="0" cursorPos="18"/>
+      <name status="sc586fc" import="id07145" active="yes">Metaphilosophy</name>
+    </item>
+    <item handle="e8fc9f2f6e400" parent="ec84df926f358" root="aec67962c24b6" order="1" type="FILE" class="NOVEL" layout="DOCUMENT">
+      <meta expanded="no" heading="H3" charCount="22" wordCount="4" paraCount="0" cursorPos="28"/>
+      <name status="sc586fc" import="id07145" active="yes">Life, art and language</name>
+    </item>
+    <item handle="5967f4bbcb300" parent="ec84df926f358" root="aec67962c24b6" order="2" type="FILE" class="NOVEL" layout="DOCUMENT">
+      <meta expanded="no" heading="H3" charCount="17" wordCount="3" paraCount="0" cursorPos="21"/>
+      <name status="sc586fc" import="id07145" active="yes">Truth and reality</name>
+    </item>
+    <item handle="36e3c506b0cf7" parent="ec84df926f358" root="aec67962c24b6" order="3" type="FILE" class="NOVEL" layout="DOCUMENT">
+      <meta expanded="no" heading="H3" charCount="23" wordCount="3" paraCount="0" cursorPos="0"/>
+      <name status="sc586fc" import="id07145" active="yes">Mathematics and science</name>
+    </item>
+    <item handle="970d41f40c104" parent="ec84df926f358" root="aec67962c24b6" order="4" type="FILE" class="NOVEL" layout="DOCUMENT">
+      <meta expanded="no" heading="H3" charCount="11" wordCount="1" paraCount="0" cursorPos="17"/>
+      <name status="sc586fc" import="id07145" active="yes">Metaphysics</name>
+    </item>
+    <item handle="490d4a17fc405" parent="ec84df926f358" root="aec67962c24b6" order="5" type="FILE" class="NOVEL" layout="DOCUMENT">
+      <meta expanded="no" heading="H3" charCount="12" wordCount="1" paraCount="0" cursorPos="16"/>
+      <name status="sc586fc" import="id07145" active="yes">Anthropology</name>
+    </item>
+    <item handle="340951aeb8096" parent="ec84df926f358" root="aec67962c24b6" order="6" type="FILE" class="NOVEL" layout="DOCUMENT">
+      <meta expanded="no" heading="H3" charCount="6" wordCount="1" paraCount="0" cursorPos="10"/>
+      <name status="sc586fc" import="id07145" active="yes">Holism</name>
+    </item>
+    <item handle="4f8310a6af442" parent="aec67962c24b6" root="aec67962c24b6" order="3" type="FILE" class="NOVEL" layout="DOCUMENT">
+      <meta expanded="yes" heading="H2" charCount="11" wordCount="1" paraCount="0" cursorPos="0"/>
+      <name status="sc586fc" import="id07145" active="yes">Logic</name>
+    </item>
+    <item handle="a39f608538bce" parent="4f8310a6af442" root="aec67962c24b6" order="0" type="FILE" class="NOVEL" layout="DOCUMENT">
+      <meta expanded="no" heading="H3" charCount="18" wordCount="4" paraCount="0" cursorPos="0"/>
+      <name status="sc586fc" import="id07145" active="yes">The senses of 'is'</name>
+    </item>
+    <item handle="b605f475f969f" parent="4f8310a6af442" root="aec67962c24b6" order="1" type="FILE" class="NOVEL" layout="DOCUMENT">
+      <meta expanded="no" heading="H3" charCount="9" wordCount="1" paraCount="0" cursorPos="15"/>
+      <name status="sc586fc" import="id07145" active="yes">Teleology</name>
+    </item>
+    <item handle="794ea94d90b4f" parent="4f8310a6af442" root="aec67962c24b6" order="2" type="FILE" class="NOVEL" layout="DOCUMENT">
+      <meta expanded="no" heading="H3" charCount="13" wordCount="1" paraCount="0" cursorPos="19"/>
+      <name status="sc586fc" import="id07145" active="yes">Contextualism</name>
+    </item>
+    <item handle="5d5a2386f7a22" parent="4f8310a6af442" root="aec67962c24b6" order="3" type="FILE" class="NOVEL" layout="DOCUMENT">
+      <meta expanded="no" heading="H3" charCount="13" wordCount="1" paraCount="0" cursorPos="0"/>
+      <name status="sc586fc" import="id07145" active="yes">Transcendence</name>
+    </item>
+    <item handle="3c66b5c15f7bb" parent="4f8310a6af442" root="aec67962c24b6" order="4" type="FILE" class="NOVEL" layout="DOCUMENT">
+      <meta expanded="no" heading="H3" charCount="12" wordCount="1" paraCount="0" cursorPos="18"/>
+      <name status="sc586fc" import="id07145" active="yes">Psychologism</name>
+    </item>
+    <item handle="c2b4cbc71c918" parent="4f8310a6af442" root="aec67962c24b6" order="5" type="FILE" class="NOVEL" layout="DOCUMENT">
+      <meta expanded="no" heading="H3" charCount="12" wordCount="1" paraCount="0" cursorPos="0"/>
+      <name status="sc586fc" import="id07145" active="yes">Non-logicism</name>
+    </item>
+    <item handle="0caea6be6d071" parent="4f8310a6af442" root="aec67962c24b6" order="6" type="FILE" class="NOVEL" layout="DOCUMENT">
+      <meta expanded="no" heading="H3" charCount="13" wordCount="1" paraCount="0" cursorPos="19"/>
+      <name status="sc586fc" import="id07145" active="yes">Functionalism</name>
+    </item>
+    <item handle="b46dfa6e5cbbb" parent="4f8310a6af442" root="aec67962c24b6" order="7" type="FILE" class="NOVEL" layout="DOCUMENT">
+      <meta expanded="no" heading="H3" charCount="10" wordCount="1" paraCount="0" cursorPos="16"/>
+      <name status="sc586fc" import="id07145" active="yes">Absolutism</name>
+    </item>
+    <item handle="17c2a3325d9e9" parent="None" root="17c2a3325d9e9" order="1" type="ROOT" class="PLOT">
+      <meta expanded="no"/>
+      <name status="sc586fc" import="id07145">Attitudes and theses</name>
+    </item>
+    <item handle="3363947718414" parent="None" root="3363947718414" order="2" type="ROOT" class="CHARACTER">
+      <meta expanded="yes"/>
+      <name status="sc586fc" import="id07145">Characters</name>
+    </item>
+    <item handle="de039f2eaafd0" parent="3363947718414" root="3363947718414" order="0" type="FILE" class="CHARACTER" layout="NOTE">
+      <meta expanded="no" heading="H2" charCount="10" wordCount="1" paraCount="0" cursorPos="0"/>
+      <name status="sc586fc" import="id07145" active="yes">Pythagoras</name>
+    </item>
+    <item handle="27723fe23528f" parent="3363947718414" root="3363947718414" order="1" type="FILE" class="CHARACTER" layout="NOTE">
+      <meta expanded="no" heading="H2" charCount="8" wordCount="1" paraCount="0" cursorPos="0"/>
+      <name status="sc586fc" import="id07145" active="yes">Socrates</name>
+    </item>
+    <item handle="47cd035e3459c" parent="3363947718414" root="3363947718414" order="2" type="FILE" class="CHARACTER" layout="NOTE">
+      <meta expanded="no" heading="H2" charCount="5" wordCount="1" paraCount="0" cursorPos="8"/>
+      <name status="sc586fc" import="id07145" active="yes">Plato</name>
+    </item>
+    <item handle="94156768d7419" parent="3363947718414" root="3363947718414" order="3" type="FILE" class="CHARACTER" layout="NOTE">
+      <meta expanded="no" heading="H2" charCount="9" wordCount="1" paraCount="0" cursorPos="0"/>
+      <name status="sc586fc" import="id07145" active="yes">Aristotle</name>
+    </item>
+    <item handle="a47f1bd0fdf09" parent="3363947718414" root="3363947718414" order="4" type="FILE" class="CHARACTER" layout="NOTE">
+      <meta expanded="no" heading="H3" charCount="7" wordCount="1" paraCount="0" cursorPos="0"/>
+      <name status="sc586fc" import="id07145" active="yes">Ptolemy</name>
+    </item>
+    <item handle="7f4a5eb8697a5" parent="3363947718414" root="3363947718414" order="5" type="FILE" class="CHARACTER" layout="NOTE">
+      <meta expanded="no" heading="H2" charCount="8" wordCount="1" paraCount="0" cursorPos="13"/>
+      <name status="sc586fc" import="id07145" active="yes">Plotinus</name>
+    </item>
+    <item handle="bf55e3a6eb36d" parent="3363947718414" root="3363947718414" order="6" type="FILE" class="CHARACTER" layout="NOTE">
+      <meta expanded="no" heading="H2" charCount="14" wordCount="2" paraCount="0" cursorPos="0"/>
+      <name status="sc586fc" import="id07145" active="yes">Giordano Bruno</name>
+    </item>
+    <item handle="4bc744b2f8347" parent="3363947718414" root="3363947718414" order="7" type="FILE" class="CHARACTER" layout="NOTE">
+      <meta expanded="no" heading="H2" charCount="15" wordCount="2" paraCount="0" cursorPos="0"/>
+      <name status="sc586fc" import="id07145" active="yes">Galileo Galilei</name>
+    </item>
+    <item handle="4b81ffcac3067" parent="3363947718414" root="3363947718414" order="8" type="FILE" class="CHARACTER" layout="NOTE">
+      <meta expanded="no" heading="H2" charCount="25" wordCount="3" paraCount="0" cursorPos="0"/>
+      <name status="sc586fc" import="id07145" active="yes">Gottfried Wilhelm Leibniz</name>
+    </item>
+    <item handle="3822902ec9d6e" parent="3363947718414" root="3363947718414" order="9" type="FILE" class="CHARACTER" layout="NOTE">
+      <meta expanded="no" heading="H2" charCount="12" wordCount="2" paraCount="0" cursorPos="0"/>
+      <name status="sc586fc" import="id07145" active="yes">Isaac Newton</name>
+    </item>
+    <item handle="af6323fa3659b" parent="3363947718414" root="3363947718414" order="10" type="FILE" class="CHARACTER" layout="NOTE">
+      <meta expanded="no" heading="H2" charCount="22" wordCount="3" paraCount="0" cursorPos="0"/>
+      <name status="sc586fc" import="id07145" active="yes">William Rowan Hamilton</name>
+    </item>
+    <item handle="21f63162f0313" parent="3363947718414" root="3363947718414" order="11" type="FILE" class="CHARACTER" layout="NOTE">
+      <meta expanded="no" heading="H2" charCount="15" wordCount="2" paraCount="0" cursorPos="0"/>
+      <name status="sc586fc" import="id07145" active="yes">Bernard Riemann</name>
+    </item>
+    <item handle="f5911d04dfb5e" parent="3363947718414" root="3363947718414" order="12" type="FILE" class="CHARACTER" layout="NOTE">
+      <meta expanded="no" heading="H2" charCount="10" wordCount="2" paraCount="0" cursorPos="0"/>
+      <name status="sc586fc" import="id07145" active="yes">David Hume</name>
+    </item>
+    <item handle="43186fea68011" parent="3363947718414" root="3363947718414" order="13" type="FILE" class="CHARACTER" layout="NOTE">
+      <meta expanded="no" heading="H2" charCount="10" wordCount="2" paraCount="0" cursorPos="0"/>
+      <name status="sc586fc" import="id07145" active="yes">John Locke</name>
+    </item>
+    <item handle="067d7e1ac348d" parent="3363947718414" root="3363947718414" order="14" type="FILE" class="CHARACTER" layout="NOTE">
+      <meta expanded="no" heading="H2" charCount="15" wordCount="2" paraCount="0" cursorPos="0"/>
+      <name status="sc586fc" import="id07145" active="yes">George Berkeley</name>
+    </item>
+    <item handle="b5b68c8b15e95" parent="3363947718414" root="3363947718414" order="15" type="FILE" class="CHARACTER" layout="NOTE">
+      <meta expanded="no" heading="H2" charCount="13" wordCount="2" paraCount="0" cursorPos="18"/>
+      <name status="sc586fc" import="id07145" active="yes">Immanuel Kant</name>
+    </item>
+    <item handle="63f179109a5b9" parent="3363947718414" root="3363947718414" order="16" type="FILE" class="CHARACTER" layout="NOTE">
+      <meta expanded="no" heading="H2" charCount="13" wordCount="2" paraCount="0" cursorPos="0"/>
+      <name status="sc586fc" import="id07145" active="yes">Gottlob Frege</name>
+    </item>
+    <item handle="66dc79c271b5a" parent="3363947718414" root="3363947718414" order="17" type="FILE" class="CHARACTER" layout="NOTE">
+      <meta expanded="no" heading="H2" charCount="11" wordCount="2" paraCount="0" cursorPos="0"/>
+      <name status="sc586fc" import="id07145" active="yes">Thomas Reid</name>
+    </item>
+    <item handle="18a59790bfa6b" parent="3363947718414" root="3363947718414" order="18" type="FILE" class="CHARACTER" layout="NOTE">
+      <meta expanded="no" heading="H0" charCount="0" wordCount="0" paraCount="0" cursorPos="0"/>
+      <name status="sc586fc" import="id07145" active="yes">Gilbert Ryle</name>
+    </item>
+    <item handle="46678aaae5014" parent="3363947718414" root="3363947718414" order="19" type="FILE" class="CHARACTER" layout="NOTE">
+      <meta expanded="no" heading="H2" charCount="14" wordCount="2" paraCount="0" cursorPos="0"/>
+      <name status="sc586fc" import="id07145" active="yes">Henri Poincaré</name>
+    </item>
+    <item handle="60ab9b1647600" parent="3363947718414" root="3363947718414" order="20" type="FILE" class="CHARACTER" layout="NOTE">
+      <meta expanded="no" heading="H2" charCount="15" wordCount="2" paraCount="0" cursorPos="0"/>
+      <name status="sc586fc" import="id07145" active="yes">Albert Einstein</name>
+    </item>
+    <item handle="4d4f3ca1f0388" parent="3363947718414" root="3363947718414" order="21" type="FILE" class="CHARACTER" layout="NOTE">
+      <meta expanded="no" heading="H2" charCount="22" wordCount="3" paraCount="0" cursorPos="0"/>
+      <name status="sc586fc" import="id07145" active="yes">Alfred North Whitehead</name>
+    </item>
+    <item handle="f3f3db7f7ed06" parent="3363947718414" root="3363947718414" order="22" type="FILE" class="CHARACTER" layout="NOTE">
+      <meta expanded="no" heading="H2" charCount="16" wordCount="2" paraCount="0" cursorPos="0"/>
+      <name status="sc586fc" import="id07145" active="yes">Bertrand Russell</name>
+    </item>
+    <item handle="b11b5e37db691" parent="3363947718414" root="3363947718414" order="23" type="FILE" class="CHARACTER" layout="NOTE">
+      <meta expanded="no" heading="H2" charCount="11" wordCount="2" paraCount="0" cursorPos="0"/>
+      <name status="sc586fc" import="id07145" active="yes">Alan Turing</name>
+    </item>
+    <item handle="01365461ea2b0" parent="3363947718414" root="3363947718414" order="24" type="FILE" class="CHARACTER" layout="NOTE">
+      <meta expanded="no" heading="H2" charCount="13" wordCount="2" paraCount="0" cursorPos="0"/>
+      <name status="sc586fc" import="id07145" active="yes">Alonzo Church</name>
+    </item>
+    <item handle="6d4420dcb84e3" parent="3363947718414" root="3363947718414" order="25" type="FILE" class="CHARACTER" layout="NOTE">
+      <meta expanded="no" heading="H2" charCount="19" wordCount="2" paraCount="0" cursorPos="0"/>
+      <name status="sc586fc" import="id07145" active="yes">Ludwig Wittgenstein</name>
+    </item>
+    <item handle="422174ead745a" parent="3363947718414" root="3363947718414" order="26" type="FILE" class="CHARACTER" layout="NOTE">
+      <meta expanded="no" heading="H2" charCount="18" wordCount="2" paraCount="0" cursorPos="0"/>
+      <name status="sc586fc" import="id07145" active="yes">Elizabeth Anscombe</name>
+    </item>
+    <item handle="9d30e8f7afd75" parent="3363947718414" root="3363947718414" order="27" type="FILE" class="CHARACTER" layout="NOTE">
+      <meta expanded="no" heading="H2" charCount="10" wordCount="3" paraCount="0" cursorPos="0"/>
+      <name status="sc586fc" import="id07145" active="yes">A. J. Ayer</name>
+    </item>
+    <item handle="1e7ab3b93cd01" parent="3363947718414" root="3363947718414" order="28" type="FILE" class="CHARACTER" layout="NOTE">
+      <meta expanded="no" heading="H2" charCount="14" wordCount="4" paraCount="0" cursorPos="0"/>
+      <name status="sc586fc" import="id07145" active="yes">W. V. O. Quine</name>
+    </item>
+    <item handle="47e67007819aa" parent="3363947718414" root="3363947718414" order="29" type="FILE" class="CHARACTER" layout="NOTE">
+      <meta expanded="no" heading="H2" charCount="14" wordCount="2" paraCount="0" cursorPos="0"/>
+      <name status="sc586fc" import="id07145" active="yes">Daniel Dennett</name>
+    </item>
+    <item handle="54a37fb01f1da" parent="3363947718414" root="3363947718414" order="30" type="FILE" class="CHARACTER" layout="NOTE">
+      <meta expanded="no" heading="H2" charCount="10" wordCount="2" paraCount="0" cursorPos="0"/>
+      <name status="sc586fc" import="id07145" active="yes">Kurt Gödel</name>
+    </item>
+    <item handle="33bc6b9df4c2a" parent="3363947718414" root="3363947718414" order="31" type="FILE" class="CHARACTER" layout="NOTE">
+      <meta expanded="no" heading="H2" charCount="10" wordCount="2" paraCount="0" cursorPos="0"/>
+      <name status="sc586fc" import="id07145" active="yes">Niels Bohr</name>
+    </item>
+    <item handle="825ac339fa0fc" parent="3363947718414" root="3363947718414" order="32" type="FILE" class="CHARACTER" layout="NOTE">
+      <meta expanded="no" heading="H2" charCount="13" wordCount="2" paraCount="0" cursorPos="0"/>
+      <name status="sc586fc" import="id07145" active="yes">Rudolf Carnap</name>
+    </item>
+    <item handle="7e5a82d9d1238" parent="3363947718414" root="3363947718414" order="33" type="FILE" class="CHARACTER" layout="NOTE">
+      <meta expanded="no" heading="H2" charCount="15" wordCount="2" paraCount="0" cursorPos="0"/>
+      <name status="sc586fc" import="id07145" active="yes">Donald Davidson</name>
+    </item>
+    <item handle="26a390b175149" parent="None" root="26a390b175149" order="3" type="ROOT" class="ARCHIVE">
+      <meta expanded="no"/>
+      <name status="sc586fc" import="id07145">Archive</name>
+    </item>
+    <item handle="da9a9031b7aad" parent="None" root="da9a9031b7aad" order="4" type="ROOT" class="TRASH">
+      <meta expanded="yes"/>
+      <name status="sc586fc" import="id07145">Trash</name>
+    </item>
+    <item handle="d0246b718b18e" parent="da9a9031b7aad" root="da9a9031b7aad" order="0" type="FILE" class="TRASH" layout="NOTE">
+      <meta expanded="no" heading="H0" charCount="0" wordCount="0" paraCount="0" cursorPos="0"/>
+      <name status="sc586fc" import="id07145" active="yes">Anaximander</name>
+    </item>
+    <item handle="8fff95647c4f6" parent="da9a9031b7aad" root="da9a9031b7aad" order="1" type="FILE" class="TRASH" layout="NOTE">
+      <meta expanded="no" heading="H2" charCount="10" wordCount="1" paraCount="0" cursorPos="0"/>
+      <name status="sc586fc" import="id07145" active="yes">Anaxagoras</name>
+    </item>
+    <item handle="570fb5c5bfef0" parent="da9a9031b7aad" root="da9a9031b7aad" order="2" type="FILE" class="TRASH" layout="NOTE">
+      <meta expanded="no" heading="H2" charCount="7" wordCount="1" paraCount="0" cursorPos="0"/>
+      <name status="sc586fc" import="id07145" active="yes">Eudoxus</name>
+    </item>
+    <item handle="45809b29c23fe" parent="da9a9031b7aad" root="da9a9031b7aad" order="3" type="FILE" class="TRASH" layout="NOTE">
+      <meta expanded="no" heading="H2" charCount="14" wordCount="2" paraCount="0" cursorPos="0"/>
+      <name status="sc586fc" import="id07145" active="yes">Leonhard Euler</name>
+    </item>
+    <item handle="5df9cded74549" parent="da9a9031b7aad" root="da9a9031b7aad" order="4" type="FILE" class="TRASH" layout="NOTE">
+      <meta expanded="no" heading="H2" charCount="21" wordCount="2" paraCount="0" cursorPos="10"/>
+      <name status="sc586fc" import="id07145" active="yes">Joseph-Louis Lagrange</name>
+    </item>
+    <item handle="4894d00dffea1" parent="da9a9031b7aad" root="da9a9031b7aad" order="5" type="FILE" class="TRASH" layout="NOTE">
+      <meta expanded="no" heading="H2" charCount="24" wordCount="4" paraCount="0" cursorPos="0"/>
+      <name status="sc586fc" import="id07145" active="yes">Carl Gustav Jacob Jacobi</name>
+    </item>
+    <item handle="5096f7b37ec8c" parent="da9a9031b7aad" root="da9a9031b7aad" order="6" type="FILE" class="TRASH" layout="NOTE">
+      <meta expanded="no" heading="H2" charCount="14" wordCount="2" paraCount="0" cursorPos="0"/>
+      <name status="sc586fc" import="id07145" active="yes">The Bernoullis</name>
+    </item>
+  </content>
+</novelWriterXML>

@@ -1,0 +1,64 @@
+
+Table of Contents
+=================
+
+File Name                  Class      Layout    Document Label
+-------------------------------------------------------------------------
+content\6e7f1226bf31f.nwd  NOVEL      DOCUMENT  Title Page
+content\9be2a96190ee1.nwd  NOVEL      DOCUMENT  Prelude: Plato's Rave
+content\ec84df926f358.nwd  NOVEL      DOCUMENT  Introduction
+content\c9b9c70b23c73.nwd  NOVEL      DOCUMENT  Metaphilosophy
+content\e8fc9f2f6e400.nwd  NOVEL      DOCUMENT  Life, art and language
+content\5967f4bbcb300.nwd  NOVEL      DOCUMENT  Truth and reality
+content\36e3c506b0cf7.nwd  NOVEL      DOCUMENT  Mathematics and science
+content\970d41f40c104.nwd  NOVEL      DOCUMENT  Metaphysics
+content\490d4a17fc405.nwd  NOVEL      DOCUMENT  Anthropology
+content\340951aeb8096.nwd  NOVEL      DOCUMENT  Holism
+content\4f8310a6af442.nwd  NOVEL      DOCUMENT  Logic
+content\a39f608538bce.nwd  NOVEL      DOCUMENT  The senses of 'is'
+content\b605f475f969f.nwd  NOVEL      DOCUMENT  Teleology
+content\794ea94d90b4f.nwd  NOVEL      DOCUMENT  Contextualism
+content\5d5a2386f7a22.nwd  NOVEL      DOCUMENT  Transcendence
+content\3c66b5c15f7bb.nwd  NOVEL      DOCUMENT  Psychologism
+content\c2b4cbc71c918.nwd  NOVEL      DOCUMENT  Non-logicism
+content\0caea6be6d071.nwd  NOVEL      DOCUMENT  Functionalism
+content\b46dfa6e5cbbb.nwd  NOVEL      DOCUMENT  Absolutism
+content\de039f2eaafd0.nwd  CHARACTER  NOTE      Pythagoras
+content\27723fe23528f.nwd  CHARACTER  NOTE      Socrates
+content\47cd035e3459c.nwd  CHARACTER  NOTE      Plato
+content\94156768d7419.nwd  CHARACTER  NOTE      Aristotle
+content\a47f1bd0fdf09.nwd  CHARACTER  NOTE      Ptolemy
+content\7f4a5eb8697a5.nwd  CHARACTER  NOTE      Plotinus
+content\bf55e3a6eb36d.nwd  CHARACTER  NOTE      Giordano Bruno
+content\4bc744b2f8347.nwd  CHARACTER  NOTE      Galileo Galilei
+content\4b81ffcac3067.nwd  CHARACTER  NOTE      Gottfried Wilhelm Leibniz
+content\3822902ec9d6e.nwd  CHARACTER  NOTE      Isaac Newton
+content\af6323fa3659b.nwd  CHARACTER  NOTE      William Rowan Hamilton
+content\21f63162f0313.nwd  CHARACTER  NOTE      Bernard Riemann
+content\f5911d04dfb5e.nwd  CHARACTER  NOTE      David Hume
+content\43186fea68011.nwd  CHARACTER  NOTE      John Locke
+content\067d7e1ac348d.nwd  CHARACTER  NOTE      George Berkeley
+content\b5b68c8b15e95.nwd  CHARACTER  NOTE      Immanuel Kant
+content\63f179109a5b9.nwd  CHARACTER  NOTE      Gottlob Frege
+content\66dc79c271b5a.nwd  CHARACTER  NOTE      Thomas Reid
+content\46678aaae5014.nwd  CHARACTER  NOTE      Henri Poincaré
+content\60ab9b1647600.nwd  CHARACTER  NOTE      Albert Einstein
+content\4d4f3ca1f0388.nwd  CHARACTER  NOTE      Alfred North Whitehead
+content\f3f3db7f7ed06.nwd  CHARACTER  NOTE      Bertrand Russell
+content\b11b5e37db691.nwd  CHARACTER  NOTE      Alan Turing
+content\01365461ea2b0.nwd  CHARACTER  NOTE      Alonzo Church
+content\6d4420dcb84e3.nwd  CHARACTER  NOTE      Ludwig Wittgenstein
+content\422174ead745a.nwd  CHARACTER  NOTE      Elizabeth Anscombe
+content\9d30e8f7afd75.nwd  CHARACTER  NOTE      A. J. Ayer
+content\1e7ab3b93cd01.nwd  CHARACTER  NOTE      W. V. O. Quine
+content\47e67007819aa.nwd  CHARACTER  NOTE      Daniel Dennett
+content\54a37fb01f1da.nwd  CHARACTER  NOTE      Kurt Gödel
+content\33bc6b9df4c2a.nwd  CHARACTER  NOTE      Niels Bohr
+content\825ac339fa0fc.nwd  CHARACTER  NOTE      Rudolf Carnap
+content\7e5a82d9d1238.nwd  CHARACTER  NOTE      Donald Davidson
+content\8fff95647c4f6.nwd  TRASH      NOTE      Anaxagoras
+content\570fb5c5bfef0.nwd  TRASH      NOTE      Eudoxus
+content\45809b29c23fe.nwd  TRASH      NOTE      Leonhard Euler
+content\5df9cded74549.nwd  TRASH      NOTE      Joseph-Louis Lagrange
+content\4894d00dffea1.nwd  TRASH      NOTE      Carl Gustav Jacob Jacobi
+content\5096f7b37ec8c.nwd  TRASH      NOTE      The Bernoullis
